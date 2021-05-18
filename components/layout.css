@@ -1,0 +1,53 @@
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(../src/fonts/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: Amaranth-Bold;
+  src: url(../src/fonts/Amaranth-Bold.ttf);
+}
+
+@font-face {
+  font-family: Lato-Regular;
+  src: url(../src/fonts/Lato-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  padding: 0 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image {
+  height: 40px;
+  display: flex;
+  align-self: flex-end;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  display: inline;
+  color: #205cf5;
+  padding-right: 40px;
+  font-family: Roboto-Medium;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+nav ul li:last-child {
+  padding-right: 0px;
+}

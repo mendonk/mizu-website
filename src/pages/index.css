@@ -1,0 +1,73 @@
+.mainWrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-image: url("../images/bkg.jpg");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Amaranth-Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3.2rem;
+  line-height: 97px;
+  color: #0c0b1a;
+  width: 30%;
+}
+
+.infoWrapper p {
+  margin: 10px 0;
+  font-family: Lato-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.3rem;
+  line-height: 30px;
+  color: #494677;
+}
+
+.btnHome {
+  width: 45%;
+  background: #205cf5;
+  padding: 10px 30px;
+  box-shadow: 0px 20px 60px rgba(32, 92, 245, 0.4);
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  color: white;
+  border: none;
+  outline: 0;
+  /* font */
+  font-family: Lato-Regular;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 24px;
+}
+
+.btnHome:focus {
+  outline: 0;
+}
+
+.mainLogoWrapper {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+.mainLogo {
+  width: 100%;
+}
