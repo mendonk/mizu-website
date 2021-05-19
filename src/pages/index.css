@@ -25,13 +25,13 @@
   font-style: normal;
   font-weight: bold;
   font-size: 3.2rem;
-  line-height: 97px;
+  /* line-height: 97px; */
   color: #0c0b1a;
   width: 30%;
 }
 
 .infoWrapper p {
-  margin: 10px 0;
+  margin: 50px 0;
   font-family: Lato-Regular;
   font-style: normal;
   font-weight: normal;
@@ -41,7 +41,7 @@
 }
 
 .btnHome {
-  width: 45%;
+  width: 190px;
   background: #205cf5;
   padding: 10px 30px;
   box-shadow: 0px 20px 60px rgba(32, 92, 245, 0.4);
@@ -70,4 +70,13 @@
 
 .mainLogo {
   width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .mainLogoWrapper {
+    width: 100%;
+  }
+  .infoWrapper {
+    width: 40%;
+  }
 }
