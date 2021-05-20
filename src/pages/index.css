@@ -47,7 +47,7 @@
 
 .btnHome {
   display: flex;
-  width: 190px;
+  width: 205px;
   background: #205cf5;
   padding: 10px 30px;
   box-shadow: 0px 20px 60px rgba(32, 92, 245, 0.4);
@@ -62,6 +62,7 @@
   font-weight: 800;
   font-size: 1rem;
   line-height: 24px;
+  justify-content: center;
 }
 
 .btnHome:focus {
@@ -316,6 +317,10 @@ footer {
   text-align: center;
 }
 
+.codeBlock code {
+  font-size: 1.3vh;
+}
+
 @media (max-width: 1300px) {
   .singleBlock {
     width: 80%;
@@ -350,7 +355,21 @@ footer {
 }
 
 @media (max-width: 940px) {
-  .startingWrap {
+  header {
+    display: block;
+    padding: 0 10px;
+  }
+  .featureLogo {
+    width: 40%;
+  }
+  .featureDetails {
+    margin-top: 50px;
+  }
+  .featureDetails ul li {
+    display: block;
+  }
+  .startingWrap,
+  .featuresInfo {
     width: 100%;
     padding: 0 10px;
   }
@@ -363,10 +382,30 @@ footer {
 }
 
 @media (max-width: 730px) {
+}
+
+@media (max-width: 730px) {
   .footerLogo,
   .footerIcons {
     width: 25%;
     /* border: 1px solid red; */
     text-align: center;
+  }
+  .singleBlock {
+    flex-direction: column;
+  }
+  .txtColumn {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .codeBlock {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .RunMizu {
+    flex-direction: column;
   }
 }

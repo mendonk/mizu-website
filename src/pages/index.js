@@ -81,7 +81,7 @@ const IndexPage = () => {
               <h4>Example</h4>
             </div>
             <div className="codeBlock">
-              <pre>mizu tap podname -n namespace</pre>
+              <code>mizu tap podname -n namespace</code>
             </div>
           </div>
           <h3 className="txtNotes">Notes</h3>
