@@ -1,3 +1,7 @@
+.containerWidth {
+  width: 80%;
+}
+
 .mainWrapper {
   min-height: calc(100vh - 60px);
   display: flex;
@@ -14,17 +18,18 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  width: 80%;
 }
 
 .infoWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: Amaranth-Bold;
+  font-family: Amaranth-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 3.2rem;
+  font-size: 3.5rem;
+  font-size: clamp(1.5rem, calc(3vw + 1rem), 2.5rem);
+  /* font-size: 3.2rem; */
   /* line-height: 97px; */
   color: #0c0b1a;
   width: 30%;
@@ -32,7 +37,7 @@
 
 .infoWrapper p {
   margin: 50px 0;
-  font-family: Lato-Regular;
+  font-family: Roboto-Regular;
   font-style: normal;
   font-weight: normal;
   font-size: 1.3rem;
@@ -41,6 +46,7 @@
 }
 
 .btnHome {
+  display: flex;
   width: 190px;
   background: #205cf5;
   padding: 10px 30px;
@@ -63,20 +69,304 @@
 }
 
 .mainLogoWrapper {
+  /* border: 1px solid red;
   display: flex;
-  justify-content: center;
-  width: 40%;
+  justify-content: center; */
+  width: 60%;
 }
 
 .mainLogo {
-  width: 100%;
+  max-width: 100%;
+  display: block;
 }
+
+.startingContainer {
+  width: 52%;
+  /* border: 1px solid red; */
+}
+
+.starting {
+  /* min-height: calc(100vh - 60px); */
+  /* height: 1300px; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex: 1;
+  background-image: url("../images/startingBG.png");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.startingWrap {
+  margin: 50px 0;
+  /* border: 1px solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+  width: 80%;
+}
+
+.singleBlock {
+  display: flex;
+  /* justify-content: center; */
+  width: 52%;
+  margin-top: 25px;
+  /* border: 1px solid red; */
+}
+
+.singleBlock h4 {
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  color: #bccefd;
+  margin-right: 10px;
+}
+
+.RunMizu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  font-family: Amaranth-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.runMizuTXTWrap {
+  flex-direction: column;
+  display: flex;
+}
+
+.starting h2 {
+  font-family: Amaranth-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 5rem;
+  font-size: clamp(1.5rem, calc(3vw + 1rem), 5rem);
+  color: white;
+  text-align: center;
+}
+
+.starting .txtGetMizu {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  color: white;
+  font-family: Amaranth-Regular;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.starting .getYourMizuIMG {
+  margin-left: 10px;
+}
+
+.txtColumn {
+  /* border: 1px solid yellow; */
+  width: 15%;
+  /* text-align: right; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.txtNotes {
+  color: #ffffff;
+  margin-top: 80px;
+  font-family: Amaranth-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.notes {
+  width: 96%;
+  /* border: 1px solid red; */
+}
+
+.btnGetTheCode {
+  margin-top: 80px;
+}
+
+.pNotes {
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  line-height: 60px;
+  color: #bccefd;
+  text-align: center;
+}
+
+.codeBlock {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+  width: 85%;
+  background: #f7f9fc;
+}
+
+.codeBlock pre {
+  padding: 10px;
+}
+
+.keyFeatures {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid red; */
+  margin-top: 50px;
+}
+
+.featuresInfo {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+.keyFeatures h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: Amaranth-Regular;
+  font-style: normal;
+  font-weight: bold;
+  color: #205cf5;
+}
+
+.featureLogo {
+  position: relative;
+  width: 30%;
+  /* border: 1px solid red; */
+}
+
+.featureLogo img {
+  width: 100%;
+  /* top: -108px;
+  left: -64px;
+
+  position: absolute; */
+}
+
+.featureDetails ul {
+  list-style: none;
+}
+
+.featureDetails ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: clamp(1rem, calc(5vw + 1rem), 1.2rem);
+
+  color: #494677;
+}
+
+.featureDetails ul li div {
+  margin-right: 10px;
+  width: 17px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+footer {
+  margin-top: 50px;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #0c0b1a;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.footerIcons {
+  width: 10%;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 20px;
+}
+
+.footerCopy {
+  color: white;
+  padding-top: 20px;
+}
+
+.footerCopy span {
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: normal;
+  color: #8f9bb2;
+  font-size: 1.1rem;
+}
+
+.footerLogo {
+  width: 10%;
+  text-align: center;
+}
+
+@media (max-width: 1300px) {
+  .singleBlock {
+    width: 80%;
+  }
+  .startingContainer {
+    width: 80%;
+  }
+}
+
+/* @media (max-width: 1200px) {
+  
+} */
 
 @media (max-width: 1000px) {
   .mainLogoWrapper {
-    width: 100%;
+    display: none;
+    /* width: 100%; */
   }
   .infoWrapper {
-    width: 40%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .featuresInfo {
+    flex-direction: column;
+    align-items: center;
+  }
+  .featuresInfo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 940px) {
+  .startingWrap {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .singleBlock {
+    width: 100%;
+  }
+  .startingContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 730px) {
+  .footerLogo,
+  .footerIcons {
+    width: 25%;
+    /* border: 1px solid red; */
+    text-align: center;
   }
 }

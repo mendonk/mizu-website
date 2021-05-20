@@ -1,15 +1,16 @@
 @font-face {
-  font-family: Roboto-Medium;
-  src: url(../../src/fonts/Roboto-Medium.ttf);
-}
-@font-face {
-  font-family: Amaranth-Bold;
-  src: url(../../src/fonts/Amaranth-Bold.ttf);
+  font-family: Roboto-Regular;
+  src: url(../../src/fonts/Roboto-Regular.ttf);
 }
 
 @font-face {
   font-family: Lato-Regular;
   src: url(../../src/fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: Amaranth-Regular;
+  src: url(../../src/fonts/Amaranth-Regular.ttf);
 }
 
 * {
