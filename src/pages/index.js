@@ -1,150 +1,263 @@
 import * as React from "react";
 import Layout from "../../components/layout";
-import "./index.css";
-import GetYourMizu from "../../src/images/getYourMizu.svg";
+import Card from "../../components/card";
+
+import Logo from "../../src/images/logo.svg";
 import GithubIcon from "../images/btnGithubIcon.svg";
-import MainLogo from "../images/mainlogo.png";
+import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
 import MizuFooterLogo from "../images/MizuFooterLogo.svg";
 import SlackFooter from "../images/SlackFooter.svg";
 import TwitterFooter from "../images/TwitterFooter.svg";
 import GithubFooter from "../images/GithubFooter.svg";
+import CopyIcon from "../images/copyicon.svg";
+import ExampleImage from "../images/exampleImage.png";
+
+import "./index.css";
 
 const IndexPage = () => {
   return (
     <Layout>
       <section className="mainWrapper">
-        <div className="wrapper containerWidth">
-          <div className="infoWrapper">
-            <h2>Consectetur</h2>
-            <h2>adipiscing</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit
-              maecenas massa lacinia consectetur amet mattis eget habitant.
-              Bibendum felis
-            </p>
-            <button className="btnHome">
-              Lorem Ipsum&nbsp;&nbsp;&nbsp;&nbsp;
-              <img className="githubIcon" src={GithubIcon} />
-            </button>
-          </div>
-          <div className="mainLogoWrapper">
-            <img className="mainLogo" src={MainIMG} />
-          </div>
-        </div>
-      </section>
-      <section className="starting">
-        <div className="startingWrap">
-          <div className="startingContainer">
-            <h2>Starting</h2>
-          </div>
-          <div className="startingContainer">
-            <span className="txtGetMizu">
-              Get your{" "}
-              <img src={GetYourMizu} alt="Logo" className="getYourMizuIMG" />
-            </span>
-          </div>
-          <div className="singleBlock">
-            <div className="txtColumn">
-              <h4>For Mac</h4>
+        <Card>
+          <div className="wrapper">
+            <div className="infoWrapper">
+              <h2>API Traffic Viewer</h2>
+              <h2>for Kubernetes</h2>
+              <p>
+                A simple-yet-powerful API traffic viewer for Kubernetes to help
+                you troubleshoot and debug your microservices.
+              </p>
+              <p>Think TCPDump and Chrome Dev Tools combined.</p>
+              <button className="btnHome">
+                Download&nbsp;&nbsp;&nbsp;&nbsp;
+                <img
+                  className="githubIcon"
+                  src={GithubIcon}
+                  alt="Github Icon"
+                />
+              </button>
             </div>
-            <div className="codeBlock">
-              <code>
-                curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu &&
-                chmod 755 ./mizu
-              </code>
+            <div className="mainLogoWrapper">
+              <img className="mainLogo" src={MainIMG} alt="Main Image" />
             </div>
           </div>
-          <div className="singleBlock">
-            <div className="txtColumn">
-              <h4>For Linux</h4>
-            </div>
-            <div className="codeBlock">
-              <code>
-                curl -O https://static.up9.com/mizu/main/linux.amd64/mizu &&
-                chmod 755 ./mizu
-              </code>
-            </div>
-          </div>
-          <div className="startingContainer runMizuTXTWrap">
-            <span className="RunMizu" style={{ display: "flex" }}>
-              Run&nbsp;
-              <img src={GetYourMizu} alt="Logo" className="RunMizuIMG" />
-              &nbsp;& supply Kubernetes
-            </span>
-            <span className="RunMizu" style={{ marginTop: 0 }}>
-              pod name to tap
-            </span>
-          </div>
-          <div className="singleBlock">
-            <div className="txtColumn">
-              <h4>Example</h4>
-            </div>
-            <div className="codeBlock">
-              <code>mizu tap podname -n namespace</code>
-            </div>
-          </div>
-          <h3 className="txtNotes">Notes</h3>
-          <div className="notes">
-            <p className="pNotes">
-              You should have kubectl configured to run against your Kubernetes
-              cluster. <br />
-              Namespace is required in case the pod is in a different namespace
-              than the default one. <br /> After mizu starts and successfully
-              connects to the specified pod, a local web interface <br /> will
-              become available at http://localhost:8899/
-            </p>
-          </div>
-          <button className="btnHome" style={{ marginTop: "80px" }}>
-            Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
-            <img className="githubIcon" src={GithubIcon} />
-          </button>
-        </div>
+        </Card>
       </section>
       <section className="keyFeatures">
-        <div className="keyFeaturesWrap containerWidth">
+        <Card>
           <h1>Key Features</h1>
-        </div>
-        <div className="featuresInfo containerWidth">
-          <div className="featureLogo">
-            <img className="mainLogo" src={MainLogo} />
+        </Card>
+        <Card dpFlex="dpFlex">
+          <div className="keyFeatureLogo">
+            <img src={keyFeaturesLogo} alt="Feature Logo" />
           </div>
-          <div className="featureDetails">
-            <ul>
-              <li>
-                <div style={{ backgroundColor: "#205cf5" }} />
+          <div className="featureList">
+            <div className="featureListItem">
+              <div
+                className="featureListBullet"
+                style={{ background: "#27ae60" }}
+              />
+              <div className="singleFeature">
                 Simple and powerful <b>CLI</b>
-              </li>
-              <li>
-                <div style={{ backgroundColor: "#F7B202" }} />
-                No installation required
-              </li>
-              <li>
-                <div style={{ backgroundColor: "#DB2156" }} />
-                Decodes and presents any&nbsp;<b>HTTP</b>&nbsp;requests,&nbsp;
-                <b>REST</b>&nbsp;and&nbsp;
-                <b>gRPC API</b>&nbsp;calls
-              </li>
-              <li>
-                <div style={{ backgroundColor: "#27AE60" }} />
-                Local webapp that present traffic in real time
-              </li>
-              <li>
-                <div style={{ backgroundColor: "#0C0B1A" }} />
+              </div>
+            </div>
+            <div className="featureListItem">
+              <div
+                className="featureListBullet"
+                style={{ background: "#F7B202" }}
+              />
+              <div className="singleFeature">
+                Real time view of all <b>HTTP</b> requests, <b>REST</b> and{" "}
+                <b>gRPC</b> API calls
+              </div>
+            </div>
+            <div className="featureListItem">
+              <div
+                className="featureListBullet"
+                style={{ background: "#DB2156" }}
+              />
+              <div className="singleFeature">
+                No installation or code instrumentation
+              </div>
+            </div>
+            <div className="featureListItem">
+              <div
+                className="featureListBullet"
+                style={{ background: "#205CF5" }}
+              />
+              <div className="singleFeature">
                 Works completely on premises (on-prem)
+              </div>
+            </div>
+          </div>
+        </Card>
+      </section>
+      <section className="quickStart">
+        <Card>
+          <h1>Quick Start</h1>
+        </Card>
+        <Card
+          dpFlex="dpFlex"
+          customStyle={{
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "50px 0",
+          }}
+        >
+          <img src={Logo} alt="Mizu" />
+          <span className="txtQuickStart">
+            &nbsp;is a 50MB program (written in Golang) that you can download
+            and run
+          </span>
+        </Card>
+        <Card
+          customStyle={{
+            width: "70%",
+            // padding: "15px",
+            background: "#FFF",
+          }}
+        >
+          <div className="quickStartCodeContainer">
+            <div className="quickStartTab">
+              <span>MAC</span>
+              <span>LINUX</span>
+            </div>
+          </div>
+          <div
+            className="quickStartCodeContainer"
+            style={{
+              borderTop: "2px solid #e9ebf8",
+              borderBottom: "2px solid #e9ebf8",
+              paddingTop: "0px",
+            }}
+          >
+            <div className="quickStartCodeRow">
+              <h4>Download</h4>
+            </div>
+            <div className="exampleCommand" style={{ marginTop: "10px" }}>
+              <span>
+                curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu &&
+                chmod 755 ./mizu
+              </span>
+              <img src={CopyIcon} alt="Copy Icon" />
+            </div>
+            <div className="quickStartCodeRow">
+              <h4>Run</h4>
+            </div>
+            <div className="exampleCommand" style={{ marginTop: "10px" }}>
+              <span>{`mizu tap <podname> -n <namespace>`}</span>
+              <img src={CopyIcon} alt="Copy Icon" />
+            </div>
+          </div>
+          <div className="quickStartCodeContainer">
+            <h4>Notes</h4>
+            <ul className="quickStartList">
+              <li>
+                You should have kubectl configured to run against your
+                Kubernetes cluster.
+              </li>
+              <li>
+                Namespace is required in case the pod is in a different
+                namespace than the default one.
+              </li>
+              <li>
+                After mizu starts and successfully connects to the specified
+                pod, a local web interface will become available at
+                http://localhost:8899/
               </li>
             </ul>
           </div>
-        </div>
+        </Card>
+      </section>
+      <section className="commandLineArguments">
+        <Card>
+          <h1>Command-line Arguments</h1>
+        </Card>
+        <Card
+          dpFlex="dpFlex"
+          customStyle={{
+            justifyContent: "center",
+            margin: "50px 0",
+          }}
+        >
+          <span className="info">
+            Usage and list of command-line arguments can be seen by running mizu
+            -h or mizu help
+          </span>
+        </Card>
+        <Card
+          dpFlex="dpFlex"
+          customStyle={{
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "50px 0",
+          }}
+        >
+          <div className="codeBlock">
+            <pre>
+              {`Usage: mizu tap PODNAME [flags]
+
+Flags:
+  -p, --gui-port uint16 Provide a custom port for the web interface webserver (default 8899) 
+  -h, --help help for tap
+  -k, --kubeconfig string Path to kubeconfig file 
+    --mizu-image string Custom image for mizu collector (default "gcr.io/up9-docker-hub/mizu/develop:latest")
+    --mizu-port uint16 Port which mizu cli will attempt to forward from the mizu collector pod (default 8899)
+  -n, --namespace string Namespace selector
+
+Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
+            </pre>
+            <div className="copyCode">
+              <img src={CopyIcon} alt="Copy Icon" />
+            </div>
+          </div>
+        </Card>
+      </section>
+      <section className="example">
+        <Card>
+          <h1>Example</h1>
+        </Card>
+        <Card
+          dpFlex="dpFlex"
+          customStyle={{
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "50px 0",
+          }}
+        >
+          <span className="info">How to Get the &nbsp;</span>
+          <span className="info" style={{ color: "#205CF5" }}>
+            Pod Name
+          </span>
+        </Card>
+        <Card
+          customStyle={{
+            padding: "20px",
+            background: "#FFF",
+          }}
+        >
+          <div className="exampleCommand">
+            <span>kubectl get pods -A</span>
+            <img src={CopyIcon} alt="Copy Icon" />
+          </div>
+          <div className="exampleImage">
+            <img src={ExampleImage} alt="Example image" />
+          </div>
+          <div className="exampleCommand">
+            <span>mizu tap carts-db-69d4c5864f-kg84n -n sock-shop</span>
+            <img src={CopyIcon} alt="Copy Icon" />
+          </div>
+        </Card>
       </section>
       <footer>
         <div className="footerLogo">
           <img src={MizuFooterLogo} />
         </div>
         <div className="footerIcons">
-          <img className="" src={SlackFooter} />
-          <img className="" src={TwitterFooter} />
-          <img className="" src={GithubFooter} />
+          <img className="" src={SlackFooter} alt="Slack Icon" />
+          <img className="" src={TwitterFooter} alt="Twitter Icon" />
+          <img className="" src={GithubFooter} alt="Github Icon" />
         </div>
         <div className="footerCopy">
           <span>

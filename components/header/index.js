@@ -16,23 +16,22 @@ const Header = () => (
     </div>
     <nav>
       <ul>
-        <li>Home</li>
-        <li>Features</li>
-        <li>Starting</li>
-      </ul>
-      <div className="header-icons">
-        <ul>
-          <li>
+        <li>
+          <a href="https://github.com/up9inc/" target="_blank">
             <img src={GithubIcon} alt="Github" />
-          </li>
-          <li>
+          </a>
+        </li>
+        <li>
+          <a href="https://up9inc.slack.com/" target="_blank">
             <img src={SlackIcon} alt="Slack" />
-          </li>
-          <li>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/up9inc" target="_blank">
             <img src={TwitterIcon} alt="Twitter" />
-          </li>
-        </ul>
-      </div>
+          </a>
+        </li>
+      </ul>
     </nav>
   </header>
 );

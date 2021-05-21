@@ -18,7 +18,7 @@ nav {
 
 nav ul li {
   display: inline;
-  color: #205cf5;
+  color: #494677;
   padding-right: 20px;
   font-family: Roboto-Regular;
   font-style: normal;
@@ -28,8 +28,4 @@ nav ul li {
 
 nav ul li:last-child {
   padding-right: 0px;
-}
-
-.header-icons {
-  margin-left: 20px;
 }
