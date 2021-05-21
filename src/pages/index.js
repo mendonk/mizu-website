@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useRef } from "react";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 
@@ -18,6 +18,18 @@ import "./index.css";
 const IndexPage = () => {
   const today = new Date();
   const currentYear = today.getFullYear();
+
+  const [activeTab, setActiveTab] = useState("mac");
+  const [mizuLink, setMizuLink] = useState(
+    "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
+  );
+
+  const downloadCopyRef = useRef(null);
+  const runCopyRef = useRef(null);
+  const commandLineCopyRef = useRef(null);
+  const exampleKubeCtlCopyRef = useRef(null);
+  const exampleTapCopyRef = useRef(null);
+
   return (
     <Layout>
       <section className="mainWrapper">
@@ -122,10 +134,30 @@ const IndexPage = () => {
           <div className="quickStartCodeContainer">
             <div className="quickStartTab">
               <div className="quickStartTabItem">
-                <span className="quickStartActiveTab">MAC</span>
+                <span
+                  className={activeTab === "mac" ? "quickStartActiveTab" : ""}
+                  onClick={() => {
+                    setActiveTab("mac");
+                    setMizuLink(
+                      "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
+                    );
+                  }}
+                >
+                  MAC
+                </span>
               </div>
               <div className="quickStartTabItem">
-                <span className="">LINUX</span>
+                <span
+                  className={activeTab === "linux" ? "quickStartActiveTab" : ""}
+                  onClick={() => {
+                    setActiveTab("linux");
+                    setMizuLink(
+                      "curl -O https://static.up9.com/mizu/main/linux.amd64/mizu && chmod 755 ./mizu"
+                    );
+                  }}
+                >
+                  LINUX
+                </span>
               </div>
             </div>
           </div>
@@ -141,11 +173,16 @@ const IndexPage = () => {
               <h4 className="lblOfQuickStartCodeRow">Download</h4>
             </div>
             <div className="exampleCommand" style={{ marginTop: "10px" }}>
-              <span>
-                curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu &&
-                chmod 755 ./mizu
-              </span>
-              <img src={CopyIcon} alt="Copy Icon" />
+              <span ref={downloadCopyRef}>{mizuLink}</span>
+              <img
+                src={CopyIcon}
+                alt="Copy Icon"
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    downloadCopyRef.current.innerText
+                  );
+                }}
+              />
             </div>
             <div className="quickStartCodeRow">
               <h4 className="lblOfQuickStartCodeRow">Run</h4>
@@ -154,8 +191,16 @@ const IndexPage = () => {
               className="exampleCommand"
               style={{ marginTop: "10px", marginBottom: "30px" }}
             >
-              <span>{`mizu tap <podname> -n <namespace>`}</span>
-              <img src={CopyIcon} alt="Copy Icon" />
+              <span
+                ref={runCopyRef}
+              >{`mizu tap <podname> -n <namespace>`}</span>
+              <img
+                src={CopyIcon}
+                alt="Copy Icon"
+                onClick={() => {
+                  navigator.clipboard.writeText(runCopyRef.current.innerText);
+                }}
+              />
             </div>
           </div>
           <div className="quickStartCodeContainer">
@@ -222,8 +267,8 @@ const IndexPage = () => {
             margin: "50px 0",
           }}
         >
-          <div className="codeBlock">
-            <pre>
+          <div className="codeBlock" ref={commandLineCopyRef}>
+            <pre id="commandArguments">
               {`Usage: mizu tap PODNAME [flags]
 
 Flags:
@@ -237,7 +282,19 @@ Flags:
 Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
             </pre>
             <div className="copyCode">
-              <img src={CopyIcon} alt="Copy Icon" />
+              <img
+                src={CopyIcon}
+                alt="Copy Icon"
+                onClick={(e) => {
+                  const copyText =
+                    document.getElementById("commandArguments").textContent;
+                  const textArea = document.createElement("textarea");
+                  textArea.textContent = copyText;
+                  document.body.append(textArea);
+                  textArea.select();
+                  document.execCommand("copy");
+                }}
+              />
             </div>
           </div>
         </Card>
@@ -266,15 +323,33 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
           }}
         >
           <div className="exampleCommand">
-            <span>kubectl get pods -A</span>
-            <img src={CopyIcon} alt="Copy Icon" />
+            <span ref={exampleKubeCtlCopyRef}>kubectl get pods -A</span>
+            <img
+              src={CopyIcon}
+              alt="Copy Icon"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  exampleKubeCtlCopyRef.current.innerText
+                );
+              }}
+            />
           </div>
           <div className="exampleImage">
             <img src={ExampleImage} alt="Example IMG" />
           </div>
           <div className="exampleCommand">
-            <span>mizu tap carts-db-69d4c5864f-kg84n -n sock-shop</span>
-            <img src={CopyIcon} alt="Copy Icon" />
+            <span ref={exampleTapCopyRef}>
+              mizu tap carts-db-69d4c5864f-kg84n -n sock-shop
+            </span>
+            <img
+              src={CopyIcon}
+              alt="Copy Icon"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  exampleTapCopyRef.current.innerText
+                );
+              }}
+            />
           </div>
         </Card>
       </section>
@@ -283,9 +358,15 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
           <img src={MizuFooterLogo} alt="Footer IMG" />
         </div>
         <div className="footerIcons">
-          <img className="" src={SlackFooter} alt="Slack Icon" />
-          <img className="" src={TwitterFooter} alt="Twitter Icon" />
-          <img className="" src={GithubFooter} alt="Github Icon" />
+          <a href="https://up9inc.slack.com/" target="_blank" rel="noreferrer">
+            <img className="" src={SlackFooter} alt="Slack Icon" />
+          </a>
+          <a href="https://twitter.com/up9inc" target="_blank" rel="noreferrer">
+            <img className="" src={TwitterFooter} alt="Twitter Icon" />
+          </a>
+          <a href="https://github.com/up9inc/" target="_blank" rel="noreferrer">
+            <img className="" src={GithubFooter} alt="Github Icon" />
+          </a>
         </div>
         <div className="footerCopy">
           <span>
