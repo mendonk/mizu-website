@@ -29,14 +29,7 @@ const IndexPage = () => {
                 you troubleshoot and debug your microservices.
               </p>
               <p>Think TCPDump and Chrome Dev Tools combined.</p>
-              <button className="btnHome">
-                Download&nbsp;&nbsp;&nbsp;&nbsp;
-                <img
-                  className="githubIcon"
-                  src={GithubIcon}
-                  alt="Github Icon"
-                />
-              </button>
+              <button className="btnHome">Quick Start</button>
             </div>
             <div className="mainLogoWrapper">
               <img className="mainLogo" src={MainIMG} alt="Main Image" />
@@ -107,14 +100,15 @@ const IndexPage = () => {
         >
           <img src={Logo} alt="Mizu" />
           <span className="txtQuickStart">
-            &nbsp;is a 50MB program (written in Golang) that you can download
-            and run
+            &nbsp;
+            {`is a <50MB program (written in Golang) that you can download
+            and run`}
           </span>
         </Card>
         <Card
           customStyle={{
             width: "70%",
-            // padding: "15px",
+            borderRadius: "5px",
             background: "#FFF",
           }}
         >
@@ -133,7 +127,7 @@ const IndexPage = () => {
             }}
           >
             <div className="quickStartCodeRow">
-              <h4>Download</h4>
+              <h4 className="lblOfQuickStartCodeRow">Download</h4>
             </div>
             <div className="exampleCommand" style={{ marginTop: "10px" }}>
               <span>
@@ -143,7 +137,7 @@ const IndexPage = () => {
               <img src={CopyIcon} alt="Copy Icon" />
             </div>
             <div className="quickStartCodeRow">
-              <h4>Run</h4>
+              <h4 className="lblOfQuickStartCodeRow">Run</h4>
             </div>
             <div className="exampleCommand" style={{ marginTop: "10px" }}>
               <span>{`mizu tap <podname> -n <namespace>`}</span>
@@ -151,7 +145,7 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="quickStartCodeContainer">
-            <h4>Notes</h4>
+            <h4 className="txtNotes">Notes</h4>
             <ul className="quickStartList">
               <li>
                 You should have kubectl configured to run against your
@@ -169,6 +163,18 @@ const IndexPage = () => {
             </ul>
           </div>
         </Card>
+        <Card
+          dpFlex="dpFlex"
+          customStyle={{
+            justifyContent: "center",
+            marginTop: "50px",
+          }}
+        >
+          <button className="btnHome" style={{ width: "auto" }}>
+            Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
+            <img className="githubIcon" src={GithubIcon} alt="Github Icon" />
+          </button>
+        </Card>
       </section>
       <section className="commandLineArguments">
         <Card>
@@ -182,8 +188,16 @@ const IndexPage = () => {
           }}
         >
           <span className="info">
-            Usage and list of command-line arguments can be seen by running mizu
-            -h or mizu help
+            Usage and list of command-line arguments can be seen by running
+          </span>
+          &nbsp;
+          <span className="info" style={{ color: "#205CF5" }}>
+            mizu -h
+          </span>
+          &nbsp;
+          <span className="info">or</span>&nbsp;
+          <span className="info" style={{ color: "#205CF5" }}>
+            mizu help
           </span>
         </Card>
         <Card
