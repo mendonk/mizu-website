@@ -359,14 +359,14 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
           <img src={MizuFooterLogo} alt="Footer IMG" />
         </div>
         <div className="footerIcons">
+          <a href="https://github.com/up9inc/" target="_blank" rel="noreferrer">
+            <img className="" src={GithubFooter} alt="Github Icon" />
+          </a>
           <a href="https://up9inc.slack.com/" target="_blank" rel="noreferrer">
             <img className="" src={SlackFooter} alt="Slack Icon" />
           </a>
           <a href="https://twitter.com/up9inc" target="_blank" rel="noreferrer">
             <img className="" src={TwitterFooter} alt="Twitter Icon" />
-          </a>
-          <a href="https://github.com/up9inc/" target="_blank" rel="noreferrer">
-            <img className="" src={GithubFooter} alt="Github Icon" />
           </a>
         </div>
         <div className="footerCopy">
