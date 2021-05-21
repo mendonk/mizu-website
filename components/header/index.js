@@ -17,17 +17,17 @@ const Header = () => (
     <nav>
       <ul>
         <li>
-          <a href="https://github.com/up9inc/" target="_blank">
+          <a href="https://github.com/up9inc/" target="_blank" rel="noreferrer">
             <img src={GithubIcon} alt="Github" />
           </a>
         </li>
         <li>
-          <a href="https://up9inc.slack.com/" target="_blank">
+          <a href="https://up9inc.slack.com/" target="_blank" rel="noreferrer">
             <img src={SlackIcon} alt="Slack" />
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/up9inc" target="_blank">
+          <a href="https://twitter.com/up9inc" target="_blank" rel="noreferrer">
             <img src={TwitterIcon} alt="Twitter" />
           </a>
         </li>

@@ -32,7 +32,7 @@ const IndexPage = () => {
               <button className="btnHome">Quick Start</button>
             </div>
             <div className="mainLogoWrapper">
-              <img className="mainLogo" src={MainIMG} alt="Main Image" />
+              <img className="mainLogo" src={MainIMG} alt="Main Logo" />
             </div>
           </div>
         </Card>
@@ -256,7 +256,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
             <img src={CopyIcon} alt="Copy Icon" />
           </div>
           <div className="exampleImage">
-            <img src={ExampleImage} alt="Example image" />
+            <img src={ExampleImage} alt="Example IMG" />
           </div>
           <div className="exampleCommand">
             <span>mizu tap carts-db-69d4c5864f-kg84n -n sock-shop</span>
@@ -266,7 +266,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
       </section>
       <footer>
         <div className="footerLogo">
-          <img src={MizuFooterLogo} />
+          <img src={MizuFooterLogo} alt="Footer IMG" />
         </div>
         <div className="footerIcons">
           <img className="" src={SlackFooter} alt="Slack Icon" />
