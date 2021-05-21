@@ -187,6 +187,26 @@
   padding: 5px;
 }
 
+.quickStartTab .quickStartTabItem {
+  flex: 1 1 auto;
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: 900;
+  font-size: clamp(0.9rem, calc(5vw + 1rem), 1rem);
+  color: #205cf5;
+}
+
+.quickStartTab .quickStartTabItem:last-child {
+  border-left: 1px solid #e9ebf8;
+  text-align: right;
+}
+
+.quickStartActiveTab {
+  color: #0c0b1a !important;
+  border-bottom: 2px solid;
+  padding-bottom: 5px;
+}
+
 .quickStartCodeRow {
   margin-top: 30px;
   /* border: 1px solid; */

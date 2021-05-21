@@ -16,6 +16,8 @@ import ExampleImage from "../images/exampleImage.png";
 import "./index.css";
 
 const IndexPage = () => {
+  const today = new Date();
+  const currentYear = today.getFullYear();
   return (
     <Layout>
       <section className="mainWrapper">
@@ -41,7 +43,12 @@ const IndexPage = () => {
         <Card>
           <h1>Key Features</h1>
         </Card>
-        <Card dpFlex="dpFlex">
+        <Card
+          dpFlex="dpFlex"
+          customStyle={{
+            margin: "50px 0",
+          }}
+        >
           <div className="keyFeatureLogo">
             <img src={keyFeaturesLogo} alt="Feature Logo" />
           </div>
@@ -114,8 +121,12 @@ const IndexPage = () => {
         >
           <div className="quickStartCodeContainer">
             <div className="quickStartTab">
-              <span>MAC</span>
-              <span>LINUX</span>
+              <div className="quickStartTabItem">
+                <span className="quickStartActiveTab">MAC</span>
+              </div>
+              <div className="quickStartTabItem">
+                <span className="">LINUX</span>
+              </div>
             </div>
           </div>
           <div
@@ -139,7 +150,10 @@ const IndexPage = () => {
             <div className="quickStartCodeRow">
               <h4 className="lblOfQuickStartCodeRow">Run</h4>
             </div>
-            <div className="exampleCommand" style={{ marginTop: "10px" }}>
+            <div
+              className="exampleCommand"
+              style={{ marginTop: "10px", marginBottom: "30px" }}
+            >
               <span>{`mizu tap <podname> -n <namespace>`}</span>
               <img src={CopyIcon} alt="Copy Icon" />
             </div>
@@ -275,7 +289,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
         </div>
         <div className="footerCopy">
           <span>
-            Built and maintained by <b>UP9</b> &copy; (2021)
+            Built and maintained by <b>UP9</b> &copy; ({currentYear})
           </span>
         </div>
       </footer>
