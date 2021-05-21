@@ -130,6 +130,7 @@ const IndexPage = () => {
             borderRadius: "5px",
             background: "#FFF",
           }}
+          responsiveWidth="responsiveWidth"
         >
           <div className="quickStartCodeContainer">
             <div className="quickStartTab">

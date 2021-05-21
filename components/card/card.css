@@ -6,3 +6,12 @@
 .dpFlex {
   display: flex;
 }
+
+@media (max-width: 1000px) {
+  .container {
+    width: 90%;
+  }
+  .responsiveWidth {
+    width: 90% !important;
+  }
+}
