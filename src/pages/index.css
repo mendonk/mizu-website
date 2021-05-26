@@ -389,21 +389,18 @@
   height: 20px;
   position: relative;
   display: inline-block;
-  color: royalblue;
+  color: #0c0b1a;
   overflow: hidden;
-  background: linear-gradient(
-    to right,
-    midnightblue,
-    midnightblue 50%,
-    royalblue 50%
-  );
+  background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
+  /* background-position: 100%; */
   text-decoration: none;
   animation-name: codeEffect;
   animation-timing-function: linear;
-  animation-duration: 2100ms;
+  animation-duration: 3100ms;
+  /* animation-delay: 1400ms; */
   animation-iteration-count: infinite;
 }
 
@@ -413,11 +410,20 @@
 }
 
 @keyframes codeEffect {
-  from {
+  0%,
+  10% {
     background-position: 100%;
   }
-  to {
-    background-position: 0 100%;
+  60% {
+    background-position: 0%;
+  }
+  70%,
+  80% {
+    background-position: 0%;
+  }
+  90%,
+  100% {
+    background-position: 0%;
   }
 }
 

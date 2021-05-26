@@ -18,6 +18,11 @@
   src: url(../../src/fonts/SourceCodePro-Regular.ttf);
 }
 
+@font-face {
+  font-family: SourceCodePro-Black;
+  src: url(../../src/fonts/SourceCodePro-Black.ttf);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

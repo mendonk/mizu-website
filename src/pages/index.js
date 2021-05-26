@@ -250,7 +250,7 @@ const IndexPage = () => {
             href="https://github.com/up9inc/mizu"
             target="_blank"
             rel="noreferrer"
-            style={{ width: "auto" }}
+            style={{ width: "240px" }}
           >
             Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
             <img className="githubIcon" src={GithubIcon} alt="Github Icon" />
