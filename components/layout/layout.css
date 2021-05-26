@@ -13,6 +13,11 @@
   src: url(../../src/fonts/Amaranth-Regular.ttf);
 }
 
+@font-face {
+  font-family: SourceCodePro-Regular;
+  src: url(../../src/fonts/SourceCodePro-Regular.ttf);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

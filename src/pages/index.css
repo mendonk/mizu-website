@@ -59,6 +59,8 @@
   font-size: 1.3rem;
   line-height: 24px;
   justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btnHome:focus {
@@ -292,13 +294,13 @@
   position: relative;
   padding: 5px;
   background: #f7f9fc;
-  width: 60%;
-  height: 220px;
+  width: 70%;
+  height: 230px;
   overflow-x: auto;
 }
 
 .codeBlock pre {
-  font-family: Roboto-Regular;
+  font-family: SourceCodePro-Regular;
   font-style: normal;
   font-weight: normal;
   /* font-size: 14px;
@@ -362,7 +364,7 @@
 }
 
 .exampleCommand span {
-  font-family: Roboto-Regular;
+  font-family: SourceCodePro-Regular;
   font-style: normal;
   font-weight: normal;
   font-size: clamp(1rem, calc(5vw + 1rem), 1rem);
@@ -381,6 +383,42 @@
 
 .exampleImage img {
   max-width: 100%;
+}
+
+.commandEffect {
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  color: royalblue;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    midnightblue,
+    midnightblue 50%,
+    royalblue 50%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  text-decoration: none;
+  animation-name: codeEffect;
+  animation-timing-function: linear;
+  animation-duration: 2100ms;
+  animation-iteration-count: infinite;
+}
+
+.commandEffect:hover {
+  -webkit-text-fill-color: #0c0b1a;
+  animation-play-state: paused;
+}
+
+@keyframes codeEffect {
+  from {
+    background-position: 100%;
+  }
+  to {
+    background-position: 0 100%;
+  }
 }
 
 /* Footer */

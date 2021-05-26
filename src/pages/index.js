@@ -23,7 +23,7 @@ const IndexPage = () => {
   const [mizuLink, setMizuLink] = useState(
     "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
   );
-
+  const quickStart = useRef(null);
   const downloadCopyRef = useRef(null);
   const runCopyRef = useRef(null);
   const commandLineCopyRef = useRef(null);
@@ -43,7 +43,16 @@ const IndexPage = () => {
                 you troubleshoot and debug your microservices.
               </p>
               <p>Think TCPDump and Chrome Dev Tools combined.</p>
-              <button className="btnHome">Quick Start</button>
+              <button
+                className="btnHome"
+                onMouseDown={() => {
+                  quickStart.current.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Quick Start
+              </button>
             </div>
             <div className="mainLogoWrapper">
               <img className="mainLogo" src={MainIMG} alt="Main Logo" />
@@ -105,7 +114,7 @@ const IndexPage = () => {
           </div>
         </Card>
       </section>
-      <section className="quickStart">
+      <section ref={quickStart} className="quickStart">
         <Card>
           <h1>Quick Start</h1>
         </Card>
@@ -136,8 +145,10 @@ const IndexPage = () => {
             <div className="quickStartTab">
               <div className="quickStartTabItem">
                 <span
+                  role="button"
+                  tabIndex={0}
                   className={activeTab === "mac" ? "quickStartActiveTab" : ""}
-                  onClick={() => {
+                  onMouseDown={() => {
                     setActiveTab("mac");
                     setMizuLink(
                       "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
@@ -149,8 +160,10 @@ const IndexPage = () => {
               </div>
               <div className="quickStartTabItem">
                 <span
+                  role="button"
+                  tabIndex={-1}
                   className={activeTab === "linux" ? "quickStartActiveTab" : ""}
-                  onClick={() => {
+                  onMouseDown={() => {
                     setActiveTab("linux");
                     setMizuLink(
                       "curl -O https://static.up9.com/mizu/main/linux.amd64/mizu && chmod 755 ./mizu"
@@ -174,11 +187,13 @@ const IndexPage = () => {
               <h4 className="lblOfQuickStartCodeRow">Download</h4>
             </div>
             <div className="exampleCommand" style={{ marginTop: "10px" }}>
-              <span ref={downloadCopyRef}>{mizuLink}</span>
+              <span ref={downloadCopyRef} className="commandEffect">
+                {mizuLink}
+              </span>
               <img
                 src={CopyIcon}
                 alt="Copy Icon"
-                onClick={() => {
+                onMouseDown={() => {
                   navigator.clipboard.writeText(
                     downloadCopyRef.current.innerText
                   );
@@ -198,7 +213,7 @@ const IndexPage = () => {
               <img
                 src={CopyIcon}
                 alt="Copy Icon"
-                onClick={() => {
+                onMouseDown={() => {
                   navigator.clipboard.writeText(runCopyRef.current.innerText);
                 }}
               />
@@ -230,10 +245,16 @@ const IndexPage = () => {
             marginTop: "50px",
           }}
         >
-          <button className="btnHome" style={{ width: "auto" }}>
+          <a
+            className="btnHome"
+            href="https://github.com/up9inc/mizu"
+            target="_blank"
+            rel="noreferrer"
+            style={{ width: "auto" }}
+          >
             Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
             <img className="githubIcon" src={GithubIcon} alt="Github Icon" />
-          </button>
+          </a>
         </Card>
       </section>
       <section className="commandLineArguments">
@@ -286,7 +307,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
               <img
                 src={CopyIcon}
                 alt="Copy Icon"
-                onClick={(e) => {
+                onMouseDown={(e) => {
                   const copyText =
                     document.getElementById("commandArguments").textContent;
                   const textArea = document.createElement("textarea");
@@ -328,7 +349,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
             <img
               src={CopyIcon}
               alt="Copy Icon"
-              onClick={() => {
+              onMouseDown={() => {
                 navigator.clipboard.writeText(
                   exampleKubeCtlCopyRef.current.innerText
                 );
@@ -345,7 +366,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
             <img
               src={CopyIcon}
               alt="Copy Icon"
-              onClick={() => {
+              onMouseDown={() => {
                 navigator.clipboard.writeText(
                   exampleTapCopyRef.current.innerText
                 );
