@@ -1,31 +1,36 @@
 @font-face {
-  font-family: Roboto-Regular;
-  src: url(../../src/fonts/Roboto-Regular.ttf);
+    font-family: Roboto-Regular;
+    src: url(../../src/fonts/Roboto-Regular.ttf);
 }
 
 @font-face {
-  font-family: Lato-Regular;
-  src: url(../../src/fonts/Lato-Regular.ttf);
+    font-family: Lato-Regular;
+    src: url(../../src/fonts/Lato-Regular.ttf);
 }
 
 @font-face {
-  font-family: Amaranth-Regular;
-  src: url(../../src/fonts/Amaranth-Regular.ttf);
+    font-family: Amaranth-Regular;
+    src: url(../../src/fonts/Amaranth-Regular.ttf);
 }
 
 @font-face {
-  font-family: SourceCodePro-Regular;
-  src: url(../../src/fonts/SourceCodePro-Regular.ttf);
+    font-family: SourceCodePro-Regular;
+    src: url(../../src/fonts/SourceCodePro-Regular.ttf);
 }
 
 @font-face {
-  font-family: SourceCodePro-Black;
-  src: url(../../src/fonts/SourceCodePro-Black.ttf);
+    font-family: SourceCodePro-Black;
+    src: url(../../src/fonts/SourceCodePro-Black.ttf);
+}
+
+@font-face {
+    font-family: Quicksand-Bold;
+    src: url(../../src/fonts/Quicksand-Bold.ttf);
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
 }

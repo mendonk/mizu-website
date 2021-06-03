@@ -19,7 +19,7 @@
 .infoWrapper {
     display: flex;
     flex-direction: column;
-    font-family: Amaranth-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: 3.5rem;
@@ -82,12 +82,10 @@
 
 /* Key Features */
 .keyFeatures {
-    min-height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* flex: 1; */
     background-image: url("../images/keyFeatures.png");
     /* Center and scale the image nicely */
     background-position: center;
@@ -163,8 +161,8 @@
 }
 
 .quickStart h1 {
-    color: #205cf5;
-    font-family: Amaranth-Regular;
+    color: #0c0b1a;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
@@ -172,7 +170,7 @@
 }
 
 .txtQuickStart {
-    font-family: Amaranth-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     /* font-size: 30px; */
@@ -260,69 +258,30 @@
     line-height: 30px;
 }
 
-/* Command Line Arguments */
-.commandLineArguments {
+/* Standalone */
+.standalone {
     min-height: 800px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     padding: 80px 0;
-}
-
-.commandLineArguments h1 {
-    font-family: Amaranth-Regular;
+    background: #fff;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
-    font-size: 80px;
-    font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
+    font-size: 2rem;
+    line-height: 37px;
     text-align: center;
-    /* identical to box height */
-    text-align: center;
-    /* blue */
+    color: #000000;
+}
+
+.standalone a {
+    line-height: 2;
     color: #205cf5;
 }
 
-.commandLineArguments .info {
-    font-family: Amaranth-Regular;
-    font-style: normal;
-    font-weight: bold;
-    font-size: clamp(0.8rem, calc(1vw + 0.7rem), 2.5rem);
-    text-align: center;
-    /* dark */
-    color: #0c0b1a;
-}
-
-.codeBlock {
-    border-radius: 5px;
-    position: relative;
-    padding: 5px;
-    background: #f7f9fc;
-    width: 70%;
-    height: 230px;
-    overflow-x: auto;
-}
-
-.codeBlock pre {
-    font-family: SourceCodePro-Regular;
-    font-style: normal;
-    font-weight: normal;
-    /* font-size: 14px;
-  line-height: 16px; */
-    /* dark */
-    color: #0c0b1a;
-}
-
-.copyCode {
-    /* margin: 10px; */
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.copyCode img {
-    cursor: pointer;
+.standaloneIMG img {
+    margin-top: 40px;
+    max-width: 100%;
 }
 
 /* Example */
@@ -338,7 +297,7 @@
 }
 
 .example h1 {
-    font-family: Amaranth-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
@@ -346,7 +305,7 @@
     /* identical to box height */
     text-align: center;
     /* blue */
-    color: #205cf5;
+    color: #0c0b1a;
 }
 
 .example .info {
@@ -431,9 +390,62 @@
     }
 }
 
+.exampleInfo span,
+.exampleTXT span {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 19px;
+    color: #8f9bb2;
+}
+
+.exampleTXT {
+    margin: 50px 0 15px 0;
+}
+
+.exampleDescription {
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 19px;
+
+    color: #8f9bb2;
+}
+
+.listCommands {
+    width: fit-content;
+}
+
+.listCommands ul {
+    margin-top: 10px;
+    margin-left: 19px;
+}
+
+.listCommands ul li {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 30px;
+    position: relative;
+    color: #0c0b1a;
+    background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    text-decoration: none;
+    animation-name: codeEffect;
+    animation-timing-function: linear;
+    animation-duration: 3100ms;
+    animation-iteration-count: infinite;
+}
+
 /* Footer */
 footer {
-    /* margin-top: 50px; */
     padding: 30px 0;
     display: flex;
     flex-direction: column;

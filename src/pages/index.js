@@ -3,7 +3,7 @@ import Layout from "../../components/layout";
 import Card from "../../components/card";
 
 import Logo from "../../src/images/logo.svg";
-import GithubIcon from "../images/btnGithubIcon.svg";
+// import GithubIcon from "../images/btnGithubIcon.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
 import MizuFooterLogo from "../images/MizuFooterLogo.svg";
@@ -12,6 +12,7 @@ import TwitterFooter from "../images/TwitterFooter.svg";
 import GithubFooter from "../images/GithubFooter.svg";
 import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
+import StandloneImage from "../images/standalone.png";
 
 import "./index.css";
 
@@ -69,9 +70,6 @@ const IndexPage = () => {
                 </Card>
             </section>
             <section className="keyFeatures">
-                <Card>
-                    <h1>Key Features</h1>
-                </Card>
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
@@ -262,94 +260,22 @@ const IndexPage = () => {
                         </ul>
                     </div>
                 </Card>
-                <Card
-                    dpFlex="dpFlex"
-                    customStyle={{
-                        justifyContent: "center",
-                        marginTop: "50px",
-                    }}
-                >
-                    <a
-                        className="btnHome"
-                        href="https://github.com/up9inc/mizu"
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{ width: "240px" }}
-                    >
-                        Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img
-                            className="githubIcon"
-                            src={GithubIcon}
-                            alt="Github Icon"
-                        />
-                    </a>
-                </Card>
             </section>
-            <section className="commandLineArguments">
-                <Card>
-                    <h1>Command-line Arguments</h1>
-                </Card>
+            <section className="standalone">
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
-                        justifyContent: "center",
-                        margin: "50px 0",
-                    }}
-                >
-                    <span className="info">
-                        Usage and list of command-line arguments can be seen by
-                        running
-                    </span>
-                    &nbsp;
-                    <span className="info" style={{ color: "#205CF5" }}>
-                        mizu -h
-                    </span>
-                    &nbsp;
-                    <span className="info">or</span>&nbsp;
-                    <span className="info" style={{ color: "#205CF5" }}>
-                        mizu help
-                    </span>
-                </Card>
-                <Card
-                    dpFlex="dpFlex"
-                    customStyle={{
+                        flexDirection: "column",
                         alignItems: "center",
-                        justifyContent: "center",
                         margin: "50px 0",
                     }}
                 >
-                    <div className="codeBlock" ref={commandLineCopyRef}>
-                        <pre id="commandArguments">
-                            {`Usage: mizu tap PODNAME [flags]
-
-Flags:
-  -p, --gui-port uint16 Provide a custom port for the web interface webserver (default 8899) 
-  -h, --help help for tap
-  -k, --kubeconfig string Path to kubeconfig file 
-    --mizu-image string Custom image for mizu collector (default "gcr.io/up9-docker-hub/mizu/develop:latest")
-    --mizu-port uint16 Port which mizu cli will attempt to forward from the mizu collector pod (default 8899)
-  -n, --namespace string Namespace selector
-
-Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
-                        </pre>
-                        <div className="copyCode">
-                            <img
-                                src={CopyIcon}
-                                alt="Copy Icon"
-                                onMouseDown={(e) => {
-                                    const copyText =
-                                        document.getElementById(
-                                            "commandArguments"
-                                        ).textContent;
-                                    const textArea =
-                                        document.createElement("textarea");
-                                    textArea.textContent = copyText;
-                                    document.body.append(textArea);
-                                    textArea.select();
-                                    document.execCommand("copy");
-                                }}
-                            />
-                        </div>
+                    <span>
+                        To see mizu’s standalone UI, point your browser to{" "}
+                    </span>
+                    <a>http://localhost:8899/</a>
+                    <div className="standaloneIMG">
+                        <img src={StandloneImage} alt="Standalone IMG" />
                     </div>
                 </Card>
             </section>
@@ -358,44 +284,27 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                     <h1>Example</h1>
                 </Card>
                 <Card
-                    dpFlex="dpFlex"
-                    customStyle={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        margin: "50px 0",
-                    }}
-                >
-                    <span className="info">How to Get the &nbsp;</span>
-                    <span className="info" style={{ color: "#205CF5" }}>
-                        Pod Name
-                    </span>
-                </Card>
-                <Card
                     customStyle={{
                         padding: "20px",
                         background: "#FFF",
+                        margin: "50px 0",
                     }}
                 >
-                    <div className="exampleCommand">
-                        <span ref={exampleKubeCtlCopyRef}>
-                            kubectl get pods -A
-                        </span>
-                        <img
-                            src={CopyIcon}
-                            alt="Copy Icon"
-                            onMouseDown={() => {
-                                navigator.clipboard.writeText(
-                                    exampleKubeCtlCopyRef.current.innerText
-                                );
-                            }}
-                        />
+                    <div className="exampleInfo">
+                        <span>Assuming this is my list of running pods:</span>
                     </div>
                     <div className="exampleImage">
                         <img src={ExampleImage} alt="Example IMG" />
                     </div>
+                    <div className="exampleTXT">
+                        <span>
+                            View traffic of a specific pod, identified by the
+                            pod name:
+                        </span>
+                    </div>
                     <div className="exampleCommand">
                         <span ref={exampleTapCopyRef}>
-                            mizu tap carts-db-69d4c5864f-kg84n -n sock-shop
+                            mizu tap catalogue-b87b45784-sxc8q
                         </span>
                         <img
                             src={CopyIcon}
@@ -406,6 +315,40 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                                 );
                             }}
                         />
+                    </div>
+                    <div className="exampleTXT">
+                        <span>
+                            View traffic of several pods, identified by a
+                            regular expression:
+                        </span>
+                    </div>
+                    <div className="exampleCommand">
+                        <span ref={exampleTapCopyRef}>
+                            mizu tap "(catalo*|front-end*)"
+                        </span>
+                        <img
+                            src={CopyIcon}
+                            alt="Copy Icon"
+                            onMouseDown={() => {
+                                navigator.clipboard.writeText(
+                                    exampleTapCopyRef.current.innerText
+                                );
+                            }}
+                        />
+                    </div>
+                    <div className="exampleDescription">
+                        <span>
+                            The above command will observe the traffic of the
+                            following pods as their names match the regular
+                            expression:
+                        </span>
+                    </div>
+                    <div className="listCommands">
+                        <ul>
+                            <li>catalogue-6676dc489b-6tx9h</li>
+                            <li>catalogue-db-69bd898747-7p8rq</li>
+                            <li>front-end-946fd755f-8t6gp</li>
+                        </ul>
                     </div>
                 </Card>
             </section>
