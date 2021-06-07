@@ -495,13 +495,18 @@ footer {
     }
 }
 
+@media (max-width: 1113px) {
+    .commandEffect {
+        height: 30px;
+    }
+}
+
 @media (max-width: 1000px) {
     .wrapper {
         margin: 50px 0;
         flex-direction: column;
     }
     .mainLogoWrapper {
-        /* display: none; */
         margin-top: 50px;
         width: 100%;
     }
@@ -518,7 +523,9 @@ footer {
 
 @media (max-width: 940px) {
     header {
-        /* display: block; */
         padding: 0 10px;
+    }
+    .commandEffect {
+        height: 50px;
     }
 }
