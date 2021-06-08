@@ -1,15 +1,9 @@
 import React, { useState, useRef } from "react";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
-
 import Logo from "../../src/images/logo.svg";
-// import GithubIcon from "../images/btnGithubIcon.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
-import MizuFooterLogo from "../images/MizuFooterLogo.svg";
-import SlackFooter from "../images/SlackFooter.svg";
-import TwitterFooter from "../images/TwitterFooter.svg";
-import GithubFooter from "../images/GithubFooter.svg";
 import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
 import StandloneImage from "../images/standalone.png";
@@ -17,18 +11,13 @@ import StandloneImage from "../images/standalone.png";
 import "./index.css";
 
 const IndexPage = () => {
-    const today = new Date();
-    const currentYear = today.getFullYear();
-
     const [activeTab, setActiveTab] = useState("mac");
     const [mizuLink, setMizuLink] = useState(
-        "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
+        "curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu && chmod 755 mizu"
     );
     const quickStart = useRef(null);
     const downloadCopyRef = useRef(null);
     const runCopyRef = useRef(null);
-    const commandLineCopyRef = useRef(null);
-    const exampleKubeCtlCopyRef = useRef(null);
     const exampleTapCopyRef = useRef(null);
 
     return (
@@ -135,7 +124,7 @@ const IndexPage = () => {
                     <img src={Logo} alt="Mizu" />
                     <span className="txtQuickStart">
                         &nbsp;
-                        {`is a <50MB program (written in Golang) that you can download
+                        {`is a standalone tool (written in Golang)  that you can download
             and run`}
                     </span>
                 </Card>
@@ -161,7 +150,7 @@ const IndexPage = () => {
                                     onMouseDown={() => {
                                         setActiveTab("mac");
                                         setMizuLink(
-                                            "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
+                                            "curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu && chmod 755 mizu"
                                         );
                                     }}
                                 >
@@ -270,9 +259,12 @@ const IndexPage = () => {
                         margin: "50px 0",
                     }}
                 >
-                    <span>
-                        To see mizu’s standalone UI, point your browser to{" "}
-                    </span>
+                    <div className="standaloneDescription">
+                        <span>To see</span>&nbsp;
+                        <img src={Logo} alt="Mizu" />
+                        &nbsp;
+                        <span>standalone UI, point your browser to </span>
+                    </div>
                     <a>http://localhost:8899/</a>
                     <div className="standaloneIMG">
                         <img src={StandloneImage} alt="Standalone IMG" />
@@ -352,48 +344,6 @@ const IndexPage = () => {
                     </div>
                 </Card>
             </section>
-            <footer>
-                <div className="footerLogo">
-                    <img src={MizuFooterLogo} alt="Footer IMG" />
-                </div>
-                <div className="footerIcons">
-                    <a
-                        href="https://github.com/up9inc/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            className=""
-                            src={GithubFooter}
-                            alt="Github Icon"
-                        />
-                    </a>
-                    <a
-                        href="https://up9inc.slack.com/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img className="" src={SlackFooter} alt="Slack Icon" />
-                    </a>
-                    <a
-                        href="https://twitter.com/up9inc"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            className=""
-                            src={TwitterFooter}
-                            alt="Twitter Icon"
-                        />
-                    </a>
-                </div>
-                <div className="footerCopy">
-                    <span>
-                        Built and maintained by <b>UP9</b> &copy; ({currentYear}
-                        )
-                    </span>
-                </div>
-            </footer>
         </Layout>
     );
 };
