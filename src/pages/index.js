@@ -328,7 +328,7 @@ const IndexPage = () => {
                     <div className="listCommands">
                         <ul>
                             <li>
-                                <strong>catalo</strong>gue-6676dc489b-6tx9h
+                                <strong>catalog</strong>ue-6676dc489b-6tx9h
                             </li>
                             <li>
                                 <strong>catalo</strong>gue-db-69bd898747-7p8rq
