@@ -435,17 +435,21 @@
     font-weight: bold;
     font-size: 1.1rem;
     line-height: 30px;
-    position: relative;
-    color: #0c0b1a;
-    background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
+    /* position: relative; */
+    color: #8f9bb2;
+    /* background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
-    text-decoration: none;
-    animation-name: codeEffect;
+    text-decoration: none; */
+    /* animation-name: codeEffect;
     animation-timing-function: linear;
     animation-duration: 3100ms;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
+}
+
+strong {
+    color: #000;
 }
 
 @media (max-width: 1300px) {

@@ -45,7 +45,7 @@ const IndexPage = () => {
                                     });
                                 }}
                             >
-                                Quick Start
+                                Download
                             </button>
                         </div>
                         <div className="mainLogoWrapper">
@@ -111,7 +111,7 @@ const IndexPage = () => {
             </section>
             <section ref={quickStart} className="quickStart">
                 <Card>
-                    <h1>Quick Start</h1>
+                    <h1>Download</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -216,9 +216,7 @@ const IndexPage = () => {
                             className="exampleCommand"
                             style={{ marginTop: "10px", marginBottom: "30px" }}
                         >
-                            <span
-                                ref={runCopyRef}
-                            >{`mizu tap <podname> -n <namespace>`}</span>
+                            <span ref={runCopyRef}>{`mizu tap <podname>`}</span>
                             <img
                                 src={CopyIcon}
                                 alt="Copy Icon"
@@ -234,17 +232,9 @@ const IndexPage = () => {
                         <h4 className="txtNotes">Notes</h4>
                         <ul className="quickStartList">
                             <li>
-                                You should have kubectl configured to run
-                                against your Kubernetes cluster.
-                            </li>
-                            <li>
-                                Namespace is required in case the pod is in a
-                                different namespace than the default one.
-                            </li>
-                            <li>
-                                After mizu starts and successfully connects to
-                                the specified pod, a local web interface will
-                                become available at http://localhost:8899/
+                                You should have <strong>kubectl</strong>{" "}
+                                configured to run against your Kubernetes
+                                cluster.
                             </li>
                         </ul>
                     </div>
@@ -337,9 +327,15 @@ const IndexPage = () => {
                     </div>
                     <div className="listCommands">
                         <ul>
-                            <li>catalogue-6676dc489b-6tx9h</li>
-                            <li>catalogue-db-69bd898747-7p8rq</li>
-                            <li>front-end-946fd755f-8t6gp</li>
+                            <li>
+                                <strong>catalo</strong>gue-6676dc489b-6tx9h
+                            </li>
+                            <li>
+                                <strong>catalo</strong>gue-db-69bd898747-7p8rq
+                            </li>
+                            <li>
+                                <strong>front-end</strong>-946fd755f-8t6gp
+                            </li>
                         </ul>
                     </div>
                 </Card>
