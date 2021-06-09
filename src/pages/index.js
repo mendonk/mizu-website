@@ -344,6 +344,21 @@ const IndexPage = () => {
                             </li>
                         </ul>
                     </div>
+                    <div className="exampleTXT">
+                        <span>View all API traffic</span>
+                    </div>
+                    <div className="exampleCommand">
+                        <span ref={exampleTapCopyRef}>mizu tap ".*"</span>
+                        <img
+                            src={CopyIcon}
+                            alt="Copy Icon"
+                            onMouseDown={() => {
+                                navigator.clipboard.writeText(
+                                    exampleTapCopyRef.current.innerText
+                                );
+                            }}
+                        />
+                    </div>
                 </Card>
             </section>
         </Layout>
