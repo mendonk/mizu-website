@@ -173,18 +173,15 @@
     font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
-    /* font-size: 30px; */
     font-size: clamp(0.8rem, calc(1vw + 0.7rem), 2.5rem);
     color: #0c0b1a;
 }
 
 .quickStartCodeContainer {
     padding: 20px;
-    /* border-bottom: 2px solid #e9ebf8; */
 }
 
 .quickStartTab {
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     width: 120px;
@@ -251,7 +248,7 @@
 }
 
 .quickStartList li {
-    font-family: Source Sans Pro;
+    font-family: SourceCodePro-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: clamp(0.8rem, calc(5vw + 1rem), 1rem);
@@ -268,7 +265,6 @@
     font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
-    /* font-size: 2rem; */
     font-size: clamp(0.8rem, calc(5vw + 0.7rem), 2rem);
     line-height: 37px;
     text-align: center;
@@ -287,6 +283,7 @@
 
 .standaloneDescription {
     display: flex;
+    font-size: clamp(0.8rem, calc(5vw + 0.7rem), 2.3rem);
 }
 
 /* Example */
@@ -435,17 +432,7 @@
     font-weight: bold;
     font-size: 1.1rem;
     line-height: 30px;
-    /* position: relative; */
     color: #8f9bb2;
-    /* background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    text-decoration: none; */
-    /* animation-name: codeEffect;
-    animation-timing-function: linear;
-    animation-duration: 3100ms;
-    animation-iteration-count: infinite; */
 }
 
 strong {

@@ -244,16 +244,20 @@ const IndexPage = () => {
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
+                        width: "70%",
                         flexDirection: "column",
                         alignItems: "center",
                         margin: "50px 0",
                     }}
+                    responsiveWidth="responsiveWidth"
                 >
                     <div className="standaloneDescription">
-                        <span>To see</span>&nbsp;
-                        <img src={Logo} alt="Mizu" />
-                        &nbsp;
-                        <span>standalone UI, point your browser to </span>
+                        <span>
+                            To see &nbsp;
+                            <img src={Logo} alt="Mizu" />
+                            &nbsp;
+                            <span>standalone UI, point your browser to </span>
+                        </span>
                     </div>
                     <a>http://localhost:8899/</a>
                     <div className="standaloneIMG">
@@ -267,10 +271,12 @@ const IndexPage = () => {
                 </Card>
                 <Card
                     customStyle={{
+                        width: "70%",
                         padding: "20px",
                         background: "#FFF",
                         margin: "50px 0",
                     }}
+                    responsiveWidth="responsiveWidth"
                 >
                     <div className="exampleInfo">
                         <span>Assuming this is my list of running pods:</span>
