@@ -212,27 +212,10 @@
     padding-bottom: 5px;
 }
 
-.quickStartCodeRow {
-    margin-top: 30px;
-    /* border: 1px solid; */
-}
-
 .quickStartList {
     margin-top: 15px;
     margin-left: 15px;
     color: #8f9bb2;
-}
-
-.lblOfQuickStartCodeRow {
-    font-family: Roboto-Regular;
-    font-style: normal;
-    font-weight: bold;
-    font-size: clamp(0.8rem, calc(5vw + 1rem), 1rem);
-    line-height: 19px;
-
-    /* blue grey */
-
-    color: #494677;
 }
 
 .txtNotes {
@@ -317,29 +300,6 @@
     line-height: 36px;
 }
 
-.exampleCommand {
-    border-radius: 5px;
-    background: #f7f9fc;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow-x: auto;
-}
-
-.exampleCommand span {
-    font-family: SourceCodePro-Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: clamp(1rem, calc(5vw + 1rem), 1rem);
-    line-height: 16px;
-    color: #0c0b1a;
-}
-
-.exampleCommand img {
-    cursor: pointer;
-}
-
 .exampleImage {
     margin: 30px 0;
     width: 100%;
@@ -347,30 +307,6 @@
 
 .exampleImage img {
     max-width: 100%;
-}
-
-.commandEffect {
-    height: 20px;
-    position: relative;
-    display: inline-block;
-    color: #0c0b1a;
-    overflow: hidden;
-    background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    /* background-position: 100%; */
-    text-decoration: none;
-    animation-name: codeEffect;
-    animation-timing-function: linear;
-    animation-duration: 3100ms;
-    /* animation-delay: 1400ms; */
-    animation-iteration-count: infinite;
-}
-
-.commandEffect:hover {
-    -webkit-text-fill-color: #0c0b1a;
-    animation-play-state: paused;
 }
 
 @keyframes codeEffect {
@@ -391,18 +327,13 @@
     }
 }
 
-.exampleInfo span,
-.exampleTXT span {
+.exampleInfo span {
     font-family: Roboto-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: 1.2rem;
     line-height: 19px;
     color: #8f9bb2;
-}
-
-.exampleTXT {
-    margin: 50px 0 15px 0;
 }
 
 .exampleDescription {
@@ -413,7 +344,6 @@
     font-weight: normal;
     font-size: 1.1rem;
     line-height: 19px;
-
     color: #8f9bb2;
 }
 
@@ -454,12 +384,6 @@ strong {
     }
 }
 
-@media (max-width: 1113px) {
-    .commandEffect {
-        height: 30px;
-    }
-}
-
 @media (max-width: 1000px) {
     .wrapper {
         margin: 50px 0;
@@ -483,8 +407,5 @@ strong {
 @media (max-width: 940px) {
     header {
         padding: 0 10px;
-    }
-    .commandEffect {
-        height: 50px;
     }
 }

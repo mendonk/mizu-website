@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
+import CodeBlock from "../../components/codeBlock";
 import Logo from "../../src/images/logo.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
-import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
 import StandloneImage from "../images/standalone.png";
 
@@ -15,10 +15,12 @@ const IndexPage = () => {
     const [mizuLink, setMizuLink] = useState(
         "curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu && chmod 755 mizu"
     );
-    const quickStart = useRef(null);
+
     const downloadCopyRef = useRef(null);
+    const quickStart = useRef(null);
     const runCopyRef = useRef(null);
     const exampleTapCopyRef = useRef(null);
+    const mizuTapRef = useRef(null);
 
     return (
         <Layout>
@@ -186,47 +188,17 @@ const IndexPage = () => {
                             paddingTop: "0px",
                         }}
                     >
-                        <div className="quickStartCodeRow">
-                            <h4 className="lblOfQuickStartCodeRow">Download</h4>
-                        </div>
-                        <div
-                            className="exampleCommand"
-                            style={{ marginTop: "10px" }}
-                        >
-                            <span
-                                ref={downloadCopyRef}
-                                className="commandEffect"
-                            >
-                                {mizuLink}
-                            </span>
-                            <img
-                                src={CopyIcon}
-                                alt="Copy Icon"
-                                onMouseDown={() => {
-                                    navigator.clipboard.writeText(
-                                        downloadCopyRef.current.innerText
-                                    );
-                                }}
-                            />
-                        </div>
-                        <div className="quickStartCodeRow">
-                            <h4 className="lblOfQuickStartCodeRow">Run</h4>
-                        </div>
-                        <div
-                            className="exampleCommand"
-                            style={{ marginTop: "10px", marginBottom: "30px" }}
-                        >
-                            <span ref={runCopyRef}>{`mizu tap <podname>`}</span>
-                            <img
-                                src={CopyIcon}
-                                alt="Copy Icon"
-                                onMouseDown={() => {
-                                    navigator.clipboard.writeText(
-                                        runCopyRef.current.innerText
-                                    );
-                                }}
-                            />
-                        </div>
+                        <CodeBlock
+                            title="Download"
+                            codeText={mizuLink}
+                            copyRef={downloadCopyRef}
+                            animation={true}
+                        />
+                        <CodeBlock
+                            title="Run"
+                            codeText="mizu tap <podname>"
+                            copyRef={runCopyRef}
+                        />
                     </div>
                     <div className="quickStartCodeContainer">
                         <h4 className="txtNotes">Notes</h4>
@@ -284,46 +256,21 @@ const IndexPage = () => {
                     <div className="exampleImage">
                         <img src={ExampleImage} alt="Example IMG" />
                     </div>
-                    <div className="exampleTXT">
-                        <span>
-                            View traffic of a specific pod, identified by the
-                            pod name:
-                        </span>
-                    </div>
-                    <div className="exampleCommand">
-                        <span ref={exampleTapCopyRef}>
-                            mizu tap catalogue-b87b45784-sxc8q
-                        </span>
-                        <img
-                            src={CopyIcon}
-                            alt="Copy Icon"
-                            onMouseDown={() => {
-                                navigator.clipboard.writeText(
-                                    exampleTapCopyRef.current.innerText
-                                );
-                            }}
-                        />
-                    </div>
-                    <div className="exampleTXT">
-                        <span>
-                            View traffic of several pods, identified by a
-                            regular expression:
-                        </span>
-                    </div>
-                    <div className="exampleCommand">
-                        <span ref={exampleTapCopyRef}>
-                            mizu tap "(catalo*|front-end*)"
-                        </span>
-                        <img
-                            src={CopyIcon}
-                            alt="Copy Icon"
-                            onMouseDown={() => {
-                                navigator.clipboard.writeText(
-                                    exampleTapCopyRef.current.innerText
-                                );
-                            }}
-                        />
-                    </div>
+                    <CodeBlock
+                        title="View traffic of a specific pod, identified by the
+                            pod name:"
+                        codeText="mizu tap catalogue-b87b45784-sxc8q"
+                        copyRef={runCopyRef}
+                        textColor="default"
+                    />
+                    <CodeBlock
+                        title="View traffic of several pods, identified by a
+                        regular expression:"
+                        codeText='mizu tap "(catalo*|front-end*)"'
+                        copyRef={exampleTapCopyRef}
+                        textColor="default"
+                    />
+
                     <div className="exampleDescription">
                         <span>
                             The above command will observe the traffic of the
@@ -344,21 +291,11 @@ const IndexPage = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="exampleTXT">
-                        <span>View all API traffic</span>
-                    </div>
-                    <div className="exampleCommand">
-                        <span ref={exampleTapCopyRef}>mizu tap ".*"</span>
-                        <img
-                            src={CopyIcon}
-                            alt="Copy Icon"
-                            onMouseDown={() => {
-                                navigator.clipboard.writeText(
-                                    exampleTapCopyRef.current.innerText
-                                );
-                            }}
-                        />
-                    </div>
+                    <CodeBlock
+                        title="View all API traffic"
+                        codeText='mizu tap ".*"'
+                        copyRef={mizuTapRef}
+                    />
                 </Card>
             </section>
         </Layout>
