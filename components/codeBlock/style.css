@@ -110,6 +110,9 @@
 .customToolTip span {
     color: #fff;
     padding: 10px;
+    font-family: SourceCodePro-Regular;
+    font-style: normal;
+    font-weight: bold;
 }
 
 @media (max-width: 1113px) {
