@@ -295,6 +295,7 @@ const IndexPage = () => {
                         title="View all API traffic"
                         codeText='mizu tap ".*"'
                         copyRef={mizuTapRef}
+                        textColor="default"
                     />
                 </Card>
             </section>
