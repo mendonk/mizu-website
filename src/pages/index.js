@@ -19,6 +19,7 @@ const IndexPage = () => {
     const downloadCopyRef = useRef(null);
     const quickStart = useRef(null);
     const runCopyRef = useRef(null);
+    const catalogueCopyRef = useRef(null);
     const exampleTapCopyRef = useRef(null);
     const mizuTapRef = useRef(null);
 
@@ -260,7 +261,7 @@ const IndexPage = () => {
                         title="View traffic of a specific pod, identified by the
                             pod name:"
                         codeText="mizu tap catalogue-b87b45784-sxc8q"
-                        copyRef={runCopyRef}
+                        copyRef={catalogueCopyRef}
                         textColor="default"
                     />
                     <CodeBlock
