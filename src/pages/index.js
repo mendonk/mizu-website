@@ -13,7 +13,7 @@ import "./index.css";
 const IndexPage = () => {
     const [activeTab, setActiveTab] = useState("mac");
     const [mizuLink, setMizuLink] = useState(
-        "curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu && chmod 755 mizu"
+        "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 && chmod 755 mizu"
     );
 
     const downloadCopyRef = useRef(null);
@@ -153,7 +153,7 @@ const IndexPage = () => {
                                     onMouseDown={() => {
                                         setActiveTab("mac");
                                         setMizuLink(
-                                            "curl -O https://static.up9.com/mizu/main/darwin.amd64/mizu && chmod 755 mizu"
+                                            "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 && chmod 755 mizu"
                                         );
                                     }}
                                 >
@@ -172,7 +172,7 @@ const IndexPage = () => {
                                     onMouseDown={() => {
                                         setActiveTab("linux");
                                         setMizuLink(
-                                            "curl -O https://static.up9.com/mizu/main/linux.amd64/mizu && chmod 755 ./mizu"
+                                            "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 && chmod 755 mizu"
                                         );
                                     }}
                                 >
@@ -208,6 +208,16 @@ const IndexPage = () => {
                                 You should have <strong>kubectl</strong>{" "}
                                 configured to run against your Kubernetes
                                 cluster.
+                            </li>
+                            <li>
+                                For more downloads please see our Github{" "}
+                                <a
+                                    href="https://github.com/up9inc/mizu/releases/latest/"
+                                    target="_blank"
+                                >
+                                    Releases
+                                </a>{" "}
+                                page
                             </li>
                         </ul>
                     </div>

@@ -20,5 +20,4 @@ module.exports = {
             },
         },
     ],
-    pathPrefix: "/mizu-website",
 };

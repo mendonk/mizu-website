@@ -238,6 +238,10 @@
     line-height: 30px;
 }
 
+.quickStartList li a {
+    text-decoration: none;
+}
+
 /* Standalone */
 .standalone {
     min-height: 800px;
