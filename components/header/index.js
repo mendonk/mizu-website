@@ -11,7 +11,9 @@ const Header = () => (
             <title>Mizu</title>
         </Helmet>
         <div className="image">
-            <img src={logo} alt="Logo" />
+            <a href="/">
+                <img src={logo} alt="Logo" />
+            </a>
         </div>
         <nav>
             <ul>

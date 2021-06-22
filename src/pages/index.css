@@ -388,7 +388,7 @@ strong {
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: flex-end;
 }
 
 .notFoundInfo h1 {

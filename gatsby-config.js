@@ -27,5 +27,6 @@ module.exports = {
             },
         },
         `react-helmet`,
+        `gatsby-plugin-client-side-redirect`,
     ],
 };
