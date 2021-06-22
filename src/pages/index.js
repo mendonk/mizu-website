@@ -210,7 +210,8 @@ const IndexPage = () => {
                                 cluster.
                             </li>
                             <li>
-                                For more downloads please see our Github{" "}
+                                For file checksum and more downloads please see
+                                our Github{" "}
                                 <a
                                     href="https://github.com/up9inc/mizu/releases/latest/"
                                     target="_blank"
