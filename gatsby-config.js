@@ -11,7 +11,14 @@ module.exports = {
         PRESERVE_WEBPACK_CACHE: true,
     },
     plugins: [
-        `react-helmet`,
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-199907275-1",
+                head: true,
+                anonymize: true,
+            },
+        },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -19,5 +26,6 @@ module.exports = {
                 crossOrigin: `use-credentials`,
             },
         },
+        `react-helmet`,
     ],
 };

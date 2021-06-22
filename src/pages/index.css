@@ -373,6 +373,40 @@ strong {
     color: #000;
 }
 
+/* NOT FOUND 404 */
+.notFound {
+    min-height: calc(100vh - 60px);
+    background-image: url("../images/notFound.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.notFoundContainer {
+    min-height: calc(100vh - 60px);
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.notFoundInfo h1 {
+    font-family: Quicksand-Bold;
+    font-size: 3.5rem;
+    color: #0c0b1a;
+    margin-bottom: 50px;
+}
+
+.notFoundInfo p {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #494677;
+    margin-bottom: 50px;
+}
+
 @media (max-width: 1300px) {
     .infoWrapper {
         font-size: clamp(1rem, calc(3vw + 1rem), 1.5rem);
@@ -385,6 +419,13 @@ strong {
     }
     .startingContainer {
         width: 80%;
+    }
+}
+
+@media (max-width: 1150px) {
+    .notFoundContainer {
+        width: 100%;
+        justify-content: center;
     }
 }
 
