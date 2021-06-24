@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import logo from "../../src/images/logo.svg";
 import TwitterIcon from "../../src/images/twittericon.svg";
 import GithubIcon from "../../src/images/githubicon.svg";
+
 import "./header.css";
 
 const Header = () => (

@@ -7,6 +7,7 @@ import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
 import ExampleImage from "../images/exampleImage.png";
 import StandloneImage from "../images/standalone.png";
+import Kubernetes from "../images/kubernetes.png";
 
 import "./index.css";
 
@@ -30,7 +31,13 @@ const IndexPage = () => {
                     <div className="wrapper">
                         <div className="infoWrapper">
                             <h2>API Traffic Viewer</h2>
-                            <h2>for Kubernetes</h2>
+                            <div
+                                className="kubernetes"
+                                style={{ display: "flex", width: "100%" }}
+                            >
+                                <h2>for</h2> &nbsp; <img src={Kubernetes} />
+                            </div>
+
                             <p className="txtDescription">
                                 A simple-yet-powerful API traffic viewer <br />
                                 for Kubernetes to help you troubleshoot <br />
