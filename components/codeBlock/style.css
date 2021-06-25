@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* overflow-x: scroll; */
+    overflow-x: scroll;
 }
 
 .exampleCommand span {
@@ -44,7 +44,7 @@
 }
 
 .commandEffect {
-    height: 20px;
+    padding: 2px 0;
     position: relative;
     display: inline-block;
     color: #0c0b1a;
@@ -115,7 +115,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 1113px) {
+/* @media (max-width: 1113px) {
     .commandEffect {
         height: 30px;
     }
@@ -125,4 +125,4 @@
     .commandEffect {
         height: 50px;
     }
-}
+} */
