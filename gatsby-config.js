@@ -12,13 +12,22 @@ module.exports = {
     },
     plugins: [
         {
-            resolve: `gatsby-plugin-google-analytics`,
+            resolve: `gatsby-plugin-google-gtag`,
             options: {
-                trackingId: "G-ZKZE18RLGM",
-                head: true,
-                anonymize: true,
+                trackingIds: ["G-ZKZE18RLGM"],
+                pluginConfig: {
+                    head: true,
+                },
             },
         },
+        // {
+        //     resolve: `gatsby-plugin-google-analytics`,
+        //     options: {
+        //         trackingId: "G-ZKZE18RLGM",
+        //         head: true,
+        //         anonymize: true,
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
