@@ -87,7 +87,7 @@ html {
 
 .kubernetes {
     display: flex;
-    width: 100%;
+    width: 310px;
 }
 
 .kubernetes h2 {
@@ -96,7 +96,7 @@ html {
 }
 
 .kubernetes img {
-    width: 70%;
+    width: 100%;
 }
 
 /* Key Features */
@@ -443,6 +443,9 @@ strong {
     .startingContainer {
         width: 80%;
     }
+    .kubernetes {
+        width: 230px;
+    }
 }
 
 @media (max-width: 1150px) {
@@ -471,39 +474,15 @@ strong {
         display: none;
     }
     .kubernetes {
-        justify-content: center;
+        width: 300px;
     }
     .kubernetes img {
-        width: 35%;
+        width: 80%;
     }
 }
 
 @media (max-width: 940px) {
     header {
         padding: 0 10px;
-    }
-}
-
-@media (max-width: 700px) {
-    .kubernetes img {
-        width: 45%;
-    }
-}
-
-@media (max-width: 560px) {
-    .kubernetes img {
-        width: 50%;
-    }
-}
-
-@media (max-width: 490px) {
-    .kubernetes img {
-        width: 65%;
-    }
-}
-
-@media (max-width: 380px) {
-    .kubernetes img {
-        width: 75%;
     }
 }

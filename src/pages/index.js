@@ -31,10 +31,7 @@ const IndexPage = () => {
                     <div className="wrapper">
                         <div className="infoWrapper">
                             <h2>API Traffic Viewer</h2>
-                            <div
-                                className="kubernetes"
-                                style={{ display: "flex", width: "100%" }}
-                            >
+                            <div className="kubernetes">
                                 <h2>for</h2> &nbsp; <img src={Kubernetes} />
                             </div>
 
