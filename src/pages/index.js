@@ -282,7 +282,7 @@ const IndexPage = () => {
                     <CodeBlock
                         title="View traffic of several pods, identified by a
                         regular expression:"
-                        codeText='mizu tap "(catalo*|front-end*) -A"'
+                        codeText='mizu tap "(catalo*|front-end*)" -A'
                         copyRef={exampleTapCopyRef}
                         textColor="default"
                     />
