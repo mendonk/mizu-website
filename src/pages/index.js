@@ -275,14 +275,14 @@ const IndexPage = () => {
                     <CodeBlock
                         title="View traffic of a specific pod, identified by the
                             pod name:"
-                        codeText="mizu tap catalogue-b87b45784-sxc8q"
+                        codeText="mizu tap catalogue-b87b45784-sxc8q -A"
                         copyRef={catalogueCopyRef}
                         textColor="default"
                     />
                     <CodeBlock
                         title="View traffic of several pods, identified by a
                         regular expression:"
-                        codeText='mizu tap "(catalo*|front-end*)"'
+                        codeText='mizu tap "(catalo*|front-end*) -A"'
                         copyRef={exampleTapCopyRef}
                         textColor="default"
                     />
@@ -309,7 +309,13 @@ const IndexPage = () => {
                     </div>
                     <CodeBlock
                         title="View all API traffic"
-                        codeText='mizu tap ".*"'
+                        codeText='mizu tap ".*" -A'
+                        copyRef={mizuTapRef}
+                        textColor="default"
+                    />
+                    <CodeBlock
+                        title="View all API traffic in pods that belong to a certain namespace"
+                        codeText='mizu tap ".*" -n sock-shop'
                         copyRef={mizuTapRef}
                         textColor="default"
                     />
