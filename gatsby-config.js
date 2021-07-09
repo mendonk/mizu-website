@@ -20,14 +20,6 @@ module.exports = {
                 },
             },
         },
-        // {
-        //     resolve: `gatsby-plugin-google-analytics`,
-        //     options: {
-        //         trackingId: "G-ZKZE18RLGM",
-        //         head: true,
-        //         anonymize: true,
-        //     },
-        // },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
