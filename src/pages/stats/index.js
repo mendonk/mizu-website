@@ -89,7 +89,7 @@ const StatsPage = () => {
                                             key={index}
                                             ref={lastBookElementRef}
                                         >
-                                            <td data-label="Filename">
+                                            <td data-label="Release">
                                                 {file.target_commitish}
                                             </td>
                                             <td data-label="Filename">
@@ -103,7 +103,7 @@ const StatsPage = () => {
                                 } else {
                                     return (
                                         <tr key={index}>
-                                            <td data-label="Filename">
+                                            <td data-label="Release">
                                                 {file.target_commitish}
                                             </td>
                                             <td data-label="Filename">
