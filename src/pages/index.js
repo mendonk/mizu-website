@@ -23,6 +23,8 @@ const IndexPage = () => {
     const catalogueCopyRef = useRef(null);
     const exampleTapCopyRef = useRef(null);
     const mizuTapRef = useRef(null);
+    const mizuSecurityTapRef = useRef(null);
+    const mizuSecurityTapRedactRef = useRef(null);
 
     return (
         <Layout>
@@ -319,6 +321,72 @@ const IndexPage = () => {
                         copyRef={mizuTapRef}
                         textColor="default"
                     />
+                </Card>
+            </section>
+            <section className="security">
+                <Card>
+                    <h1>Security</h1>
+                </Card>
+                <Card
+                    dpFlex="dpFlex"
+                    customStyle={{
+                        width: "70%",
+                        flexDirection: "column",
+                        margin: "50px 0",
+                    }}
+                >
+                    <p>
+                        When Mizu taps data that could be considered sensitive
+                        (e.g. PII data) you can make sure certain keywords or
+                        pieces of data will not be shown or stored anywhere.
+                    </p>
+                    <p className="securityDescription">
+                        Mizu redacts sensitive data by default. Fields like
+                        ‘token,’ ‘authentication,’ and ‘passcode’ are only a few
+                        of the exhaustive list of keywords that can be found in
+                        the consts.go file in this folder:&nbsp;
+                        <a
+                            href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
+                            target="_blank"
+                            className="securityLink"
+                        >
+                            https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
+                        </a>
+                    </p>
+                    <div className="securityBlock">
+                        <h2>Changing the default list of keywords</h2>
+                        <p>
+                            To remove or add keywords to the default list of
+                            redacted keywords, simply change the file and build
+                            the code with the altered file.
+                        </p>
+                    </div>
+                    <div className="securityBlock">
+                        <h2>Redact sensitive data using regular expressions</h2>
+                        <p>
+                            You can filter free text from body of messages with
+                            text/plain content-type with -r
+                        </p>
+                    </div>
+                    <div className="securityBlock">
+                        <h2>Examples:</h2>
+                        <CodeBlock
+                            title=""
+                            codeText='./mizu tap ".*" -r <regex>'
+                            copyRef={mizuSecurityTapRef}
+                            textColor="default"
+                        />
+                        <p className="securityExamplesP">
+                            Use multiple -r to simultaneously filter multiple
+                            patterns:
+                        </p>
+                        <CodeBlock
+                            title=""
+                            codeText='./mizu tap ".*" -r "redact this pattern" -r "and also this .* pattern"'
+                            copyRef={mizuSecurityTapRedactRef}
+                            textColor="default"
+                        />
+                    </div>
                 </Card>
             </section>
         </Layout>
