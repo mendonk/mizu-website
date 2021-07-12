@@ -27,7 +27,7 @@ const StatsPage = () => {
 
     return (
         <>
-            <Header siteTitle={`Mizu`} />
+            <Header siteTitle={`Mizu - Stats`} />
             <section className="stats">
                 <Card
                     customStyle={{

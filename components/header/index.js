@@ -6,10 +6,10 @@ import GithubIcon from "../../src/images/githubicon.svg";
 
 import "./header.css";
 
-const Header = () => (
+const Header = ({ siteTitle }) => (
     <header>
         <Helmet>
-            <title>Mizu</title>
+            <title>{siteTitle}</title>
         </Helmet>
         <div className="image">
             <a href="/">
