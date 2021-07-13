@@ -1,6 +1,6 @@
 import * as React from "react";
 import Helmet from "react-helmet";
-import logo from "../../src/images/logo.svg";
+import logo from "../../src/images/logo2.svg";
 import TwitterIcon from "../../src/images/twittericon.svg";
 import GithubIcon from "../../src/images/githubicon.svg";
 
