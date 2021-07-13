@@ -11,7 +11,7 @@ import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
 
 import metaImage from "../images/thumb.png";
-import thumbTwitter from "../images/thumbTwitter.png";
+import thumbIMG from "../images/thumbTwitter.png";
 
 import "./index.css";
 
@@ -36,13 +36,13 @@ const IndexPage = () => {
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-                <meta name="image" content={metaImage} />
+                <meta name="image" content={thumbIMG} />
                 <meta
                     itemProp="name"
                     content="API Traffic viewer for Kubernetes"
                 />
 
-                <meta property="og:image" content={metaImage} />
+                <meta property="og:image" content={thumbIMG} />
                 <meta
                     property="og:site_name"
                     content="API Traffic viewer for Kubernetes"
@@ -63,7 +63,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 <meta
                     name="twitter:card"
                     property="twitter:card"
-                    content="summary"
+                    content="summary_large_image"
                 />
                 <meta
                     name="twitter:site"
@@ -83,8 +83,8 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
                 <meta
                     name="twitter:image"
+                    content={thumbIMG}
                     property="twitter:image"
-                    content={thumbTwitter}
                 />
             </Helmet>
             <section className="mainWrapper">
