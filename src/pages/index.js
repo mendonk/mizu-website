@@ -60,7 +60,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-                <meta
+                {/* <meta
                     name="twitter:card"
                     property="twitter:card"
                     content="summary_large_image"
@@ -85,7 +85,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     name="twitter:image"
                     content={thumbIMG}
                     property="twitter:image"
-                />
+                /> */}
             </Helmet>
             <section className="mainWrapper">
                 <Card>
