@@ -46,7 +46,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     property="og:site_name"
                     content="API Traffic viewer for Kubernetes"
                 />
-                <meta property="og:type" content="article" />
+                <meta property="og:type" content="website" />
                 <meta
                     name="title"
                     property="og:title"
@@ -54,6 +54,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
                 <meta property="og:url" content="https://getmizu.io" />
                 <meta
+                    name="description"
                     property="og:description"
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
