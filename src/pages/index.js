@@ -11,7 +11,6 @@ import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
 
 import metaImage from "../images/thumb.png";
-import thumbIMG from "../images/thumbTwitter.png";
 
 import "./index.css";
 
@@ -59,6 +58,32 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     property="og:description"
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                />
+                <meta
+                    name="twitter:card"
+                    property="twitter:card"
+                    content="summary_large_image"
+                />
+                <meta
+                    name="twitter:site"
+                    property="twitter:site"
+                    content="https://getmizu.io"
+                />
+                <meta
+                    name="twitter:title"
+                    property="twitter:title"
+                    content="API Traffic viewer for Kubernetes"
+                />
+                <meta
+                    name="twitter:description"
+                    property="twitter:description"
+                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                />
+                <meta
+                    name="twitter:image"
+                    content={metaImage}
+                    property="twitter:image"
                 />
             </Helmet>
             <section className="mainWrapper">
