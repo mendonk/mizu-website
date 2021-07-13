@@ -30,6 +30,18 @@ const IndexPage = () => {
     return (
         <Layout>
             <Helmet>
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta
+                    property="twitter:title"
+                    content="API Traffic viewer for Kubernetes"
+                />
+                <meta
+                    property="twitter:description"
+                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                />
+                <meta property="twitter:image" content={metaImage} />
+                <meta property="twitter:site" content="https://getmizu.io" />
                 <meta
                     name="description"
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
@@ -59,19 +71,6 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta
-                    property="twitter:title"
-                    content="API Traffic viewer for Kubernetes"
-                />
-                <meta
-                    property="twitter:description"
-                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
-and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
-                />
-                <meta property="twitter:image" content={metaImage} />
-                <meta property="twitter:site" content="https://getmizu.io" />
             </Helmet>
             <section className="mainWrapper">
                 <Card>
