@@ -31,7 +31,7 @@ const IndexPage = () => {
     return (
         <Layout>
             <Helmet>
-                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:card" content="summary" />
                 <meta
                     property="twitter:title"
                     content="API Traffic viewer for Kubernetes"
