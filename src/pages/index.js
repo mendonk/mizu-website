@@ -82,7 +82,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
                 <meta
                     name="twitter:image"
-                    content={metaImage}
+                    content="https://i.ibb.co/DthJjx4/thumb.png"
                     property="twitter:image"
                 />
             </Helmet>
