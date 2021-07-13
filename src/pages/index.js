@@ -60,18 +60,32 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-                <meta property="twitter:card" content="summary" />
-                <meta property="twitter:site" content="https://getmizu.io" />
                 <meta
+                    name="twitter:card"
+                    property="twitter:card"
+                    content="summary"
+                />
+                <meta
+                    name="twitter:site"
+                    property="twitter:site"
+                    content="https://getmizu.io"
+                />
+                <meta
+                    name="twitter:title"
                     property="twitter:title"
                     content="API Traffic viewer for Kubernetes"
                 />
                 <meta
+                    name="twitter:description"
                     property="twitter:description"
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-                <meta property="twitter:image" content={thumbTwitter} />
+                <meta
+                    name="twitter:image"
+                    property="twitter:image"
+                    content={thumbTwitter}
+                />
             </Helmet>
             <section className="mainWrapper">
                 <Card>
