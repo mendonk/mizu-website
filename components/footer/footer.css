@@ -9,7 +9,7 @@ footer {
 }
 
 .footerIcons {
-    width: 90px;
+    width: 130px;
     justify-content: space-evenly;
     display: flex;
     padding-top: 20px;
@@ -29,6 +29,10 @@ footer {
 }
 
 .footerLogo {
-    width: 90px;
+    width: 130px;
     text-align: center;
+}
+
+.footerLogo img {
+    width: 100%;
 }

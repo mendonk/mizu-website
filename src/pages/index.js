@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 import CodeBlock from "../../components/codeBlock";
-import Logo from "../../src/images/logo.svg";
+import Logo from "../../src/images/logo2.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
 import ExampleImage from "../images/exampleImage.png";
@@ -123,12 +123,11 @@ const IndexPage = () => {
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
-                        alignItems: "center",
                         justifyContent: "center",
                         margin: "50px 0",
                     }}
                 >
-                    <img src={Logo} alt="Mizu" />
+                    <img src={Logo} alt="Mizu" className="downloadMIZUIcon" />
                     <span className="txtQuickStart">
                         &nbsp;
                         {`is a standalone tool (written in Golang)  that you can download

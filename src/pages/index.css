@@ -131,13 +131,15 @@ html {
 }
 
 .keyFeatureLogo img {
-    max-width: 80%;
+    max-width: 100%;
+    min-height: 70%;
 }
 
-/* .featureList {
-  display: flex;
-  flex-direction: row;
-} */
+.featureList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .featureListItem {
     display: flex;
@@ -261,6 +263,10 @@ html {
     text-decoration: none;
 }
 
+.downloadMIZUIcon {
+    height: 55px;
+}
+
 /* Standalone */
 .standalone {
     min-height: 800px;
@@ -293,7 +299,8 @@ html {
 }
 
 .standaloneDescription img {
-    vertical-align: bottom;
+    vertical-align: top;
+    height: 55px;
 }
 
 /* Example */
