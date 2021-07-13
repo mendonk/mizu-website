@@ -30,7 +30,6 @@ const IndexPage = () => {
     return (
         <Layout>
             <Helmet>
-                {/*General tags*/}
                 <meta
                     name="description"
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
@@ -41,14 +40,15 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     itemProp="name"
                     content="API Traffic viewer for Kubernetes"
                 />
-                {/* OpenGraph tags */}
+
                 <meta property="og:image" content={metaImage} />
                 <meta
                     property="og:site_name"
                     content="API Traffic viewer for Kubernetes"
                 />
-                <meta property="og:type" content="object" />
+                <meta property="og:type" content="article" />
                 <meta
+                    name="title"
                     property="og:title"
                     content="API Traffic viewer for Kubernetes"
                 />
@@ -59,7 +59,6 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
 
-                {/* Twitter Card tags */}
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta
                     property="twitter:title"
