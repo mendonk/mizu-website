@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Helmet from "react-helmet";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 import CodeBlock from "../../components/codeBlock";
@@ -8,6 +9,8 @@ import MainIMG from "../images/mainImg.png";
 import ExampleImage from "../images/exampleImage.png";
 import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
+
+import metaImage from "../images/metaImgMizu.png";
 
 import "./index.css";
 
@@ -26,6 +29,50 @@ const IndexPage = () => {
 
     return (
         <Layout>
+            <Helmet>
+                {/*General tags*/}
+                <meta
+                    name="description"
+                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                />
+                <meta name="image" content={metaImage} />
+                <meta
+                    itemProp="name"
+                    content="API Traffic viewer for Kubernetes"
+                />
+                {/* OpenGraph tags */}
+                <meta property="og:image" content={metaImage} />
+                <meta
+                    property="og:site_name"
+                    content="API Traffic viewer for Kubernetes"
+                />
+                <meta property="og:type" content="object" />
+                <meta
+                    property="og:title"
+                    content="API Traffic viewer for Kubernetes"
+                />
+                <meta property="og:url" content="https://getmizu.io" />
+                <meta
+                    property="og:description"
+                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                />
+
+                {/* Twitter Card tags */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta
+                    property="twitter:title"
+                    content="API Traffic viewer for Kubernetes"
+                />
+                <meta
+                    property="twitter:description"
+                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                />
+                <meta property="twitter:image" content={metaImage} />
+                <meta property="twitter:site" content="https://getmizu.io" />
+            </Helmet>
             <section className="mainWrapper">
                 <Card>
                     <div className="wrapper">
