@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 import CodeBlock from "../../components/codeBlock";

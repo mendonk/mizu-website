@@ -11,6 +11,7 @@ module.exports = {
         PRESERVE_WEBPACK_CACHE: true,
     },
     plugins: [
+        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
@@ -27,7 +28,6 @@ module.exports = {
                 crossOrigin: `use-credentials`,
             },
         },
-        `react-helmet`,
         `gatsby-plugin-client-side-redirect`,
     ],
 };
