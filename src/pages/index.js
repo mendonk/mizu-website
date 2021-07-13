@@ -10,7 +10,7 @@ import ExampleImage from "../images/exampleImage.png";
 import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
 
-import metaImage from "../images/metaImgMizu.png";
+import metaImage from "../images/thumb.png";
 
 import "./index.css";
 
