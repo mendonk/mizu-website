@@ -11,6 +11,7 @@ import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
 
 import metaImage from "../images/thumb.png";
+import thumbTwitter from "../images/thumbTwitter.png";
 
 import "./index.css";
 
@@ -40,7 +41,7 @@ const IndexPage = () => {
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-                <meta property="twitter:image" content={metaImage} />
+                <meta property="twitter:image" content={thumbTwitter} />
                 <meta property="twitter:site" content="https://getmizu.io" />
                 <meta
                     name="description"
