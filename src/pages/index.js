@@ -36,13 +36,13 @@ const IndexPage = () => {
                     content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
 and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                 />
-                <meta name="image" content={thumbIMG} />
+                <meta name="image" content={metaImage} />
                 <meta
                     itemProp="name"
                     content="API Traffic viewer for Kubernetes"
                 />
 
-                <meta property="og:image" content={thumbIMG} />
+                <meta name="image" property="og:image" content={metaImage} />
                 <meta
                     property="og:site_name"
                     content="API Traffic viewer for Kubernetes"
