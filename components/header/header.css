@@ -8,7 +8,6 @@ header {
 
 .image {
     height: 70px;
-    display: flex;
 }
 
 .image img {
