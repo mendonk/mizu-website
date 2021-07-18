@@ -9,3 +9,4 @@ models:
   home:
     type: page
     label: home
+    description: Home Page model
