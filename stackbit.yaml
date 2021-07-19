@@ -29,7 +29,7 @@ models:
         const: Think TCPDump and Chrome Dev Tools <br />&nbsp;combined.
       - name: button-label
         type: string
-        label: H2 of the top information
+        label: Label of the Quick Start button
         const: API Traffic Viewer
       - name: info-h2
         type: string
