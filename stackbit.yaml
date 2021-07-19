@@ -13,3 +13,4 @@ models:
     fields:
       - name: info-h2
         type: string
+        label: H2 of the top information
