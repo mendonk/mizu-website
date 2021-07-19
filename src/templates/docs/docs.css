@@ -1,0 +1,59 @@
+.docs {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    padding: 0 80px;
+    background-color: #f7f9fc;
+    /* border: 1px solid red; */
+}
+
+.sidebar {
+    background-color: #fff;
+    width: 320px;
+    padding: 40px 10px;
+    border-left: 1px solid #ebedf3;
+    border-top: 1px solid #ebedf3;
+    border-bottom: 1px solid #ebedf3;
+}
+
+.searchInput {
+    height: 40px;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 1px solid #ebedf3;
+}
+
+.content {
+    /* display: flex; */
+    padding: 40px 40px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ebedf3;
+}
+
+.groupDoc {
+    margin-top: 20px;
+}
+.groupDoc h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.groupDoc ul {
+    list-style: none;
+}
+
+.groupDoc ul li {
+    color: #8f9bb2;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.groupDoc ul > * + * {
+    line-height: 30px;
+}
+
+.groupDoc ul li a {
+    text-decoration: none;
+}

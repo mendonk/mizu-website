@@ -22,6 +22,30 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `docs`,
+                path: `${__dirname}/src/docs/`,
+            },
+        },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                footnotes: true,
+                gfm: true,
+                plugins: [
+                    {
+                        resolve: "gatsby-remark-prismjs",
+                        options: {
+                            aliases: {
+                                es6: "js",
+                            },
+                        },
+                    },
+                ],
+            },
+        },
+        {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 icon: "src/images/icon.png",
