@@ -2,5 +2,6 @@
 # To learn more about stackbit.yaml please visit https://www.stackbit.com/docs/stackbit-yaml/
 stackbitVersion: ~0.3.0
 ssgName: gatsby
-nodeVersion: '12'
+nodeVersion: 14
 publishDir: public
+cmsName: git
