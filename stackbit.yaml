@@ -4,12 +4,10 @@ stackbitVersion: ~0.3.0
 ssgName: gatsby
 nodeVersion: 14
 publishDir: public
-pagesDir: pages
-dataDir: data
 cmsName: git
 models:
   home:
-    type: data
+    type: page
     label: home
     description: Home pages texts
     file: home.json
