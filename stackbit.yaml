@@ -10,3 +10,6 @@ models:
     type: page
     label: home
     description: Home pages texts
+    fields:
+      - name: ''
+        type: string
