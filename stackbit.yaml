@@ -17,7 +17,7 @@ models:
         const: API Traffic Viewer
       - name: info-h3
         type: string
-        label: H2 of the top information
+        label: H2 2nd line of the top information
         const: for Kubernetes
       - name: text-description
         type: string
