@@ -12,6 +12,7 @@ import TwitterFooter from "../images/TwitterFooter.svg";
 import GithubFooter from "../images/GithubFooter.svg";
 import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
+import {pageData} from '../data/home.json';
 
 import "./index.css";
 
@@ -36,16 +37,13 @@ const IndexPage = () => {
                 <Card>
                     <div className="wrapper">
                         <div className="infoWrapper">
-                            <h2>API Traffic Viewer</h2>
-                            <h2>for Kubernetes</h2>
+                            <h2>{pageData["info-h2"]}</h2>
+                            <h2>{pageData["info-h3"]}</h2>
                             <p className="txtDescription">
-                                A simple-yet-powerful API traffic viewer <br />
-                                for Kubernetes to help you troubleshoot <br />
-                                and debug your microservices.
+                                {pageData["text-description"]}
                             </p>
                             <p>
-                                Think TCPDump and Chrome Dev Tools <br />{" "}
-                                combined.
+                                {pageData["text-lower-description"]}
                             </p>
                             <button
                                 className="btnHome"
@@ -55,7 +53,7 @@ const IndexPage = () => {
                                     });
                                 }}
                             >
-                                Quick Start
+                                {pageData["button-label"]}
                             </button>
                         </div>
                         <div className="mainLogoWrapper">
@@ -70,7 +68,7 @@ const IndexPage = () => {
             </section>
             <section className="keyFeatures">
                 <Card>
-                    <h1>Key Features</h1>
+                    <h1>{pageData["key-features-h1"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -88,7 +86,7 @@ const IndexPage = () => {
                                 style={{ background: "#27ae60" }}
                             />
                             <div className="singleFeature">
-                                Simple and powerful <b>CLI</b>
+                                {pageData["feature-cli"]}
                             </div>
                         </div>
                         <div className="featureListItem">
@@ -97,8 +95,7 @@ const IndexPage = () => {
                                 style={{ background: "#F7B202" }}
                             />
                             <div className="singleFeature">
-                                Real time view of all <b>HTTP</b> requests,{" "}
-                                <b>REST</b> and <b>gRPC</b> API calls
+                                {pageData["feature-requests"]}
                             </div>
                         </div>
                         <div className="featureListItem">
@@ -107,7 +104,7 @@ const IndexPage = () => {
                                 style={{ background: "#DB2156" }}
                             />
                             <div className="singleFeature">
-                                No installation or code instrumentation
+                                {pageData["feature-no-installation"]}
                             </div>
                         </div>
                         <div className="featureListItem">
@@ -116,7 +113,7 @@ const IndexPage = () => {
                                 style={{ background: "#205CF5" }}
                             />
                             <div className="singleFeature">
-                                Works completely on premises (on-prem)
+                                {pageData["feature-on-premiss"]}
                             </div>
                         </div>
                     </div>
@@ -124,7 +121,7 @@ const IndexPage = () => {
             </section>
             <section ref={quickStart} className="quickStart">
                 <Card>
-                    <h1>Quick Start</h1>
+                    <h1>{pageData["quick-start"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -137,8 +134,7 @@ const IndexPage = () => {
                     <img src={Logo} alt="Mizu" />
                     <span className="txtQuickStart">
                         &nbsp;
-                        {`is a <50MB program (written in Golang) that you can download
-            and run`}
+                        {pageData["quick-download"]}
                     </span>
                 </Card>
                 <Card
@@ -167,7 +163,7 @@ const IndexPage = () => {
                                         );
                                     }}
                                 >
-                                    MAC
+                                    {pageData["mac"]}
                                 </span>
                             </div>
                             <div className="quickStartTabItem">
@@ -186,7 +182,7 @@ const IndexPage = () => {
                                         );
                                     }}
                                 >
-                                    LINUX
+                                    {pageData["linux"]}
                                 </span>
                             </div>
                         </div>
@@ -200,7 +196,7 @@ const IndexPage = () => {
                         }}
                     >
                         <div className="quickStartCodeRow">
-                            <h4 className="lblOfQuickStartCodeRow">Download</h4>
+                            <h4 className="lblOfQuickStartCodeRow">{pageData["download"]}</h4>
                         </div>
                         <div
                             className="exampleCommand"
@@ -223,7 +219,7 @@ const IndexPage = () => {
                             />
                         </div>
                         <div className="quickStartCodeRow">
-                            <h4 className="lblOfQuickStartCodeRow">Run</h4>
+                            <h4 className="lblOfQuickStartCodeRow">{pageData["run"]}</h4>
                         </div>
                         <div
                             className="exampleCommand"
@@ -244,21 +240,11 @@ const IndexPage = () => {
                         </div>
                     </div>
                     <div className="quickStartCodeContainer">
-                        <h4 className="txtNotes">Notes</h4>
+                        <h4 className="txtNotes">{pageData["notes"]}</h4>
                         <ul className="quickStartList">
-                            <li>
-                                You should have kubectl configured to run
-                                against your Kubernetes cluster.
-                            </li>
-                            <li>
-                                Namespace is required in case the pod is in a
-                                different namespace than the default one.
-                            </li>
-                            <li>
-                                After mizu starts and successfully connects to
-                                the specified pod, a local web interface will
-                                become available at http://localhost:8899/
-                            </li>
+                            <li>{pageData["note-1"]}</li>
+                            <li>{pageData["note-2"]}</li>
+                            <li>{pageData["note-3"]}</li>
                         </ul>
                     </div>
                 </Card>
@@ -287,7 +273,7 @@ const IndexPage = () => {
             </section>
             <section className="commandLineArguments">
                 <Card>
-                    <h1>Command-line Arguments</h1>
+                    <h1>{pageData["cli-arguments"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -297,17 +283,16 @@ const IndexPage = () => {
                     }}
                 >
                     <span className="info">
-                        Usage and list of command-line arguments can be seen by
-                        running
+                        {pageData["cli-arguments-subheading"]}
                     </span>
                     &nbsp;
                     <span className="info" style={{ color: "#205CF5" }}>
-                        mizu -h
+                        {pageData["mizu-help-cmd"]}
                     </span>
                     &nbsp;
                     <span className="info">or</span>&nbsp;
                     <span className="info" style={{ color: "#205CF5" }}>
-                        mizu help
+                        {pageData["mizu-help-label"]}
                     </span>
                 </Card>
                 <Card
@@ -355,7 +340,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
             </section>
             <section className="example">
                 <Card>
-                    <h1>Example</h1>
+                    <h1>{pageData["example"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -365,9 +350,9 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                         margin: "50px 0",
                     }}
                 >
-                    <span className="info">How to Get the &nbsp;</span>
+                    <span className="info">{pageData["how-tp-get-the"]}</span>
                     <span className="info" style={{ color: "#205CF5" }}>
-                        Pod Name
+                        {pageData["prod-name"]}
                     </span>
                 </Card>
                 <Card
@@ -378,7 +363,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                 >
                     <div className="exampleCommand">
                         <span ref={exampleKubeCtlCopyRef}>
-                            kubectl get pods -A
+                            {pageData["kubectl-get-pods"]}
                         </span>
                         <img
                             src={CopyIcon}
@@ -395,7 +380,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                     </div>
                     <div className="exampleCommand">
                         <span ref={exampleTapCopyRef}>
-                            mizu tap carts-db-69d4c5864f-kg84n -n sock-shop
+                            {pageData["mizu-tap"]}
                         </span>
                         <img
                             src={CopyIcon}
@@ -446,8 +431,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                 </div>
                 <div className="footerCopy">
                     <span>
-                        Built and maintained by <b>UP9</b> &copy; ({currentYear}
-                        )
+                        Built and maintained by <b>UP9</b> &copy; ({currentYear})
                     </span>
                 </div>
             </footer>
