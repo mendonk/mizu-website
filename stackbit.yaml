@@ -33,8 +33,8 @@ models:
         const: Quick Start
       - name: key-features-h1
         type: string
-        label: H2 of the top information
-        const: API Traffic Viewer
+        label: Key features first level heading
+        const: Key Features
       - name: info-h2
         type: string
         label: H2 of the top information
