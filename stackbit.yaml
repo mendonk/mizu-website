@@ -15,4 +15,3 @@ models:
         type: string
         label: H2 of the top information
         const: API Traffic Viewer
-        required: true
