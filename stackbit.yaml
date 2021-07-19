@@ -19,7 +19,7 @@ models:
         type: string
         label: H2 of the top information
         const: for Kubernetes
-      - name: info-h2
+      - name: text-description
         type: string
         label: H2 of the top information
         const: API Traffic Viewer
