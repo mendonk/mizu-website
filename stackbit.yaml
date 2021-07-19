@@ -11,5 +11,5 @@ models:
     label: home
     description: Home pages texts
     fields:
-      - name: ''
+      - name: info-h2
         type: string
