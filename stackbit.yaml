@@ -27,7 +27,7 @@ models:
         type: string
         label: Subheading
         const: Think TCPDump and Chrome Dev Tools <br />&nbsp;combined.
-      - name: info-h2
+      - name: button-label
         type: string
         label: H2 of the top information
         const: API Traffic Viewer
