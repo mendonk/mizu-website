@@ -22,7 +22,9 @@ models:
       - name: text-description
         type: string
         label: H2 of the top information
-        const: A simple-yet-powerful API traffic viewer <br />for Kubernetes to help you troubleshoot <br />and debug your microservices.
+        const: >-
+          A simple-yet-powerful API traffic viewer <br />for Kubernetes to help
+          you troubleshoot <br />and debug your microservices.
       - name: text-lower-description
         type: string
         label: Subheading
@@ -39,4 +41,4 @@ models:
         type: string
         label: first feature
         const: Simple and powerful <b>CLI</b>
-
+    hideContent: true
