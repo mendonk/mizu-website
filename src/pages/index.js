@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef} from "react";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 
@@ -12,11 +12,12 @@ import TwitterFooter from "../images/TwitterFooter.svg";
 import GithubFooter from "../images/GithubFooter.svg";
 import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
-import {pageData} from '../data/home.json';
-
 import "./index.css";
+import {graphql} from "gatsby";
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
+    const {allJson} = data;
+    const {pageData} = allJson.edges[0].node;
     const today = new Date();
     const currentYear = today.getFullYear();
 
@@ -37,13 +38,13 @@ const IndexPage = () => {
                 <Card>
                     <div className="wrapper">
                         <div className="infoWrapper">
-                            <h2>{pageData["info-h2"]}</h2>
-                            <h2>{pageData["info-h3"]}</h2>
+                            <h2>{pageData["infoH2"]}</h2>
+                            <h2>{pageData["infoH3"]}</h2>
                             <p className="txtDescription">
-                                {pageData["text-description"]}
+                                {pageData["textDescription"]}
                             </p>
                             <p>
-                                {pageData["text-lower-description"]}
+                                {pageData["textLowerDescription"]}
                             </p>
                             <button
                                 className="btnHome"
@@ -53,7 +54,7 @@ const IndexPage = () => {
                                     });
                                 }}
                             >
-                                {pageData["button-label"]}
+                                {pageData["buttonLabel"]}
                             </button>
                         </div>
                         <div className="mainLogoWrapper">
@@ -68,7 +69,7 @@ const IndexPage = () => {
             </section>
             <section className="keyFeatures">
                 <Card>
-                    <h1>{pageData["key-features-h1"]}</h1>
+                    <h1>{pageData["keyFeaturesH1"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -77,43 +78,43 @@ const IndexPage = () => {
                     }}
                 >
                     <div className="keyFeatureLogo">
-                        <img src={keyFeaturesLogo} alt="Feature Logo" />
+                        <img src={keyFeaturesLogo} alt="Feature Logo"/>
                     </div>
                     <div className="featureList">
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{ background: "#27ae60" }}
+                                style={{background: "#27ae60"}}
                             />
                             <div className="singleFeature">
-                                {pageData["feature-cli"]}
+                                {pageData["featureCli"]}
                             </div>
                         </div>
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{ background: "#F7B202" }}
+                                style={{background: "#F7B202"}}
                             />
                             <div className="singleFeature">
-                                {pageData["feature-requests"]}
+                                {pageData["featureRequests"]}
                             </div>
                         </div>
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{ background: "#DB2156" }}
+                                style={{background: "#DB2156"}}
                             />
                             <div className="singleFeature">
-                                {pageData["feature-no-installation"]}
+                                {pageData["featureNoInstallation"]}
                             </div>
                         </div>
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{ background: "#205CF5" }}
+                                style={{background: "#205CF5"}}
                             />
                             <div className="singleFeature">
-                                {pageData["feature-on-premiss"]}
+                                {pageData["featureOnPremiss"]}
                             </div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@ const IndexPage = () => {
             </section>
             <section ref={quickStart} className="quickStart">
                 <Card>
-                    <h1>{pageData["quick-start"]}</h1>
+                    <h1>{pageData["quickStart"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -131,10 +132,10 @@ const IndexPage = () => {
                         margin: "50px 0",
                     }}
                 >
-                    <img src={Logo} alt="Mizu" />
+                    <img src={Logo} alt="Mizu"/>
                     <span className="txtQuickStart">
                         &nbsp;
-                        {pageData["quick-download"]}
+                        {pageData["quickDownload"]}
                     </span>
                 </Card>
                 <Card
@@ -200,7 +201,7 @@ const IndexPage = () => {
                         </div>
                         <div
                             className="exampleCommand"
-                            style={{ marginTop: "10px" }}
+                            style={{marginTop: "10px"}}
                         >
                             <span
                                 ref={downloadCopyRef}
@@ -223,7 +224,7 @@ const IndexPage = () => {
                         </div>
                         <div
                             className="exampleCommand"
-                            style={{ marginTop: "10px", marginBottom: "30px" }}
+                            style={{marginTop: "10px", marginBottom: "30px"}}
                         >
                             <span
                                 ref={runCopyRef}
@@ -242,9 +243,9 @@ const IndexPage = () => {
                     <div className="quickStartCodeContainer">
                         <h4 className="txtNotes">{pageData["notes"]}</h4>
                         <ul className="quickStartList">
-                            <li>{pageData["note-1"]}</li>
-                            <li>{pageData["note-2"]}</li>
-                            <li>{pageData["note-3"]}</li>
+                            <li>{pageData["note1"]}</li>
+                            <li>{pageData["note2"]}</li>
+                            <li>{pageData["note3"]}</li>
                         </ul>
                     </div>
                 </Card>
@@ -260,7 +261,7 @@ const IndexPage = () => {
                         href="https://github.com/up9inc/mizu"
                         target="_blank"
                         rel="noreferrer"
-                        style={{ width: "240px" }}
+                        style={{width: "240px"}}
                     >
                         Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
                         <img
@@ -273,7 +274,7 @@ const IndexPage = () => {
             </section>
             <section className="commandLineArguments">
                 <Card>
-                    <h1>{pageData["cli-arguments"]}</h1>
+                    <h1>{pageData["cliArguments"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -283,16 +284,16 @@ const IndexPage = () => {
                     }}
                 >
                     <span className="info">
-                        {pageData["cli-arguments-subheading"]}
+                        {pageData["cliArgumentsSubheading"]}
                     </span>
                     &nbsp;
-                    <span className="info" style={{ color: "#205CF5" }}>
-                        {pageData["mizu-help-cmd"]}
+                    <span className="info" style={{color: "#205CF5"}}>
+                        {pageData["mizuHelpCmd"]}
                     </span>
                     &nbsp;
                     <span className="info">or</span>&nbsp;
-                    <span className="info" style={{ color: "#205CF5" }}>
-                        {pageData["mizu-help-label"]}
+                    <span className="info" style={{color: "#205CF5"}}>
+                        {pageData["mizuHelpLabel"]}
                     </span>
                 </Card>
                 <Card
@@ -350,9 +351,9 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                         margin: "50px 0",
                     }}
                 >
-                    <span className="info">{pageData["how-tp-get-the"]}</span>
-                    <span className="info" style={{ color: "#205CF5" }}>
-                        {pageData["prod-name"]}
+                    <span className="info">{pageData["howToGetThe"]}</span>
+                    <span className="info" style={{color: "#205CF5"}}>
+                        {pageData["prodName"]}
                     </span>
                 </Card>
                 <Card
@@ -363,7 +364,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                 >
                     <div className="exampleCommand">
                         <span ref={exampleKubeCtlCopyRef}>
-                            {pageData["kubectl-get-pods"]}
+                            {pageData["kubectlGetPods"]}
                         </span>
                         <img
                             src={CopyIcon}
@@ -376,11 +377,11 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                         />
                     </div>
                     <div className="exampleImage">
-                        <img src={ExampleImage} alt="Example IMG" />
+                        <img src={ExampleImage} alt="Example IMG"/>
                     </div>
                     <div className="exampleCommand">
                         <span ref={exampleTapCopyRef}>
-                            {pageData["mizu-tap"]}
+                            {pageData["mizuTap"]}
                         </span>
                         <img
                             src={CopyIcon}
@@ -396,7 +397,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
             </section>
             <footer>
                 <div className="footerLogo">
-                    <img src={MizuFooterLogo} alt="Footer IMG" />
+                    <img src={MizuFooterLogo} alt="Footer IMG"/>
                 </div>
                 <div className="footerIcons">
                     <a
@@ -415,7 +416,7 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <img className="" src={SlackFooter} alt="Slack Icon" />
+                        <img className="" src={SlackFooter} alt="Slack Icon"/>
                     </a>
                     <a
                         href="https://twitter.com/up9inc"
@@ -440,3 +441,46 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
 };
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+query {
+  allJson(filter: {page: {eq: "home"}}) {
+    edges {
+      node {
+        pageData {
+            infoH2
+            infoH3
+            textDescription
+            textLowerDescription
+            buttonLabel
+            keyFeaturesH1
+            featureCli
+            featureRequests
+            featureNoInstallation
+            featureOnPremiss
+            quickStart
+            quickDownload
+            mac
+            linux
+            download
+            run
+            notes
+            note1
+            note2
+            note3
+            getTheCode
+            cliArguments
+            cliArgumentsSubheading
+            mizuHelpCmd
+            mizuHelpLabel
+            example
+            howToGetThe
+            prodName
+            kubectlGetPods
+            mizuTap
+        }
+      }
+    }
+  }
+}
+`;
