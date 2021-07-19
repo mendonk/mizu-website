@@ -42,3 +42,5 @@ models:
         label: first feature
         const: Simple and powerful <b>CLI</b>
     hideContent: true
+    singleInstance: true
+    file: src/data/home.json
