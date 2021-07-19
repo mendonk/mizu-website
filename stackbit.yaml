@@ -35,7 +35,7 @@ models:
         type: string
         label: Key features first level heading
         const: Key Features
-      - name: simple and powerful
+      - name: feature-cli
         type: string
         label: first feature
         const: Simple and powerful <b>CLI</b>
