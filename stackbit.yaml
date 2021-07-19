@@ -31,7 +31,7 @@ models:
         type: string
         label: Label of the Quick Start button
         const: Quick Start
-      - name: info-h2
+      - name: key-features-h1
         type: string
         label: H2 of the top information
         const: API Traffic Viewer
