@@ -35,7 +35,7 @@ models:
         type: string
         label: Key features first level heading
         const: Key Features
-      - name: info-h2
+      - name: simple and powerful
         type: string
         label: H2 of the top information
         const: API Traffic Viewer
