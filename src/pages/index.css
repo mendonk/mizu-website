@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+p {
+    word-break: break-all;
+}
+
 .mainWrapper {
     min-height: calc(100vh - 60px);
     display: flex;
@@ -456,9 +460,13 @@ strong {
     font-family: Roboto-Regular;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 35px;
     color: #494677;
+}
+
+.securityGithubLink {
+    text-decoration: none;
 }
 
 .securityDescription {

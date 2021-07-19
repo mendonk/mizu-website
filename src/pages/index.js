@@ -25,6 +25,7 @@ const IndexPage = () => {
     const mizuTapRef = useRef(null);
     const mizuSecurityTapRef = useRef(null);
     const mizuSecurityTapRedactRef = useRef(null);
+    const personallyIdentifiableDataFields = useRef(null);
 
     return (
         <Layout>
@@ -334,12 +335,34 @@ const IndexPage = () => {
                         flexDirection: "column",
                         margin: "50px 0",
                     }}
+                    responsiveWidth="responsiveWidth"
                 >
                     <p>
                         When Mizu taps data that could be considered sensitive
                         (e.g. PII data) you can make sure certain keywords or
                         pieces of data will not be shown or stored anywhere.
                     </p>
+                    <p>
+                        <br />
+                        Mizu will redact by default any of the fields included
+                        in the <code>personallyIdentifiableDataFields</code> var
+                        located in the <code>consts.go</code> file in this
+                        folder:
+                        <a
+                            href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
+                            target="_blank"
+                            className="securityGithubLink"
+                        >
+                            https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
+                        </a>
+                    </p>
+                    <CodeBlock
+                        title=""
+                        codeText={`var personallyIdentifiableDataFields = []string{"token", "authorization", "authentication", "cookie", "userid", "password", "username", "user", "key", "passcode", "pass", "auth", "authtoken", "jwt", "bearer", "clientid", "clientsecret", "redirecturi", "phonenumber", "zip", "zipcode", "address", "country", "firstname", "lastname", "middlename", "fname", "lname", "birthdate"}`}
+                        copyRef={personallyIdentifiableDataFields}
+                        textColor="default"
+                    />
+
                     <p className="securityDescription">
                         Mizu redacts sensitive data by default. Fields like
                         ‘token,’ ‘authentication,’ and ‘passcode’ are only a few
@@ -360,11 +383,10 @@ const IndexPage = () => {
                             redacted keywords, simply change the file and build
                             the code with the altered file.
                         </p>
-                    </div>
-                    <div className="securityBlock">
-                        <h2>Redact sensitive data using regular expressions</h2>
+                        <br />
                         <p>
-                            You can filter free text from body of messages with
+                            Redact sensitive data using regular expressions. You
+                            can filter free text from the body of messages with
                             text/plain content-type with -r
                         </p>
                     </div>
@@ -382,7 +404,7 @@ const IndexPage = () => {
                         </p>
                         <CodeBlock
                             title=""
-                            codeText='./mizu tap ".*" -r "redact this pattern" -r "and also this .* pattern"'
+                            codeText='mizu tap catalo -r "redact this pattern" -r "and also this (.*) pattern"'
                             copyRef={mizuSecurityTapRedactRef}
                             textColor="default"
                         />
