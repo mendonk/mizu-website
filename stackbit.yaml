@@ -30,7 +30,7 @@ models:
       - name: button-label
         type: string
         label: Label of the Quick Start button
-        const: API Traffic Viewer
+        const: Quick Start
       - name: info-h2
         type: string
         label: H2 of the top information
