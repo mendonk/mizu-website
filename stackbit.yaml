@@ -5,3 +5,7 @@ ssgName: gatsby
 nodeVersion: 14
 publishDir: public
 cmsName: git
+models:
+  home:
+    type: page
+    label: home
