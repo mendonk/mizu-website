@@ -10,7 +10,6 @@ models:
     type: page
     label: home
     description: Home pages texts
-    file: home.json
     fields:
       - name: info-h2
         type: string
