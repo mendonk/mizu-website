@@ -37,6 +37,6 @@ models:
         const: Key Features
       - name: simple and powerful
         type: string
-        label: H2 of the top information
-        const: API Traffic Viewer
+        label: first feature
+        const: Simple and powerful <b>CLI</b>
 
