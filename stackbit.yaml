@@ -2,133 +2,102 @@
 # To learn more about stackbit.yaml please visit https://www.stackbit.com/docs/stackbit-yaml/
 stackbitVersion: ~0.3.0
 ssgName: gatsby
-nodeVersion: 14
+nodeVersion: '12'
 publishDir: public
-cmsName: git
+pagesDir: src/data
 models:
-  src:
+  data:
     type: page
-    label: Src
-    match: '**/*'
+    label: Data
+    match: '*'
     fields:
-      - name: infoH2
-        type: string
-        label: infoH2
-      - name: infoH3
-        type: string
-        label: infoH3
-      - name: textDescription
-        type: string
-        label: textDescription
-      - name: textLowerDescription
-        type: string
-        label: textLowerDescription
-      - name: buttonLabel
-        type: string
-        label: buttonLabel
-      - name: keyFeaturesH1
-        type: string
-        label: keyFeaturesH1
-      - name: featureCli
-        type: string
-        label: featureCli
-      - name: featureRequests
-        type: string
-        label: featureRequests
-      - name: featureNoInstallation
-        type: string
-        label: featureNoInstallation
-      - name: featureOnPremiss
-        type: string
-        label: featureOnPremiss
-      - name: quickStart
-        type: string
-        label: quickStart
-      - name: quickDownload
-        type: string
-        label: quickDownload
-      - name: mac
-        type: string
-        label: mac
-      - name: linux
-        type: string
-        label: linux
-      - name: download
-        type: string
-        label: download
-      - name: run
-        type: string
-        label: run
-      - name: notes
-        type: string
-        label: notes
-      - name: note1
-        type: string
-        label: note1
-      - name: note2
-        type: string
-        label: note2
-      - name: note3
-        type: string
-        label: note3
-      - name: getTheCode
-        type: string
-        label: getTheCode
-      - name: cliArguments
-        type: string
-        label: cliArguments
-      - name: cliArgumentsSubheading
-        type: string
-        label: cliArgumentsSubheading
-      - name: mizuHelpCmd
-        type: string
-        label: mizuHelpCmd
-      - name: mizuHelpLabel
-        type: string
-        label: mizuHelpLabel
-      - name: example
-        type: string
-        label: example
-      - name: howToGetThe
-        type: string
-        label: howToGetThe
-      - name: prodName
-        type: string
-        label: prodName
-      - name: kubectlGetPods
-        type: string
-        label: kubectlGetPods
-      - name: mizuTap
-        type: string
-        label: mizuTap
-logicFields:
-  - infoH2
-  - infoH3
-  - textDescription
-  - textLowerDescription
-  - buttonLabel
-  - keyFeaturesH1
-  - featureCli
-  - featureRequests
-  - featureNoInstallation
-  - featureOnPremiss
-  - quickStart
-  - quickDownload
-  - mac
-  - linux
-  - download
-  - run
-  - notes
-  - note1
-  - note2
-  - note3
-  - getTheCode
-  - cliArguments
-  - cliArgumentsSubheading
-  - mizuHelpCmd
-  - mizuHelpLabel
-  - example
-  - howToGetThe
-  - prodName
-  - kubectlGetPods
-  - mizuTap
+      - type: string
+        name: infoH2
+        label: Info H 2
+      - type: string
+        name: infoH3
+        label: Info H 3
+      - type: markdown
+        name: textDescription
+        label: Text Description
+      - type: string
+        name: textLowerDescription
+        label: Text Lower Description
+      - type: string
+        name: buttonLabel
+        label: Button Label
+      - type: string
+        name: keyFeaturesH1
+        label: Key Features H 1
+      - type: markdown
+        name: featureCli
+        label: Feature Cli
+      - type: markdown
+        name: featureRequests
+        label: Feature Requests
+      - type: string
+        name: featureNoInstallation
+        label: Feature No Installation
+      - type: string
+        name: featureOnPremiss
+        label: Feature On Premiss
+      - type: string
+        name: quickStart
+        label: Quick Start
+      - type: string
+        name: quickDownload
+        label: Quick Download
+      - type: string
+        name: mac
+        label: Mac
+      - type: string
+        name: linux
+        label: Linux
+      - type: string
+        name: download
+        label: Download
+      - type: string
+        name: run
+        label: Run
+      - type: string
+        name: notes
+        label: Notes
+      - type: string
+        name: note1
+        label: Note 1
+      - type: string
+        name: note2
+        label: Note 2
+      - type: string
+        name: note3
+        label: Note 3
+      - type: string
+        name: getTheCode
+        label: Get The Code
+      - type: string
+        name: cliArguments
+        label: Cli Arguments
+      - type: string
+        name: cliArgumentsSubheading
+        label: Cli Arguments Subheading
+      - type: string
+        name: mizuHelpCmd
+        label: Mizu Help Cmd
+      - type: string
+        name: mizuHelpLabel
+        label: Mizu Help Label
+      - type: string
+        name: example
+        label: Example
+      - type: string
+        name: howToGetThe
+        label: How To Get The
+      - type: string
+        name: prodName
+        label: Prod Name
+      - type: string
+        name: kubectlGetPods
+        label: Kubectl Get Pods
+      - type: string
+        name: mizuTap
+        label: Mizu Tap
