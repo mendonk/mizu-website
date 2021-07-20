@@ -139,3 +139,34 @@ models:
       - name: mizuTap
         type: string
         label: mizuTap
+logicFields:
+  - infoH2
+  - infoH3
+  - textDescription
+  - textLowerDescription
+  - buttonLabel
+  - keyFeaturesH1
+  - featureCli
+  - featureRequests
+  - featureNoInstallation
+  - featureOnPremiss
+  - quickStart
+  - quickDownload
+  - mac
+  - linux
+  - download
+  - run
+  - notes
+  - note1
+  - note2
+  - note3
+  - getTheCode
+  - cliArguments
+  - cliArgumentsSubheading
+  - mizuHelpCmd
+  - mizuHelpLabel
+  - example
+  - howToGetThe
+  - prodName
+  - kubectlGetPods
+  - mizuTap
