@@ -480,6 +480,8 @@ strong {
 
 .securityBlock h2 {
     margin-bottom: 10px;
+    font-family: Quicksand-Bold;
+    font-size: 1.8rem;
 }
 
 .securityExamplesP {

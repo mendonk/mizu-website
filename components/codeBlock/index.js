@@ -10,6 +10,7 @@ const CodeBlock = ({
     copyRef,
     textColor = false,
     animation = false,
+    customStyle = {},
 }) => {
     const [copied, setCopied] = useState(false);
     return (
@@ -30,6 +31,7 @@ const CodeBlock = ({
                 <span
                     ref={copyRef}
                     className={` ${animation === true ? "commandEffect" : ""}`}
+                    style={customStyle}
                 >
                     {codeText}
                 </span>

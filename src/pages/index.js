@@ -338,16 +338,16 @@ const IndexPage = () => {
                     responsiveWidth="responsiveWidth"
                 >
                     <p>
-                        When Mizu taps data that could be considered sensitive
-                        (e.g. PII data) you can make sure certain keywords or
-                        pieces of data will not be shown or stored anywhere.
+                        When <b>Mizu</b> taps data that could be considered
+                        sensitive <b>(e.g. PII data)</b> you can make sure
+                        certain keywords or pieces of data will not be shown or
+                        stored anywhere.
                     </p>
                     <p>
                         <br />
-                        Mizu will redact by default any of the fields included
-                        in the <code>personallyIdentifiableDataFields</code> var
-                        located in the <code>consts.go</code> file in this
-                        folder:
+                        <b>Mizu</b> will redact by default any of the fields
+                        included in the <b>personallyIdentifiableDataFields</b>{" "}
+                        var located in the <b>consts.go</b> file in this folder:
                         <a
                             href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
                             target="_blank"
@@ -356,26 +356,19 @@ const IndexPage = () => {
                             https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
                         </a>
                     </p>
-                    <CodeBlock
-                        title=""
-                        codeText={`var personallyIdentifiableDataFields = []string{"token", "authorization", "authentication", "cookie", "userid", "password", "username", "user", "key", "passcode", "pass", "auth", "authtoken", "jwt", "bearer", "clientid", "clientsecret", "redirecturi", "phonenumber", "zip", "zipcode", "address", "country", "firstname", "lastname", "middlename", "fname", "lname", "birthdate"}`}
-                        copyRef={personallyIdentifiableDataFields}
-                        textColor="default"
-                    />
-
-                    <p className="securityDescription">
-                        Mizu redacts sensitive data by default. Fields like
-                        ‘token,’ ‘authentication,’ and ‘passcode’ are only a few
-                        of the exhaustive list of keywords that can be found in
-                        the consts.go file in this folder:&nbsp;
-                        <a
-                            href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
-                            target="_blank"
-                            className="securityLink"
-                        >
-                            https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
-                        </a>
-                    </p>
+                    <div className="securityBlock">
+                        <CodeBlock
+                            title=""
+                            codeText={`var personallyIdentifiableDataFields = []string{"token", "authorization", "authentication", "cookie", "userid", "password", "username", "user", "key", "passcode", "pass", "auth", "authtoken", "jwt", "bearer", "clientid", "clientsecret", "redirecturi", "phonenumber", "zip", "zipcode", "address", "country", "firstname", "lastname", "middlename", "fname", "lname", "birthdate"}`}
+                            copyRef={personallyIdentifiableDataFields}
+                            textColor="default"
+                            customStyle={{
+                                fontSize: "1.2rem",
+                                lineHeight: "1.5",
+                            }}
+                        />
+                    </div>
+                    <br />
                     <div className="securityBlock">
                         <h2>Changing the default list of keywords</h2>
                         <p>
@@ -383,11 +376,12 @@ const IndexPage = () => {
                             redacted keywords, simply change the file and build
                             the code with the altered file.
                         </p>
-                        <br />
+                    </div>
+                    <div className="securityBlock">
+                        <h2>Redact sensitive data using regular expressions</h2>
                         <p>
-                            Redact sensitive data using regular expressions. You
-                            can filter free text from the body of messages with
-                            text/plain content-type with -r
+                            You can filter free text from the body of messages
+                            with text/plain content-type with -r
                         </p>
                     </div>
                     <div className="securityBlock">
