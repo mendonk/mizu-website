@@ -3,13 +3,8 @@ module.exports = {
         title: "mizu",
     },
     plugins: [
-        `react-helmet`,
-        {
-            resolve: `gatsby-transformer-json`,
-            options: {
-                typeName: "Json",
-            },
-        },
+        'react-helmet',
+        'gatsby-transformer-remark',
         {
             resolve: `gatsby-source-filesystem`,
             options: {

@@ -2,6 +2,7 @@ import React, {useState, useRef} from "react";
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 
+import {graphql} from "gatsby";
 import Logo from "../../src/images/logo.svg";
 import GithubIcon from "../images/btnGithubIcon.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
@@ -13,11 +14,10 @@ import GithubFooter from "../images/GithubFooter.svg";
 import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
 import "./index.css";
-import {graphql} from "gatsby";
 
 const IndexPage = ({data}) => {
-    const {allJson} = data;
-    const {pageData} = allJson.edges[0].node;
+    const {allMarkdownRemark} = data;
+    const pageData = allMarkdownRemark.nodes[0]?.frontmatter;
     const today = new Date();
     const currentYear = today.getFullYear();
 
@@ -444,43 +444,43 @@ export default IndexPage;
 
 export const pageQuery = graphql`
 query {
-  allJson(filter: {page: {eq: "home"}}) {
-    edges {
-      node {
-        pageData {
-            infoH2
-            infoH3
-            textDescription
-            textLowerDescription
-            buttonLabel
-            keyFeaturesH1
-            featureCli
-            featureRequests
-            featureNoInstallation
-            featureOnPremiss
-            quickStart
-            quickDownload
-            mac
-            linux
-            download
-            run
-            notes
-            note1
-            note2
-            note3
-            getTheCode
-            cliArguments
-            cliArgumentsSubheading
-            mizuHelpCmd
-            mizuHelpLabel
-            example
-            howToGetThe
-            prodName
-            kubectlGetPods
-            mizuTap
-        }
+  allMarkdownRemark(filter: {fileAbsolutePath: {ne: "home.md"}}) {
+    nodes {
+      frontmatter {
+        buttonLabel
+        cliArguments
+        cliArgumentsSubheading
+        download
+        featureCli
+        example
+        featureNoInstallation
+        featureRequests
+        featureOnPremiss
+        howToGetThe
+        getTheCode
+        infoH2
+        infoH3
+        keyFeaturesH1
+        kubectlGetPods
+        linux
+        mac
+        mizuHelpCmd
+        mizuHelpLabel
+        mizuTap
+        note1
+        note2
+        note3
+        prodName
+        notes
+        quickDownload
+        quickStart
+        run
+        textDescription
+        textLowerDescription
+        title
       }
     }
   }
 }
+
 `;
