@@ -6,44 +6,6 @@ nodeVersion: 14
 publishDir: public
 cmsName: git
 models:
-  home:
-    type: page
-    label: home
-    description: Home pages texts
-    fields:
-      - name: info-h2
-        type: string
-        label: H2 of the top information
-        const: API Traffic Viewer
-      - name: info-h3
-        type: string
-        label: H2 2nd line of the top information
-        const: for Kubernetes
-      - name: text-description
-        type: string
-        label: H2 of the top information
-        const: >-
-          A simple-yet-powerful API traffic viewer <br />for Kubernetes to help
-          you troubleshoot <br />and debug your microservices.
-      - name: text-lower-description
-        type: string
-        label: Subheading
-        const: Think TCPDump and Chrome Dev Tools <br />&nbsp;combined.
-      - name: button-label
-        type: string
-        label: Label of the Quick Start button
-        const: Quick Start
-      - name: key-features-h1
-        type: string
-        label: Key features first level heading
-        const: Key Features
-      - name: feature-cli
-        type: string
-        label: first feature
-        const: Simple and powerful <b>CLI</b>
-    hideContent: true
-    singleInstance: true
-    file: src/data/home.json
   src:
     type: page
     label: Src
