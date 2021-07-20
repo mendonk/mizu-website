@@ -44,3 +44,98 @@ models:
     hideContent: true
     singleInstance: true
     file: src/data/home.json
+  src:
+    type: page
+    label: Src
+    match: '**/*'
+    fields:
+      - name: infoH2
+        type: string
+        label: infoH2
+      - name: infoH3
+        type: string
+        label: infoH3
+      - name: textDescription
+        type: string
+        label: textDescription
+      - name: textLowerDescription
+        type: string
+        label: textLowerDescription
+      - name: buttonLabel
+        type: string
+        label: buttonLabel
+      - name: keyFeaturesH1
+        type: string
+        label: keyFeaturesH1
+      - name: featureCli
+        type: string
+        label: featureCli
+      - name: featureRequests
+        type: string
+        label: featureRequests
+      - name: featureNoInstallation
+        type: string
+        label: featureNoInstallation
+      - name: featureOnPremiss
+        type: string
+        label: featureOnPremiss
+      - name: quickStart
+        type: string
+        label: quickStart
+      - name: quickDownload
+        type: string
+        label: quickDownload
+      - name: mac
+        type: string
+        label: mac
+      - name: linux
+        type: string
+        label: linux
+      - name: download
+        type: string
+        label: download
+      - name: run
+        type: string
+        label: run
+      - name: notes
+        type: string
+        label: notes
+      - name: note1
+        type: string
+        label: note1
+      - name: note2
+        type: string
+        label: note2
+      - name: note3
+        type: string
+        label: note3
+      - name: getTheCode
+        type: string
+        label: getTheCode
+      - name: cliArguments
+        type: string
+        label: cliArguments
+      - name: cliArgumentsSubheading
+        type: string
+        label: cliArgumentsSubheading
+      - name: mizuHelpCmd
+        type: string
+        label: mizuHelpCmd
+      - name: mizuHelpLabel
+        type: string
+        label: mizuHelpLabel
+      - name: example
+        type: string
+        label: example
+      - name: howToGetThe
+        type: string
+        label: howToGetThe
+      - name: prodName
+        type: string
+        label: prodName
+      - name: kubectlGetPods
+        type: string
+        label: kubectlGetPods
+      - name: mizuTap
+        type: string
+        label: mizuTap
