@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+p {
+    word-break: break-all;
+}
+
 .mainWrapper {
     min-height: calc(100vh - 90px);
     display: flex;
@@ -435,6 +439,65 @@ strong {
     font-size: 1.5rem;
     color: #494677;
     margin-bottom: 50px;
+}
+
+/* Security */
+.security {
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 0;
+    background: #fff;
+    text-align: center;
+    color: #000000;
+}
+
+.security h1 {
+    font-family: Quicksand-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
+    text-align: center;
+    color: #0c0b1a;
+}
+
+.security p {
+    text-align: left;
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 35px;
+    color: #494677;
+}
+
+.securityGithubLink {
+    text-decoration: none;
+}
+
+.securityDescription {
+    margin-top: 30px;
+}
+
+.securityBlock {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.securityBlock h2 {
+    margin-bottom: 10px;
+    font-family: Quicksand-Bold;
+    font-size: 1.8rem;
+}
+
+.securityExamplesP {
+    margin-top: 30px;
+}
+
+.securityLink {
+    text-decoration: none;
+    color: #205cf5;
 }
 
 @media (max-width: 1300px) {

@@ -26,6 +26,9 @@ const IndexPage = () => {
     const catalogueCopyRef = useRef(null);
     const exampleTapCopyRef = useRef(null);
     const mizuTapRef = useRef(null);
+    const mizuSecurityTapRef = useRef(null);
+    const mizuSecurityTapRedactRef = useRef(null);
+    const personallyIdentifiableDataFields = useRef(null);
 
     return (
         <Layout>
@@ -378,6 +381,87 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                         copyRef={mizuTapRef}
                         textColor="default"
                     />
+                </Card>
+            </section>
+            <section className="security">
+                <Card>
+                    <h1>Security</h1>
+                </Card>
+                <Card
+                    dpFlex="dpFlex"
+                    customStyle={{
+                        width: "70%",
+                        flexDirection: "column",
+                        margin: "50px 0",
+                    }}
+                    responsiveWidth="responsiveWidth"
+                >
+                    <p>
+                        When <b>Mizu</b> taps data that could be considered
+                        sensitive <b>(e.g. PII data)</b> you can make sure
+                        certain keywords or pieces of data will not be shown or
+                        stored anywhere.
+                    </p>
+                    <p>
+                        <br />
+                        <b>Mizu</b> will redact by default any of the fields
+                        included in the <b>personallyIdentifiableDataFields</b>{" "}
+                        var located in the <b>consts.go</b> file in this folder:
+                        <a
+                            href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
+                            target="_blank"
+                            className="securityGithubLink"
+                        >
+                            https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
+                        </a>
+                    </p>
+                    <div className="securityBlock">
+                        <CodeBlock
+                            title=""
+                            codeText={`var personallyIdentifiableDataFields = []string{"token", "authorization", "authentication", "cookie", "userid", "password", "username", "user", "key", "passcode", "pass", "auth", "authtoken", "jwt", "bearer", "clientid", "clientsecret", "redirecturi", "phonenumber", "zip", "zipcode", "address", "country", "firstname", "lastname", "middlename", "fname", "lname", "birthdate"}`}
+                            copyRef={personallyIdentifiableDataFields}
+                            textColor="default"
+                            customStyle={{
+                                fontSize: "1.2rem",
+                                lineHeight: "1.5",
+                            }}
+                        />
+                    </div>
+                    <br />
+                    <div className="securityBlock">
+                        <h2>Changing the default list of keywords</h2>
+                        <p>
+                            To remove or add keywords to the default list of
+                            redacted keywords, simply change the file and build
+                            the code with the altered file.
+                        </p>
+                    </div>
+                    <div className="securityBlock">
+                        <h2>Redact sensitive data using regular expressions</h2>
+                        <p>
+                            You can filter free text from the body of messages
+                            with text/plain content-type with -r
+                        </p>
+                    </div>
+                    <div className="securityBlock">
+                        <h2>Examples:</h2>
+                        <CodeBlock
+                            title=""
+                            codeText='./mizu tap ".*" -r <regex>'
+                            copyRef={mizuSecurityTapRef}
+                            textColor="default"
+                        />
+                        <p className="securityExamplesP">
+                            Use multiple -r to simultaneously filter multiple
+                            patterns:
+                        </p>
+                        <CodeBlock
+                            title=""
+                            codeText='mizu tap catalo -r "redact this pattern" -r "and also this (.*) pattern"'
+                            copyRef={mizuSecurityTapRedactRef}
+                            textColor="default"
+                        />
+                    </div>
                 </Card>
             </section>
         </Layout>

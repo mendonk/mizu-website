@@ -12,6 +12,7 @@
 }
 
 .exampleCommand {
+    text-align: left;
     border-radius: 5px;
     background: #f7f9fc;
     padding: 10px;

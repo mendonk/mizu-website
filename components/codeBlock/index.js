@@ -10,23 +10,28 @@ const CodeBlock = ({
     copyRef,
     textColor = false,
     animation = false,
+    customStyle = {},
 }) => {
     const [copied, setCopied] = useState(false);
     return (
         <>
-            <div className="quickStartCodeRow">
-                <h4
-                    className={`lblOfQuickStartCodeRow ${
-                        textColor != false ? "commandColor" : ""
-                    }`}
-                >
-                    {title}
-                </h4>
-            </div>
+            {title && (
+                <div className="quickStartCodeRow">
+                    <h4
+                        className={`lblOfQuickStartCodeRow ${
+                            textColor != false ? "commandColor" : ""
+                        }`}
+                    >
+                        {title}
+                    </h4>
+                </div>
+            )}
+
             <div className="exampleCommand" style={{ marginTop: "10px" }}>
                 <span
                     ref={copyRef}
                     className={` ${animation === true ? "commandEffect" : ""}`}
+                    style={customStyle}
                 >
                     {codeText}
                 </span>
