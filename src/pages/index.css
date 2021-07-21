@@ -2,7 +2,8 @@ html {
     scroll-behavior: smooth;
 }
 
-p {
+p,
+a {
     word-break: break-all;
 }
 
@@ -97,6 +98,14 @@ p {
 .kubernetes h2 {
     display: flex;
     align-items: center;
+}
+
+.kubernetesImgInTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 320px;
 }
 
 .kubernetes img {
@@ -516,6 +525,9 @@ strong {
     .kubernetes {
         width: 230px;
     }
+    .kubernetesImgInTitle {
+        width: 250px;
+    }
 }
 
 @media (max-width: 1150px) {
@@ -546,8 +558,9 @@ strong {
     .kubernetes {
         width: 300px;
     }
-    .kubernetes img {
-        width: 80%;
+    .kubernetesImgInTitle {
+        width: 240px;
+        justify-content: flex-start;
     }
 }
 

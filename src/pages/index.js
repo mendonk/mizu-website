@@ -96,7 +96,12 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                         <div className="infoWrapper">
                             <h2>API Traffic Viewer</h2>
                             <div className="kubernetes">
-                                <h2>for</h2> &nbsp; <img src={Kubernetes} />
+                                <h2>for</h2> &nbsp;{" "}
+                                <div>
+                                    <div className="kubernetesImgInTitle">
+                                        <img src={Kubernetes} />
+                                    </div>
+                                </div>
                             </div>
 
                             <p className="txtDescription">
@@ -310,7 +315,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                             <span>standalone UI, point your browser to </span>
                         </span>
                     </div>
-                    <a>http://localhost:8899/</a>
+                    <a>http://localhost:8899/mizu</a>
                     <div className="standaloneIMG">
                         <img src={StandloneImage} alt="Standalone IMG" />
                     </div>
