@@ -29,6 +29,7 @@ const IndexPage = () => {
     const mizuSecurityTapRef = useRef(null);
     const mizuSecurityTapRedactRef = useRef(null);
     const personallyIdentifiableDataFields = useRef(null);
+    const allApiTraffic = useRef(null);
 
     return (
         <Layout>
@@ -372,7 +373,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     <CodeBlock
                         title="View all API traffic"
                         codeText='mizu tap ".*" -A'
-                        copyRef={mizuTapRef}
+                        copyRef={allApiTraffic}
                         textColor="default"
                     />
                     <CodeBlock
