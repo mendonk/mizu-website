@@ -87,6 +87,7 @@
 }
 
 .customToolTip {
+    width: 90px;
     position: absolute;
     background: #494677;
     border-radius: 8px;
