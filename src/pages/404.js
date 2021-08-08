@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from "gatsby";
 import Header from "../../components/header";
 
 // markup
@@ -12,7 +11,11 @@ const NotFoundPage = () => {
                     <div className="notFoundInfo">
                         <h1>Page not found</h1>
                         <p>
-                            Sorry 😔 we couldn’t find what you were <br />
+                            Sorry{" "}
+                            <span role="img" aria-label="emoji">
+                                😔
+                            </span>
+                            we couldn’t find what you were <br />
                             looking for.
                         </p>
                         <a

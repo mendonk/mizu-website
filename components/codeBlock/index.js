@@ -19,7 +19,7 @@ const CodeBlock = ({
                 <div className="quickStartCodeRow">
                     <h4
                         className={`lblOfQuickStartCodeRow ${
-                            textColor != false ? "commandColor" : ""
+                            textColor !== false ? "commandColor" : ""
                         }`}
                     >
                         {title}

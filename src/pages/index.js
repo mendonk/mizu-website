@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
+
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 import CodeBlock from "../../components/codeBlock";
@@ -99,15 +100,22 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                                 <h2>for</h2> &nbsp;{" "}
                                 <div>
                                     <div className="kubernetesImgInTitle">
-                                        <img src={Kubernetes} />
+                                        <img
+                                            src={Kubernetes}
+                                            alt="Kubernetes"
+                                        />
                                     </div>
                                 </div>
                             </div>
 
                             <p className="txtDescription">
-                                A simple-yet-powerful API traffic viewer <br />
-                                for Kubernetes to help you troubleshoot <br />
-                                and debug your microservices.
+                                A simple-yet-powerful API traffic viewer for
+                                <br />
+                                Kubernetes enabling you to view all API
+                                <br />
+                                communication between microservices to
+                                <br />
+                                help your debug and troubleshoot regressions.
                             </p>
                             <p>
                                 Think TCPDump and Chrome Dev Tools <br />{" "}
@@ -287,6 +295,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                                 <a
                                     href="https://github.com/up9inc/mizu/releases/latest/"
                                     target="_blank"
+                                    rel="noreferrer"
                                 >
                                     Releases
                                 </a>{" "}
@@ -315,7 +324,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                             <span>standalone UI, point your browser to </span>
                         </span>
                     </div>
-                    <a>http://localhost:8899/mizu</a>
+                    <a rel="noreferrer">http://localhost:8899/mizu</a>
                     <div className="standaloneIMG">
                         <img src={StandloneImage} alt="Standalone IMG" />
                     </div>
@@ -343,14 +352,14 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     <CodeBlock
                         title="View traffic of a specific pod, identified by the
                             pod name:"
-                        codeText="mizu tap catalogue-b87b45784-sxc8q -A"
+                        codeText="mizu tap catalogue-b87b45784-sxc8q"
                         copyRef={catalogueCopyRef}
                         textColor="default"
                     />
                     <CodeBlock
                         title="View traffic of several pods, identified by a
                         regular expression:"
-                        codeText='mizu tap "(catalo*|front-end*)" -A'
+                        codeText='mizu tap "(catalo*|front-end*)"'
                         copyRef={exampleTapCopyRef}
                         textColor="default"
                     />
@@ -377,7 +386,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                     </div>
                     <CodeBlock
                         title="View all API traffic"
-                        codeText='mizu tap ".*" -A'
+                        codeText='mizu tap ".*"'
                         copyRef={allApiTraffic}
                         textColor="default"
                     />
@@ -417,6 +426,7 @@ and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
                             href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
                             target="_blank"
                             className="securityGithubLink"
+                            rel="noreferrer"
                         >
                             https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
                         </a>

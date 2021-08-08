@@ -7,6 +7,11 @@ a {
     word-break: break-all;
 }
 
+img {
+    image-rendering: -webkit-optimize-contrast; /* CHROME OPERA SAFARI */
+    -ms-interpolation-mode: nearest-neighbor; /* IE8+ */
+}
+
 .mainWrapper {
     min-height: calc(100vh - 90px);
     display: flex;
@@ -507,6 +512,17 @@ strong {
 .securityLink {
     text-decoration: none;
     color: #205cf5;
+}
+
+.bookLink {
+    margin-top: 20px;
+}
+
+.bookLink > a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Roboto-Regular;
+    font-style: normal;
 }
 
 @media (max-width: 1300px) {

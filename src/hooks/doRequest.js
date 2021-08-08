@@ -50,33 +50,34 @@ export default function useBookSearch(pageNumber) {
         }, {});
     }
 
-    const topDownloaded = async (_) => {
-        const mostDownloaded = await octokit.request(
-            "/repos/up9inc/mizu/releases"
-        );
-        const statsProccessed = processResult(mostDownloaded);
-        const groupedStats = groupBy(statsProccessed, "name");
-        const statsObject = [];
-        for (const property in groupedStats) {
-            if (property === "README.md") continue;
-            let downloads = 0;
-            groupedStats[property].forEach((stat) => {
-                downloads += stat.download_count;
+    const topDownloaded = (_) => {
+        octokit
+            .request("/repos/up9inc/mizu/releases")
+            .then((mostDownloaded) => {
+                const statsProccessed = processResult(mostDownloaded);
+                const groupedStats = groupBy(statsProccessed, "name");
+                const statsObject = [];
+                for (const property in groupedStats) {
+                    if (property === "README.md") continue;
+                    let downloads = 0;
+                    groupedStats[property].forEach((stat) => {
+                        downloads += stat.download_count;
+                    });
+                    statsObject.push({
+                        name: property,
+                        download_count: downloads,
+                    });
+                }
+                const sort = statsObject.sort(
+                    (a, b) => b.download_count - a.download_count
+                );
+                const topFive = sort.slice(0, 5);
+                setMostDownloaded(topFive);
             });
-            statsObject.push({
-                name: property,
-                download_count: downloads,
-            });
-        }
-        const sort = statsObject.sort(
-            (a, b) => b.download_count - a.download_count
-        );
-        const topFive = sort.slice(0, 5);
-        setMostDownloaded(topFive);
     };
 
-    useEffect(topDownloaded, []);
     useEffect(githubRequest, [pageNumber]);
+    useEffect(topDownloaded, []);
 
     return { loading, stats, hasMore, mostDownloaded };
 }
