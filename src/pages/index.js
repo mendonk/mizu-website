@@ -1,17 +1,15 @@
 import React, { useState, useRef } from "react";
-import { Helmet } from "react-helmet";
 
 import Layout from "../../components/layout";
 import Card from "../../components/card";
 import CodeBlock from "../../components/codeBlock";
+import MetaTags from "../../components/metaTags";
 import Logo from "../../src/images/logo2.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
 import ExampleImage from "../images/exampleImage.png";
 import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
-
-import metaImage from "../images/thumb.png";
 
 import "./index.css";
 
@@ -34,63 +32,11 @@ const IndexPage = () => {
 
     return (
         <Layout>
-            <Helmet>
-                <meta
-                    name="description"
-                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
-and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
-                />
-                <meta name="image" content={metaImage} />
-                <meta
-                    itemProp="name"
-                    content="API Traffic viewer for Kubernetes"
-                />
-
-                <meta name="image" property="og:image" content={metaImage} />
-                <meta
-                    property="og:site_name"
-                    content="API Traffic viewer for Kubernetes"
-                />
-                <meta property="og:type" content="website" />
-                <meta
-                    name="title"
-                    property="og:title"
-                    content="API Traffic viewer for Kubernetes"
-                />
-                <meta property="og:url" content="https://getmizu.io" />
-                <meta
-                    name="description"
-                    property="og:description"
-                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
-and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
-                />
-                <meta
-                    name="twitter:card"
-                    property="twitter:card"
-                    content="summary_large_image"
-                />
-                <meta
-                    name="twitter:site"
-                    property="twitter:site"
-                    content="https://getmizu.io"
-                />
-                <meta
-                    name="twitter:title"
-                    property="twitter:title"
-                    content="API Traffic viewer for Kubernetes"
-                />
-                <meta
-                    name="twitter:description"
-                    property="twitter:description"
-                    content="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
-and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
-                />
-                <meta
-                    name="twitter:image"
-                    content={`https://getmizu.io${metaImage}`}
-                    property="twitter:image"
-                />
-            </Helmet>
+            <MetaTags
+                description="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+                and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                name="API Traffic viewer for Kubernetes"
+            />
             <section className="mainWrapper">
                 <Card>
                     <div className="wrapper">
