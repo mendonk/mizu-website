@@ -348,8 +348,7 @@ const IndexPage = ({data}) => {
                     responsiveWidth="responsiveWidth"
                 >
                     <p>
-                        {pageData['when']} <b>{pageData['mizu']}</b>
-                        {pageData['tapsData']} <b>{pageData['pii']}</b> {pageData['makeSure']}
+                        {pageData['when']} <b>{pageData['mizu']}</b> {pageData['tapsData']} <b>{pageData['pii']}</b> {pageData['makeSure']}
                     </p>
                     <p>
                         <br />
