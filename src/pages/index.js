@@ -262,7 +262,9 @@ const IndexPage = ({data}) => {
                             <span>{pageData['standalone']}</span>
                         </span>
                     </div>
-                    <a rel="noreferrer">http://localhost:8899/mizu</a>
+                    <span className="localhostLink">
+                        http://localhost:8899/mizu
+                    </span>
                     <div className="standaloneIMG">
                         <img src={StandloneImage} alt="Standalone IMG" />
                     </div>

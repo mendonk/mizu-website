@@ -302,7 +302,7 @@ img {
     color: #000000;
 }
 
-.standalone a {
+.standalone .localhostLink {
     line-height: 2;
     color: #205cf5;
 }
