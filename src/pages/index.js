@@ -1,50 +1,67 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
+
 import Layout from "../../components/layout";
 import Card from "../../components/card";
-
-import {graphql} from "gatsby";
-import Logo from "../../src/images/logo.svg";
-import GithubIcon from "../images/btnGithubIcon.svg";
+import CodeBlock from "../../components/codeBlock";
+import MetaTags from "../../components/metaTags";
+import Logo from "../../src/images/logo2.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
-import MizuFooterLogo from "../images/MizuFooterLogo.svg";
-import SlackFooter from "../images/SlackFooter.svg";
-import TwitterFooter from "../images/TwitterFooter.svg";
-import GithubFooter from "../images/GithubFooter.svg";
-import CopyIcon from "../images/copyicon.svg";
 import ExampleImage from "../images/exampleImage.png";
+import StandloneImage from "../images/standalone.png";
+import Kubernetes from "../images/kubernetes.png";
+
 import "./index.css";
 
 const IndexPage = ({data}) => {
     const {allMarkdownRemark} = data;
     const pageData = allMarkdownRemark.nodes[0]?.frontmatter;
-    const today = new Date();
-    const currentYear = today.getFullYear();
-
     const [activeTab, setActiveTab] = useState("mac");
     const [mizuLink, setMizuLink] = useState(
-        "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
+        "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 && chmod 755 mizu"
     );
-    const quickStart = useRef(null);
+
     const downloadCopyRef = useRef(null);
+    const quickStart = useRef(null);
     const runCopyRef = useRef(null);
-    const commandLineCopyRef = useRef(null);
-    const exampleKubeCtlCopyRef = useRef(null);
+    const catalogueCopyRef = useRef(null);
     const exampleTapCopyRef = useRef(null);
+    const mizuTapRef = useRef(null);
+    const mizuSecurityTapRef = useRef(null);
+    const mizuSecurityTapRedactRef = useRef(null);
+    const personallyIdentifiableDataFields = useRef(null);
+    const allApiTraffic = useRef(null);
 
     return (
         <Layout>
+            <MetaTags
+                description="A simple-yet-powerful API traffic viewer for Kubernetes to help you troubleshoot
+                and debug your microservices. Think TCPDump and Chrome Dev Tools combined."
+                name="API Traffic viewer for Kubernetes"
+            />
+
             <section className="mainWrapper">
                 <Card>
                     <div className="wrapper">
                         <div className="infoWrapper">
-                            <h2>{pageData["infoH2"]}</h2>
-                            <h2>{pageData["infoH3"]}</h2>
+                            <h2>{pageData['infoH2']}</h2>
+                            <div className="kubernetes">
+                                <h2>{pageData['infoH2USubheader']}</h2> &nbsp;{" "}
+                                <div>
+                                    <div className="kubernetesImgInTitle">
+                                        <img
+                                            src={Kubernetes}
+                                            alt="Kubernetes"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
                             <p className="txtDescription">
-                                {pageData["textDescription"]}
+                                {pageData['textDescription']}
                             </p>
                             <p>
-                                {pageData["textLowerDescription"]}
+                                {pageData['textLowerDescription']}
                             </p>
                             <button
                                 className="btnHome"
@@ -54,7 +71,7 @@ const IndexPage = ({data}) => {
                                     });
                                 }}
                             >
-                                {pageData["buttonLabel"]}
+                                {pageData['buttonLabel']}
                             </button>
                         </div>
                         <div className="mainLogoWrapper">
@@ -68,9 +85,6 @@ const IndexPage = ({data}) => {
                 </Card>
             </section>
             <section className="keyFeatures">
-                <Card>
-                    <h1>{pageData["keyFeaturesH1"]}</h1>
-                </Card>
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
@@ -78,31 +92,32 @@ const IndexPage = ({data}) => {
                     }}
                 >
                     <div className="keyFeatureLogo">
-                        <img src={keyFeaturesLogo} alt="Feature Logo"/>
+                        <img src={keyFeaturesLogo} alt="Feature Logo" />
                     </div>
                     <div className="featureList">
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{background: "#27ae60"}}
+                                style={{ background: "#27ae60" }}
                             />
                             <div className="singleFeature">
-                                {pageData["featureCli"]}
+                                {pageData['simpleAndPowerful']} <b>{pageData['cli']}</b>
                             </div>
                         </div>
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{background: "#F7B202"}}
+                                style={{ background: "#F7B202" }}
                             />
                             <div className="singleFeature">
-                                {pageData["featureRequests"]}
+                                {pageData["realTime"]} <b>{pageData["http"]}</b> {pageData["requests"]},{" "}
+                                <b>{pageData["rest"]}</b> {pageData["and"]} <b>{pageData["grpc"]}</b> {pageData["apiCalls"]}
                             </div>
                         </div>
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{background: "#DB2156"}}
+                                style={{ background: "#DB2156" }}
                             />
                             <div className="singleFeature">
                                 {pageData["featureNoInstallation"]}
@@ -111,7 +126,7 @@ const IndexPage = ({data}) => {
                         <div className="featureListItem">
                             <div
                                 className="featureListBullet"
-                                style={{background: "#205CF5"}}
+                                style={{ background: "#205CF5" }}
                             />
                             <div className="singleFeature">
                                 {pageData["featureOnPremiss"]}
@@ -122,20 +137,19 @@ const IndexPage = ({data}) => {
             </section>
             <section ref={quickStart} className="quickStart">
                 <Card>
-                    <h1>{pageData["quickStart"]}</h1>
+                    <h1>{pageData["buttonLabel"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
-                        alignItems: "center",
                         justifyContent: "center",
                         margin: "50px 0",
                     }}
                 >
-                    <img src={Logo} alt="Mizu"/>
+                    <img src={Logo} alt="Mizu" className="downloadMIZUIcon" />
                     <span className="txtQuickStart">
                         &nbsp;
-                        {pageData["quickDownload"]}
+                        {`is a standalone tool (written in Golang) that you can download and run`}
                     </span>
                 </Card>
                 <Card
@@ -160,7 +174,7 @@ const IndexPage = ({data}) => {
                                     onMouseDown={() => {
                                         setActiveTab("mac");
                                         setMizuLink(
-                                            "curl -o mizu https://getmizu.io/mizu/mizu-darwin-amd64 && chmod 755 mizu"
+                                            "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 && chmod 755 mizu"
                                         );
                                     }}
                                 >
@@ -179,7 +193,7 @@ const IndexPage = ({data}) => {
                                     onMouseDown={() => {
                                         setActiveTab("linux");
                                         setMizuLink(
-                                            "curl -O https://static.up9.com/mizu/main/linux.amd64/mizu && chmod 755 ./mizu"
+                                            "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 && chmod 755 mizu"
                                         );
                                     }}
                                 >
@@ -196,246 +210,211 @@ const IndexPage = ({data}) => {
                             paddingTop: "0px",
                         }}
                     >
-                        <div className="quickStartCodeRow">
-                            <h4 className="lblOfQuickStartCodeRow">{pageData["download"]}</h4>
-                        </div>
-                        <div
-                            className="exampleCommand"
-                            style={{marginTop: "10px"}}
-                        >
-                            <span
-                                ref={downloadCopyRef}
-                                className="commandEffect"
-                            >
-                                {mizuLink}
-                            </span>
-                            <img
-                                src={CopyIcon}
-                                alt="Copy Icon"
-                                onMouseDown={() => {
-                                    navigator.clipboard.writeText(
-                                        downloadCopyRef.current.innerText
-                                    );
-                                }}
-                            />
-                        </div>
-                        <div className="quickStartCodeRow">
-                            <h4 className="lblOfQuickStartCodeRow">{pageData["run"]}</h4>
-                        </div>
-                        <div
-                            className="exampleCommand"
-                            style={{marginTop: "10px", marginBottom: "30px"}}
-                        >
-                            <span
-                                ref={runCopyRef}
-                            >{`mizu tap <podname> -n <namespace>`}</span>
-                            <img
-                                src={CopyIcon}
-                                alt="Copy Icon"
-                                onMouseDown={() => {
-                                    navigator.clipboard.writeText(
-                                        runCopyRef.current.innerText
-                                    );
-                                }}
-                            />
-                        </div>
+                        <CodeBlock
+                            title="Download"
+                            codeText={mizuLink}
+                            copyRef={downloadCopyRef}
+                            animation={true}
+                        />
+                        <CodeBlock
+                            title="Run"
+                            codeText="mizu tap <podname>"
+                            copyRef={runCopyRef}
+                        />
                     </div>
                     <div className="quickStartCodeContainer">
-                        <h4 className="txtNotes">{pageData["notes"]}</h4>
+                        <h4 className="txtNotes">{pageData['notes']}</h4>
                         <ul className="quickStartList">
-                            <li>{pageData["note1"]}</li>
-                            <li>{pageData["note2"]}</li>
-                            <li>{pageData["note3"]}</li>
+                            <li>
+                                {pageData['youShouldHave']} <strong>{pageData['kubectl']}</strong>{" "}
+                                {pageData['configuredToRun']}
+                            </li>
+                            <li>
+                                {pageData['checksum']}
+                                <a
+                                    href="https://github.com/up9inc/mizu/releases/latest/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {pageData['releases']}
+                                </a>
+                                {pageData['page']}
+                            </li>
                         </ul>
                     </div>
                 </Card>
-                <Card
-                    dpFlex="dpFlex"
-                    customStyle={{
-                        justifyContent: "center",
-                        marginTop: "50px",
-                    }}
-                >
-                    <a
-                        className="btnHome"
-                        href="https://github.com/up9inc/mizu"
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{width: "240px"}}
-                    >
-                        Get the Code&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img
-                            className="githubIcon"
-                            src={GithubIcon}
-                            alt="Github Icon"
-                        />
-                    </a>
-                </Card>
             </section>
-            <section className="commandLineArguments">
-                <Card>
-                    <h1>{pageData["cliArguments"]}</h1>
-                </Card>
+            <section className="standalone">
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
-                        justifyContent: "center",
-                        margin: "50px 0",
-                    }}
-                >
-                    <span className="info">
-                        {pageData["cliArgumentsSubheading"]}
-                    </span>
-                    &nbsp;
-                    <span className="info" style={{color: "#205CF5"}}>
-                        {pageData["mizuHelpCmd"]}
-                    </span>
-                    &nbsp;
-                    <span className="info">or</span>&nbsp;
-                    <span className="info" style={{color: "#205CF5"}}>
-                        {pageData["mizuHelpLabel"]}
-                    </span>
-                </Card>
-                <Card
-                    dpFlex="dpFlex"
-                    customStyle={{
+                        width: "70%",
+                        flexDirection: "column",
                         alignItems: "center",
-                        justifyContent: "center",
                         margin: "50px 0",
                     }}
+                    responsiveWidth="responsiveWidth"
                 >
-                    <div className="codeBlock" ref={commandLineCopyRef}>
-                        <pre id="commandArguments">
-                            {`Usage: mizu tap PODNAME [flags]
-
-Flags:
-  -p, --gui-port uint16 Provide a custom port for the web interface webserver (default 8899) 
-  -h, --help help for tap
-  -k, --kubeconfig string Path to kubeconfig file 
-    --mizu-image string Custom image for mizu collector (default "gcr.io/up9-docker-hub/mizu/develop:latest")
-    --mizu-port uint16 Port which mizu cli will attempt to forward from the mizu collector pod (default 8899)
-  -n, --namespace string Namespace selector
-
-Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
-                        </pre>
-                        <div className="copyCode">
-                            <img
-                                src={CopyIcon}
-                                alt="Copy Icon"
-                                onMouseDown={(e) => {
-                                    const copyText =
-                                        document.getElementById(
-                                            "commandArguments"
-                                        ).textContent;
-                                    const textArea =
-                                        document.createElement("textarea");
-                                    textArea.textContent = copyText;
-                                    document.body.append(textArea);
-                                    textArea.select();
-                                    document.execCommand("copy");
-                                }}
-                            />
-                        </div>
+                    <div className="standaloneDescription">
+                        <span>
+                            {pageData['toSee']}
+                            <img src={Logo} alt="Mizu" />
+                            &nbsp;
+                            <span>{pageData['standalone']}</span>
+                        </span>
+                    </div>
+                    <a rel="noreferrer">http://localhost:8899/mizu</a>
+                    <div className="standaloneIMG">
+                        <img src={StandloneImage} alt="Standalone IMG" />
                     </div>
                 </Card>
             </section>
             <section className="example">
                 <Card>
-                    <h1>{pageData["example"]}</h1>
+                    <h1>{pageData['example']}</h1>
+                </Card>
+                <Card
+                    customStyle={{
+                        width: "70%",
+                        padding: "20px",
+                        background: "#FFF",
+                        margin: "50px 0",
+                    }}
+                    responsiveWidth="responsiveWidth"
+                >
+                    <div className="exampleInfo">
+                        <span>{pageData['runningPods']}</span>
+                    </div>
+                    <div className="exampleImage">
+                        <img src={ExampleImage} alt="Example IMG" />
+                    </div>
+                    <CodeBlock
+                        title="View traffic of a specific pod, identified by the
+                            pod name:"
+                        codeText="mizu tap catalogue-b87b45784-sxc8q"
+                        copyRef={catalogueCopyRef}
+                        textColor="default"
+                    />
+                    <CodeBlock
+                        title="View traffic of several pods, identified by a
+                        regular expression:"
+                        codeText='mizu tap "(catalo*|front-end*)"'
+                        copyRef={exampleTapCopyRef}
+                        textColor="default"
+                    />
+
+                    <div className="exampleDescription">
+                        <span>
+                            {pageData['theAboveCommand']}
+                        </span>
+                    </div>
+                    <div className="listCommands">
+                        <ul>
+                            <li>
+                                <strong>catalo</strong>gue-6676dc489b-6tx9h
+                            </li>
+                            <li>
+                                <strong>catalo</strong>gue-db-69bd898747-7p8rq
+                            </li>
+                            <li>
+                                <strong>front-end</strong>-946fd755f-8t6gp
+                            </li>
+                        </ul>
+                    </div>
+                    <CodeBlock
+                        title="View all API traffic"
+                        codeText='mizu tap ".*"'
+                        copyRef={allApiTraffic}
+                        textColor="default"
+                    />
+                    <CodeBlock
+                        title="View all API traffic in pods that belong to a certain namespace"
+                        codeText='mizu tap ".*" -n sock-shop'
+                        copyRef={mizuTapRef}
+                        textColor="default"
+                    />
+                </Card>
+            </section>
+            <section className="security">
+                <Card>
+                    <h1>{pageData['security']}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
-                        justifyContent: "center",
-                        alignItems: "center",
+                        width: "70%",
+                        flexDirection: "column",
                         margin: "50px 0",
                     }}
+                    responsiveWidth="responsiveWidth"
                 >
-                    <span className="info">{pageData["howToGetThe"]}</span>
-                    <span className="info" style={{color: "#205CF5"}}>
-                        {pageData["prodName"]}
-                    </span>
-                </Card>
-                <Card
-                    customStyle={{
-                        padding: "20px",
-                        background: "#FFF",
-                    }}
-                >
-                    <div className="exampleCommand">
-                        <span ref={exampleKubeCtlCopyRef}>
-                            {pageData["kubectlGetPods"]}
-                        </span>
-                        <img
-                            src={CopyIcon}
-                            alt="Copy Icon"
-                            onMouseDown={() => {
-                                navigator.clipboard.writeText(
-                                    exampleKubeCtlCopyRef.current.innerText
-                                );
+                    <p>
+                        {pageData['when']} <b>{pageData['mizu']}</b>
+                        {pageData['tapsData']}<b>{pageData['pii']}</b> {pageData['makeSure']}
+                    </p>
+                    <p>
+                        <br />
+                        <b>{pageData['mizu']}</b> {pageData['willRedact']}
+                        <b>{pageData['personallyIdentifiableDataFields']}</b>{" "}
+                        {pageData['varLocated']} <b>{pageData['constsGo']}</b> {pageData['fileInTheFolder']}
+                        <a
+                            href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
+                            target="_blank"
+                            className="securityGithubLink"
+                            rel="noreferrer"
+                        >
+                            https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
+                        </a>
+                    </p>
+                    <div className="securityBlock">
+                        <CodeBlock
+                            title=""
+                            codeText={`var personallyIdentifiableDataFields = []string{"token", "authorization", "authentication", "cookie", "userid", "password", "username", "user", "key", "passcode", "pass", "auth", "authtoken", "jwt", "bearer", "clientid", "clientsecret", "redirecturi", "phonenumber", "zip", "zipcode", "address", "country", "firstname", "lastname", "middlename", "fname", "lname", "birthdate"}`}
+                            copyRef={personallyIdentifiableDataFields}
+                            textColor="default"
+                            customStyle={{
+                                fontSize: "1.2rem",
+                                lineHeight: "1.5",
                             }}
                         />
                     </div>
-                    <div className="exampleImage">
-                        <img src={ExampleImage} alt="Example IMG"/>
+                    <br />
+                    <div className="securityBlock">
+                        <h2>Changing the default list of keywords</h2>
+                        <p>
+                            To remove or add keywords to the default list of
+                            redacted keywords, simply change the file and build
+                            the code with the altered file.
+                        </p>
                     </div>
-                    <div className="exampleCommand">
-                        <span ref={exampleTapCopyRef}>
-                            {pageData["mizuTap"]}
-                        </span>
-                        <img
-                            src={CopyIcon}
-                            alt="Copy Icon"
-                            onMouseDown={() => {
-                                navigator.clipboard.writeText(
-                                    exampleTapCopyRef.current.innerText
-                                );
-                            }}
+                    <div className="securityBlock">
+                        <h2>Redact sensitive data using regular expressions</h2>
+                        <p>
+                            You can filter free text from the body of messages
+                            with text/plain content-type with -r
+                        </p>
+                    </div>
+                    <div className="securityBlock">
+                        <h2>Examples:</h2>
+                        <CodeBlock
+                            title=""
+                            codeText='./mizu tap ".*" -r <regex>'
+                            copyRef={mizuSecurityTapRef}
+                            textColor="default"
+                        />
+                        <p className="securityExamplesP">
+                            Use multiple -r to simultaneously filter multiple
+                            patterns:
+                        </p>
+                        <CodeBlock
+                            title=""
+                            codeText='mizu tap catalo -r "redact this pattern" -r "and also this (.*) pattern"'
+                            copyRef={mizuSecurityTapRedactRef}
+                            textColor="default"
                         />
                     </div>
                 </Card>
             </section>
-            <footer>
-                <div className="footerLogo">
-                    <img src={MizuFooterLogo} alt="Footer IMG"/>
-                </div>
-                <div className="footerIcons">
-                    <a
-                        href="https://github.com/up9inc/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            className=""
-                            src={GithubFooter}
-                            alt="Github Icon"
-                        />
-                    </a>
-                    <a
-                        href="https://up9inc.slack.com/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img className="" src={SlackFooter} alt="Slack Icon"/>
-                    </a>
-                    <a
-                        href="https://twitter.com/up9inc"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            className=""
-                            src={TwitterFooter}
-                            alt="Twitter Icon"
-                        />
-                    </a>
-                </div>
-                <div className="footerCopy">
-                    <span>
-                        Built and maintained by <b>UP9</b> &copy; ({currentYear})
-                    </span>
-                </div>
-            </footer>
         </Layout>
     );
 };
@@ -443,44 +422,53 @@ Example: mizu tap front-end-794b5c7f6f-bvj54 -n sock-shop`}
 export default IndexPage;
 
 export const pageQuery = graphql`
-query {
-  allMarkdownRemark(filter: {fileAbsolutePath: {ne: "home.md"}}) {
-    nodes {
-      frontmatter {
-        buttonLabel
-        cliArguments
-        cliArgumentsSubheading
-        download
-        featureCli
-        example
-        featureNoInstallation
-        featureRequests
-        featureOnPremiss
-        howToGetThe
-        getTheCode
-        infoH2
-        infoH3
-        keyFeaturesH1
-        kubectlGetPods
-        linux
-        mac
-        mizuHelpCmd
-        mizuHelpLabel
-        mizuTap
-        note1
-        note2
-        note3
-        prodName
-        notes
-        quickDownload
-        quickStart
-        run
-        textDescription
-        textLowerDescription
-        title
-      }
-    }
-  }
-}
-
-`;
+        query {
+          allMarkdownRemark(filter: {fileAbsolutePath: {ne: "home.md"}}) {
+            nodes {
+              frontmatter {
+                infoH2
+                infoH2USubheader
+                textDescription
+                textLowerDescription
+                buttonLabel
+                simpleAndPowerful
+                cli
+                realTime
+                http
+                requests
+                rest
+                and
+                grpc
+                apiCalls
+                featureNoInstallation
+                featureOnPremiss
+                mac
+                linux
+                notes
+                youShouldHave
+                kubectl
+                configureToRun
+                checksum
+                releases
+                page
+                toSee
+                standalone
+                example
+                runningPods
+                theAboveCommand
+                security
+                when
+                mizu
+                tapsData
+                pii
+                makeSure
+                willRedact
+                personallyIdentifiableDataFields
+                varLocated
+                constsGo
+                fileInTheFolder
+              }
+            }
+          }
+        }
+    `

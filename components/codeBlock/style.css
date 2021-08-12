@@ -1,0 +1,130 @@
+.quickStartCodeRow {
+    margin-top: 30px;
+}
+
+.lblOfQuickStartCodeRow {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: clamp(0.8rem, calc(5vw + 1rem), 1rem);
+    line-height: 19px;
+    color: #494677;
+}
+
+.exampleCommand {
+    text-align: left;
+    border-radius: 5px;
+    background: #f7f9fc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    word-break: break-all;
+}
+
+.exampleCommand span {
+    font-family: SourceCodePro-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: clamp(1rem, calc(5vw + 1rem), 1rem);
+    line-height: 16px;
+    color: #0c0b1a;
+}
+
+.exampleCommand img {
+    cursor: pointer;
+}
+
+.commandColor {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 19px;
+    color: #8f9bb2;
+}
+
+.commandEffect {
+    padding: 2px 0;
+    position: relative;
+    display: inline-block;
+    color: #0c0b1a;
+    overflow: hidden;
+    background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    text-decoration: none;
+    animation-name: codeEffect;
+    animation-timing-function: linear;
+    animation-duration: 3100ms;
+    animation-iteration-count: infinite;
+}
+
+.commandEffect:hover {
+    -webkit-text-fill-color: #0c0b1a;
+    animation-play-state: paused;
+}
+
+@keyframes toolTipEffect {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.copiedCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.customToolTip {
+    width: 92px;
+    position: absolute;
+    background: #494677;
+    border-radius: 8px;
+    bottom: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 0.3s toolTipEffect;
+}
+
+.customToolTip::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0px;
+    top: -10px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #494677;
+}
+
+.customToolTip span {
+    color: #fff;
+    padding: 10px;
+    font-family: SourceCodePro-Regular;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* @media (max-width: 1113px) {
+    .commandEffect {
+        height: 30px;
+    }
+}
+
+@media (max-width: 940px) {
+    .commandEffect {
+        height: 50px;
+    }
+} */

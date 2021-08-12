@@ -1,5 +1,19 @@
+html {
+    scroll-behavior: smooth;
+}
+
+p,
+a {
+    word-break: break-all;
+}
+
+img {
+    image-rendering: -webkit-optimize-contrast; /* CHROME OPERA SAFARI */
+    -ms-interpolation-mode: nearest-neighbor; /* IE8+ */
+}
+
 .mainWrapper {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 90px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,13 +33,14 @@
 .infoWrapper {
     display: flex;
     flex-direction: column;
-    font-family: Amaranth-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: 3.5rem;
     font-size: clamp(1.5rem, calc(3vw + 1rem), 2rem);
     color: #0c0b1a;
-    width: 35%;
+    /* width: 35%; */
+    width: 40%;
 }
 
 .infoWrapper p {
@@ -80,14 +95,34 @@
     display: block;
 }
 
+.kubernetes {
+    display: flex;
+    width: 310px;
+}
+
+.kubernetes h2 {
+    display: flex;
+    align-items: center;
+}
+
+.kubernetesImgInTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 320px;
+}
+
+.kubernetes img {
+    width: 100%;
+}
+
 /* Key Features */
 .keyFeatures {
-    min-height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* flex: 1; */
     background-image: url("../images/keyFeatures.png");
     /* Center and scale the image nicely */
     background-position: center;
@@ -114,13 +149,15 @@
 }
 
 .keyFeatureLogo img {
-    max-width: 80%;
+    max-width: 100%;
+    min-height: 70%;
 }
 
-/* .featureList {
-  display: flex;
-  flex-direction: row;
-} */
+.featureList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .featureListItem {
     display: flex;
@@ -163,8 +200,8 @@
 }
 
 .quickStart h1 {
-    color: #205cf5;
-    font-family: Amaranth-Regular;
+    color: #0c0b1a;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
@@ -172,21 +209,18 @@
 }
 
 .txtQuickStart {
-    font-family: Amaranth-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
-    /* font-size: 30px; */
     font-size: clamp(0.8rem, calc(1vw + 0.7rem), 2.5rem);
     color: #0c0b1a;
 }
 
 .quickStartCodeContainer {
     padding: 20px;
-    /* border-bottom: 2px solid #e9ebf8; */
 }
 
 .quickStartTab {
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     width: 120px;
@@ -217,27 +251,10 @@
     padding-bottom: 5px;
 }
 
-.quickStartCodeRow {
-    margin-top: 30px;
-    /* border: 1px solid; */
-}
-
 .quickStartList {
     margin-top: 15px;
     margin-left: 15px;
     color: #8f9bb2;
-}
-
-.lblOfQuickStartCodeRow {
-    font-family: Roboto-Regular;
-    font-style: normal;
-    font-weight: bold;
-    font-size: clamp(0.8rem, calc(5vw + 1rem), 1rem);
-    line-height: 19px;
-
-    /* blue grey */
-
-    color: #494677;
 }
 
 .txtNotes {
@@ -253,80 +270,58 @@
 }
 
 .quickStartList li {
-    font-family: Source Sans Pro;
+    font-family: SourceCodePro-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: clamp(0.8rem, calc(5vw + 1rem), 1rem);
     line-height: 30px;
 }
 
-/* Command Line Arguments */
-.commandLineArguments {
-    min-height: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 0;
+.quickStartList li a {
+    text-decoration: none;
 }
 
-.commandLineArguments h1 {
-    font-family: Amaranth-Regular;
+.downloadMIZUIcon {
+    height: 55px;
+}
+
+/* Standalone */
+.standalone {
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    padding: 80px 0;
+    background: #fff;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
-    font-size: 80px;
-    font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
+    font-size: clamp(0.8rem, calc(5vw + 0.7rem), 2rem);
+    line-height: 37px;
     text-align: center;
-    /* identical to box height */
-    text-align: center;
-    /* blue */
+    color: #000000;
+}
+
+.standalone a {
+    line-height: 2;
     color: #205cf5;
 }
 
-.commandLineArguments .info {
-    font-family: Amaranth-Regular;
-    font-style: normal;
-    font-weight: bold;
-    font-size: clamp(0.8rem, calc(1vw + 0.7rem), 2.5rem);
-    text-align: center;
-    /* dark */
-    color: #0c0b1a;
+.standaloneIMG img {
+    margin-top: 40px;
+    max-width: 100%;
 }
 
-.codeBlock {
-    border-radius: 5px;
-    position: relative;
-    padding: 5px;
-    background: #f7f9fc;
-    width: 70%;
-    height: 230px;
-    overflow-x: auto;
+.standaloneDescription {
+    display: flex;
+    font-size: clamp(0.8rem, calc(5vw + 0.7rem), 2.3rem);
 }
 
-.codeBlock pre {
-    font-family: SourceCodePro-Regular;
-    font-style: normal;
-    font-weight: normal;
-    /* font-size: 14px;
-  line-height: 16px; */
-    /* dark */
-    color: #0c0b1a;
-}
-
-.copyCode {
-    /* margin: 10px; */
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.copyCode img {
-    cursor: pointer;
+.standaloneDescription img {
+    vertical-align: top;
+    height: 55px;
 }
 
 /* Example */
-
 .example {
     min-height: 800px;
     display: flex;
@@ -338,7 +333,7 @@
 }
 
 .example h1 {
-    font-family: Amaranth-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
@@ -346,7 +341,7 @@
     /* identical to box height */
     text-align: center;
     /* blue */
-    color: #205cf5;
+    color: #0c0b1a;
 }
 
 .example .info {
@@ -357,29 +352,6 @@
     line-height: 36px;
 }
 
-.exampleCommand {
-    border-radius: 5px;
-    background: #f7f9fc;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow-x: auto;
-}
-
-.exampleCommand span {
-    font-family: SourceCodePro-Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: clamp(1rem, calc(5vw + 1rem), 1rem);
-    line-height: 16px;
-    color: #0c0b1a;
-}
-
-.exampleCommand img {
-    cursor: pointer;
-}
-
 .exampleImage {
     margin: 30px 0;
     width: 100%;
@@ -387,30 +359,6 @@
 
 .exampleImage img {
     max-width: 100%;
-}
-
-.commandEffect {
-    height: 20px;
-    position: relative;
-    display: inline-block;
-    color: #0c0b1a;
-    overflow: hidden;
-    background: linear-gradient(to right, #0c0b1a, #0c0b1a 50%, #8f9bb2 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    /* background-position: 100%; */
-    text-decoration: none;
-    animation-name: codeEffect;
-    animation-timing-function: linear;
-    animation-duration: 3100ms;
-    /* animation-delay: 1400ms; */
-    animation-iteration-count: infinite;
-}
-
-.commandEffect:hover {
-    -webkit-text-fill-color: #0c0b1a;
-    animation-play-state: paused;
 }
 
 @keyframes codeEffect {
@@ -431,40 +379,150 @@
     }
 }
 
-/* Footer */
-footer {
-    /* margin-top: 50px; */
-    padding: 30px 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #0c0b1a;
-    justify-content: center;
-    align-items: center;
-}
-
-.footerIcons {
-    width: 10%;
-    justify-content: space-between;
-    display: flex;
-    padding-top: 20px;
-}
-
-.footerCopy {
-    color: white;
-    padding-top: 20px;
-}
-
-.footerCopy span {
+.exampleInfo span {
     font-family: Roboto-Regular;
     font-style: normal;
     font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 19px;
     color: #8f9bb2;
-    font-size: 1.1rem;
 }
 
-.footerLogo {
-    width: 8%;
+.exampleDescription {
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 19px;
+    color: #8f9bb2;
+}
+
+.listCommands {
+    width: fit-content;
+}
+
+.listCommands ul {
+    margin-top: 10px;
+    margin-left: 19px;
+}
+
+.listCommands ul li {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 30px;
+    color: #8f9bb2;
+}
+
+strong {
+    color: #000;
+}
+
+/* NOT FOUND 404 */
+.notFound {
+    min-height: calc(100vh - 90px);
+    background-image: url("../images/notFound.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.notFoundContainer {
+    min-height: calc(100vh - 90px);
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.notFoundInfo h1 {
+    font-family: Quicksand-Bold;
+    font-size: 3.5rem;
+    color: #0c0b1a;
+    margin-bottom: 50px;
+}
+
+.notFoundInfo p {
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #494677;
+    margin-bottom: 50px;
+}
+
+/* Security */
+.security {
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 0;
+    background: #fff;
     text-align: center;
+    color: #000000;
+}
+
+.security h1 {
+    font-family: Quicksand-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
+    text-align: center;
+    color: #0c0b1a;
+}
+
+.security p {
+    text-align: left;
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 35px;
+    color: #494677;
+}
+
+.securityGithubLink {
+    text-decoration: none;
+}
+
+.securityDescription {
+    margin-top: 30px;
+}
+
+.securityBlock {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.securityBlock h2 {
+    margin-bottom: 10px;
+    font-family: Quicksand-Bold;
+    font-size: 1.8rem;
+}
+
+.securityExamplesP {
+    margin-top: 30px;
+}
+
+.securityLink {
+    text-decoration: none;
+    color: #205cf5;
+}
+
+.bookLink {
+    margin-top: 20px;
+}
+
+.bookLink > a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Roboto-Regular;
+    font-style: normal;
 }
 
 @media (max-width: 1300px) {
@@ -480,6 +538,19 @@ footer {
     .startingContainer {
         width: 80%;
     }
+    .kubernetes {
+        width: 230px;
+    }
+    .kubernetesImgInTitle {
+        width: 250px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .notFoundContainer {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -488,7 +559,6 @@ footer {
         flex-direction: column;
     }
     .mainLogoWrapper {
-        /* display: none; */
         margin-top: 50px;
         width: 100%;
     }
@@ -501,36 +571,17 @@ footer {
     .keyFeatureLogo {
         display: none;
     }
-    .footerLogo {
-        width: 10%;
+    .kubernetes {
+        width: 300px;
+    }
+    .kubernetesImgInTitle {
+        width: 240px;
+        justify-content: flex-start;
     }
 }
 
 @media (max-width: 940px) {
     header {
-        /* display: block; */
         padding: 0 10px;
-    }
-
-    .footerLogo,
-    .footerIcons {
-        width: 12%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 730px) {
-    .footerLogo,
-    .footerIcons {
-        width: 18%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 450px) {
-    .footerLogo,
-    .footerIcons {
-        width: 25%;
-        text-align: center;
     }
 }

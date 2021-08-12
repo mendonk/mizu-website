@@ -19,5 +19,24 @@ module.exports = {
                 crossOrigin: `use-credentials`,
             },
         },
+      `gatsby-plugin-react-helmet`,
+        {
+          resolve: `gatsby-plugin-google-gtag`,
+          options: {
+            trackingIds: ["G-ZKZE18RLGM"],
+            pluginConfig: {
+              head: true,
+            },
+          },
+        },
+        `gatsby-plugin-client-side-redirect`,
     ],
+    flags: {
+        THE_FLAG: false,
+        PARALLEL_SOURCING: false,
+        FUNCTIONS: false,
+        FAST_DEV: true,
+        PRESERVE_FILE_DOWNLOAD_CACHE: true,
+        PRESERVE_WEBPACK_CACHE: true,
+    },
 };

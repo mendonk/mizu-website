@@ -15,9 +15,9 @@ models:
         name: infoH2
         label: Info H 2
       - type: string
-        name: infoH3
-        label: Info H 3
-      - type: markdown
+        name: infoH2USubheader
+        label: Info H 2 U Subheader
+      - type: string
         name: textDescription
         label: Text Description
       - type: string
@@ -27,14 +27,32 @@ models:
         name: buttonLabel
         label: Button Label
       - type: string
-        name: keyFeaturesH1
-        label: Key Features H 1
-      - type: markdown
-        name: featureCli
-        label: Feature Cli
-      - type: markdown
-        name: featureRequests
-        label: Feature Requests
+        name: simpleAndPowerful
+        label: Simple And Powerful
+      - type: string
+        name: cli
+        label: Cli
+      - type: string
+        name: realTime
+        label: Real Time
+      - type: string
+        name: http
+        label: Http
+      - type: string
+        name: requests
+        label: Requests
+      - type: string
+        name: rest
+        label: Rest
+      - type: string
+        name: and
+        label: And
+      - type: string
+        name: grpc
+        label: Grpc
+      - type: string
+        name: apiCalls
+        label: Api Calls
       - type: string
         name: featureNoInstallation
         label: Feature No Installation
@@ -42,62 +60,77 @@ models:
         name: featureOnPremiss
         label: Feature On Premiss
       - type: string
-        name: quickStart
-        label: Quick Start
-      - type: string
-        name: quickDownload
-        label: Quick Download
-      - type: string
         name: mac
         label: Mac
       - type: string
         name: linux
         label: Linux
       - type: string
-        name: download
-        label: Download
-      - type: string
-        name: run
-        label: Run
-      - type: string
         name: notes
         label: Notes
       - type: string
-        name: note1
-        label: Note 1
+        name: youShouldHave
+        label: You Should Have
       - type: string
-        name: note2
-        label: Note 2
+        name: kubectl
+        label: Kubectl
       - type: string
-        name: note3
-        label: Note 3
+        name: configureToRun
+        label: Configure To Run
       - type: string
-        name: getTheCode
-        label: Get The Code
+        name: checksum
+        label: Checksum
       - type: string
-        name: cliArguments
-        label: Cli Arguments
+        name: releases
+        label: Releases
       - type: string
-        name: cliArgumentsSubheading
-        label: Cli Arguments Subheading
+        name: page
+        label: Page
       - type: string
-        name: mizuHelpCmd
-        label: Mizu Help Cmd
+        name: toSee
+        label: To See
       - type: string
-        name: mizuHelpLabel
-        label: Mizu Help Label
+        name: standalone
+        label: Standalone
       - type: string
         name: example
         label: Example
       - type: string
-        name: howToGetThe
-        label: How To Get The
+        name: runningPods
+        label: Running Pods
       - type: string
-        name: prodName
-        label: Prod Name
+        name: theAboveCommand
+        label: The Above Command
       - type: string
-        name: kubectlGetPods
-        label: Kubectl Get Pods
+        name: security
+        label: Security
       - type: string
-        name: mizuTap
-        label: Mizu Tap
+        name: when
+        label: When
+      - type: string
+        name: mizu
+        label: Mizu
+      - type: string
+        name: tapsData
+        label: Taps Data
+      - type: string
+        name: pii
+        label: Pii
+      - type: string
+        name: makeSure
+        label: Make Sure
+      - type: string
+        name: willRedact
+        label: Will Redact
+      - type: string
+        name: personallyIdentifiableDataFields
+        label: Personally Identifiable Data Fields
+      - type: string
+        name: varLocated
+        label: Var Located
+      - type: string
+        name: constsGo
+        label: Consts Go
+      - type: string
+        name: fileInTheFolder
+        label: File In The Folder
