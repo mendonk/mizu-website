@@ -443,7 +443,7 @@ query {
         notes
         youShouldHave
         kubectl
-        configureToRun
+        configuredToRun
         checksum
         releases
         page
