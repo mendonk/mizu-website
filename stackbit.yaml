@@ -134,3 +134,21 @@ models:
       - type: string
         name: fileInTheFolder
         label: File In The Folder
+      - type: string
+        name: defaultKeywords
+        label: Default Keywords
+      - type: string
+        name: toRemove
+        label: To Remove
+      - type: string
+        name: redactSensitive
+        label: Redact Sensitive
+      - type: string
+        name: youCanFilter
+        label: You Can Filter
+      - type: string
+        name: examples
+        label: Examples
+      - type: string
+        name: useMultiple'
+        label: Use Multiple
