@@ -39,7 +39,7 @@ img {
     font-size: 3.5rem;
     font-size: clamp(1.5rem, calc(3vw + 1rem), 2rem);
     color: #0c0b1a;
-    /* width: 35%; */
+    max-width: 470px;
     width: 40%;
 }
 
@@ -50,6 +50,7 @@ img {
     font-size: 1.3rem;
     line-height: 30px;
     color: #494677;
+    word-break: keep-all;
 }
 
 .txtDescription {

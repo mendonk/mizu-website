@@ -231,15 +231,13 @@ const IndexPage = ({data}) => {
                                 {pageData['configuredToRun']}
                             </li>
                             <li>
-                                {pageData['checksum']}
-                                <a
+                                {pageData['checksum']} <a
                                     href="https://github.com/up9inc/mizu/releases/latest/"
                                     target="_blank"
                                     rel="noreferrer"
                                 >
                                     {pageData['releases']}
-                                </a>
-                                {pageData['page']}
+                                </a> {pageData['page']}
                             </li>
                         </ul>
                     </div>
