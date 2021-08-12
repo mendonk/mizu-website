@@ -45,7 +45,7 @@ toRemove: "To remove or add keywords to the default list of redacted keywords, s
 redactSensitive: "Redact sensitive data using regular expressions"
 youCanFilter: "You can filter free text from the body of messages with text/plain content-type with -r"
 examples: "Examples:"
-useMultiple': "Use multiple -r to simultaneously filter multiple patterns:"
+useMultiple: "Use multiple -r to simultaneously filter multiple patterns:"
 ---
 
 Some data
