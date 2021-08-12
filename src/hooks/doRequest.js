@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Octokit } from "@octokit/core";
 const octokit = new Octokit();
 
@@ -7,12 +7,21 @@ export default function useBookSearch(pageNumber) {
     const [hasMore, setHasMore] = useState(false);
     const [stats, setStats] = useState([]);
     const [mostDownloaded, setMostDownloaded] = useState([]);
+    const [dailyStats, setDailyStats] = useState([]);
 
-    function processResult(response) {
+    const formatDate = (date) => {
+        const formatedDate = new Date(date);
+        const month = `0${formatedDate.getUTCMonth() + 1}`.slice(-2);
+        const day = `0${formatedDate.getUTCDate()}`.slice(-2);
+        return `${formatedDate.getUTCFullYear()}-${month}-${day}`;
+    };
+
+    const processResult = useCallback((response) => {
         const statsProccessed = [];
         response.data.forEach((stat) => {
             const additionalInfo = {
                 target_commitish: stat.target_commitish + "/" + stat.tag_name,
+                formatedDate: formatDate(stat.created_at),
             };
             stat.assets.forEach((asseetItem) => {
                 const newObj = { ...additionalInfo, ...asseetItem };
@@ -20,7 +29,7 @@ export default function useBookSearch(pageNumber) {
             });
         });
         return statsProccessed;
-    }
+    }, []);
 
     const githubRequest = () => {
         setLoading(true);
@@ -50,34 +59,50 @@ export default function useBookSearch(pageNumber) {
         }, {});
     }
 
+    const loopGrouping = (obj, propName) => {
+        const response = [];
+        for (const singleObj in obj) {
+            if (singleObj === "README.md") continue;
+            let downloads = 0;
+            obj[singleObj].forEach((dateStats) => {
+                downloads += dateStats.download_count;
+            });
+            response.push({
+                [propName]: singleObj,
+                download_count: downloads,
+            });
+        }
+        return response;
+    };
+
     const topDownloaded = (_) => {
         octokit
             .request("/repos/up9inc/mizu/releases")
             .then((mostDownloaded) => {
+                console.log("mostDownloaded", mostDownloaded.data);
                 const statsProccessed = processResult(mostDownloaded);
+
                 const groupedStats = groupBy(statsProccessed, "name");
-                const statsObject = [];
-                for (const property in groupedStats) {
-                    if (property === "README.md") continue;
-                    let downloads = 0;
-                    groupedStats[property].forEach((stat) => {
-                        downloads += stat.download_count;
-                    });
-                    statsObject.push({
-                        name: property,
-                        download_count: downloads,
-                    });
-                }
+                const groupByDate = groupBy(statsProccessed, "formatedDate");
+                console.log("groupByDate", groupByDate);
+                const statsObject = loopGrouping(groupedStats, "name");
+                const dateStats = loopGrouping(groupByDate, "date");
+
                 const sort = statsObject.sort(
                     (a, b) => b.download_count - a.download_count
                 );
+                const sortByDate = dateStats.sort(
+                    (a, b) => new Date(b.date) - new Date(a.date)
+                );
                 const topFive = sort.slice(0, 5);
+
                 setMostDownloaded(topFive);
+                setDailyStats(sortByDate);
             });
     };
 
-    useEffect(githubRequest, [pageNumber]);
-    useEffect(topDownloaded, []);
+    useEffect(githubRequest, [pageNumber, processResult]);
+    useEffect(topDownloaded, [processResult]);
 
-    return { loading, stats, hasMore, mostDownloaded };
+    return { loading, stats, hasMore, mostDownloaded, dailyStats };
 }
