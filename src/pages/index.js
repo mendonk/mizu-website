@@ -12,6 +12,7 @@ import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
 
 import "./index.css";
+import {graphql} from "gatsby";
 
 const IndexPage = ({data}) => {
     const {allMarkdownRemark} = data;

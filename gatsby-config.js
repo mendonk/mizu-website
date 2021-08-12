@@ -5,6 +5,8 @@ module.exports = {
     plugins: [
         'react-helmet',
         'gatsby-transformer-remark',
+        `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-client-side-redirect`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -19,7 +21,6 @@ module.exports = {
                 crossOrigin: `use-credentials`,
             },
         },
-      `gatsby-plugin-react-helmet`,
         {
           resolve: `gatsby-plugin-google-gtag`,
           options: {
@@ -29,7 +30,6 @@ module.exports = {
             },
           },
         },
-        `gatsby-plugin-client-side-redirect`,
     ],
     flags: {
         THE_FLAG: false,
