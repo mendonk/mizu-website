@@ -356,8 +356,9 @@ const IndexPage = ({data}) => {
                     <p>
                         <br />
                         <b>{pageData['mizu']}</b> {pageData['willRedact']}
-                        <b>{pageData['personallyIdentifiableDataFields']}</b>{" "}
-                        {pageData['varLocated']} <b>{pageData['constsGo']}</b> {pageData['fileInTheFolder']}
+                        <b> {pageData['personallyIdentifiableDataFields']} </b>
+                        {pageData['varLocated']} <b>{pageData['constsGo']}</b>
+                        {pageData['fileInTheFolder']}
                         <a
                             href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
                             target="_blank"
@@ -381,22 +382,19 @@ const IndexPage = ({data}) => {
                     </div>
                     <br />
                     <div className="securityBlock">
-                        <h2>Changing the default list of keywords</h2>
+                        <h2>{pageData['defaultKeywords']}</h2>
                         <p>
-                            To remove or add keywords to the default list of
-                            redacted keywords, simply change the file and build
-                            the code with the altered file.
+                            {pageData['toRemove']}
                         </p>
                     </div>
                     <div className="securityBlock">
-                        <h2>Redact sensitive data using regular expressions</h2>
+                        <h2>{pageData['redactSensitive']}</h2>
                         <p>
-                            You can filter free text from the body of messages
-                            with text/plain content-type with -r
+                            {pageData['youCanFilter']}
                         </p>
                     </div>
                     <div className="securityBlock">
-                        <h2>Examples:</h2>
+                        <h2>{pageData['examples']}</h2>
                         <CodeBlock
                             title=""
                             codeText='./mizu tap ".*" -r <regex>'
@@ -404,8 +402,7 @@ const IndexPage = ({data}) => {
                             textColor="default"
                         />
                         <p className="securityExamplesP">
-                            Use multiple -r to simultaneously filter multiple
-                            patterns:
+                            {pageData['useMultiple']}
                         </p>
                         <CodeBlock
                             title=""
@@ -468,6 +465,12 @@ query {
         varLocated
         constsGo
         fileInTheFolder
+        defaultKeywords
+        toRemove
+        redactSensitive
+        youCanFilter
+        examples
+        useMultiple
       }
     }
   }

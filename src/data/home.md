@@ -40,6 +40,12 @@ personallyIdentifiableDataFields: "personallyIdentifiableDataFields"
 varLocated: "var located in the"
 constsGo: "consts.go"
 fileInTheFolder: "file in this folder:"
+defaultKeywords: "Changing the default list of keywords"
+toRemove: "To remove or add keywords to the default list of redacted keywords, simply change the file and build the code with the altered file."
+redactSensitive: "Redact sensitive data using regular expressions"
+youCanFilter: "You can filter free text from the body of messages with text/plain content-type with -r"
+examples: "Examples:"
+useMultiple': "Use multiple -r to simultaneously filter multiple patterns:"
 ---
 
 Some data
