@@ -350,7 +350,7 @@ const IndexPage = ({data}) => {
                 >
                     <p>
                         {pageData['when']} <b>{pageData['mizu']}</b>
-                        {pageData['tapsData']}<b>{pageData['pii']}</b> {pageData['makeSure']}
+                        {pageData['tapsData']} <b>{pageData['pii']}</b> {pageData['makeSure']}
                     </p>
                     <p>
                         <br />
@@ -422,53 +422,53 @@ const IndexPage = ({data}) => {
 export default IndexPage;
 
 export const pageQuery = graphql`
-        query {
-          allMarkdownRemark(filter: {fileAbsolutePath: {ne: "home.md"}}) {
-            nodes {
-              frontmatter {
-                infoH2
-                infoH2USubheader
-                textDescription
-                textLowerDescription
-                buttonLabel
-                simpleAndPowerful
-                cli
-                realTime
-                http
-                requests
-                rest
-                and
-                grpc
-                apiCalls
-                featureNoInstallation
-                featureOnPremiss
-                mac
-                linux
-                notes
-                youShouldHave
-                kubectl
-                configureToRun
-                checksum
-                releases
-                page
-                toSee
-                standalone
-                example
-                runningPods
-                theAboveCommand
-                security
-                when
-                mizu
-                tapsData
-                pii
-                makeSure
-                willRedact
-                personallyIdentifiableDataFields
-                varLocated
-                constsGo
-                fileInTheFolder
-              }
-            }
-          }
-        }
-    `
+query {
+  allMarkdownRemark(filter: {fileAbsolutePath: {ne: "home.md"}}) {
+    nodes {
+      frontmatter {
+        infoH2
+        infoH2USubheader
+        textDescription
+        textLowerDescription
+        buttonLabel
+        simpleAndPowerful
+        cli
+        realTime
+        http
+        requests
+        rest
+        and
+        grpc
+        apiCalls
+        featureNoInstallation
+        featureOnPremiss
+        mac
+        linux
+        notes
+        youShouldHave
+        kubectl
+        configureToRun
+        checksum
+        releases
+        page
+        toSee
+        standalone
+        example
+        runningPods
+        theAboveCommand
+        security
+        when
+        mizu
+        tapsData
+        pii
+        makeSure
+        willRedact
+        personallyIdentifiableDataFields
+        varLocated
+        constsGo
+        fileInTheFolder
+      }
+    }
+  }
+}
+`;
