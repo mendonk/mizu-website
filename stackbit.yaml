@@ -150,5 +150,5 @@ models:
         name: examples
         label: Examples
       - type: string
-        name: useMultiple'
+        name: useMultiple
         label: Use Multiple
