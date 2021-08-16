@@ -16,8 +16,9 @@ export default function useBookSearch(pageNumber) {
         return `${formatedDate.getUTCFullYear()}-${month}-${day}`;
     };
 
-    const processResult = useCallback((response) => {
+    const processResult = useCallback((response, type) => {
         const statsProccessed = [];
+        const paginatedCondition = type === "paginated" ? false : true;
         response.data.forEach((object) => {
             const additionalInfo = {
                 target_commitish:
@@ -28,7 +29,7 @@ export default function useBookSearch(pageNumber) {
                 if (
                     singleObj.name === "README.md" ||
                     singleObj.name === "version.txt" ||
-                    singleObj.download_count === 0
+                    (singleObj.download_count === 0 && paginatedCondition)
                 )
                     continue;
                 const newObj = { ...additionalInfo, ...singleObj };
@@ -46,7 +47,7 @@ export default function useBookSearch(pageNumber) {
                 per_page: 3,
             })
             .then((res) => {
-                const statsProccessed = processResult(res);
+                const statsProccessed = processResult(res, "paginated");
                 setStats((prevStats) => {
                     return [...new Set([...prevStats, ...statsProccessed])];
                 });
@@ -85,7 +86,10 @@ export default function useBookSearch(pageNumber) {
         octokit
             .request("/repos/up9inc/mizu/releases")
             .then((mostDownloaded) => {
-                const statsProccessed = processResult(mostDownloaded);
+                const statsProccessed = processResult(
+                    mostDownloaded,
+                    "topDownloads"
+                );
                 const groupedStats = groupBy(statsProccessed, "name");
                 const groupByDate = groupBy(statsProccessed, "formatedDate");
                 const statsObject = loopGrouping(groupedStats, "name");
