@@ -14,8 +14,6 @@ import Kubernetes from "../images/kubernetes.png";
 import "./index.css";
 import { graphql } from "gatsby";
 
-// testing build
-
 const IndexPage = ({ data }) => {
     const { allMarkdownRemark } = data;
     const pageData = allMarkdownRemark.nodes[0]?.frontmatter;

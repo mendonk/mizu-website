@@ -305,6 +305,7 @@ img {
 .standalone .localhostLink {
     line-height: 2;
     color: #205cf5;
+    word-break: break-all;
 }
 
 .standaloneIMG img {
