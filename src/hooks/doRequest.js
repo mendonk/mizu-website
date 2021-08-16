@@ -18,20 +18,27 @@ export default function useBookSearch(pageNumber) {
 
     const processResult = useCallback((response) => {
         const statsProccessed = [];
-        response.data.forEach((stat) => {
+        response.data.forEach((object) => {
             const additionalInfo = {
-                target_commitish: stat.target_commitish + "/" + stat.tag_name,
-                formatedDate: formatDate(stat.created_at),
+                target_commitish:
+                    object.target_commitish + "/" + object.tag_name,
+                formatedDate: formatDate(object.created_at),
             };
-            stat.assets.forEach((asseetItem) => {
-                const newObj = { ...additionalInfo, ...asseetItem };
+            for (let singleObj of object.assets) {
+                if (
+                    singleObj.name === "README.md" ||
+                    singleObj.name === "version.txt" ||
+                    singleObj.download_count === 0
+                )
+                    continue;
+                const newObj = { ...additionalInfo, ...singleObj };
                 statsProccessed.push(newObj);
-            });
+            }
         });
         return statsProccessed;
     }, []);
 
-    const githubRequest = () => {
+    const githubRequest = (_) => {
         setLoading(true);
         octokit
             .request("/repos/up9inc/mizu/releases", {
@@ -62,7 +69,6 @@ export default function useBookSearch(pageNumber) {
     const loopGrouping = (obj, propName) => {
         const response = [];
         for (const singleObj in obj) {
-            if (singleObj === "README.md") continue;
             let downloads = 0;
             obj[singleObj].forEach((dateStats) => {
                 downloads += dateStats.download_count;
@@ -79,12 +85,9 @@ export default function useBookSearch(pageNumber) {
         octokit
             .request("/repos/up9inc/mizu/releases")
             .then((mostDownloaded) => {
-                console.log("mostDownloaded", mostDownloaded.data);
                 const statsProccessed = processResult(mostDownloaded);
-
                 const groupedStats = groupBy(statsProccessed, "name");
                 const groupByDate = groupBy(statsProccessed, "formatedDate");
-                console.log("groupByDate", groupByDate);
                 const statsObject = loopGrouping(groupedStats, "name");
                 const dateStats = loopGrouping(groupByDate, "date");
 

@@ -116,9 +116,17 @@ const StatsPage = () => {
                             })}
                         </tbody>
                     </table>
-                    <>
-                        <Bar data={data} options={options} />
-                    </>
+                </Card>
+            </section>
+            <section className="chartPlot">
+                <Card
+                    customStyle={{
+                        padding: "30px 20px",
+                        backgroundColor: "#fff",
+                    }}
+                >
+                    <h2>Daily downloads</h2>
+                    <Bar data={data} options={options} />
                 </Card>
             </section>
             <section className="detailedStats">
