@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React from "react";
 import { Bar } from "react-chartjs-2";
 import Header from "../../../components/header";
 import Card from "../../../components/card";
@@ -17,11 +17,18 @@ const StatsPage = () => {
         "Saturday",
     ];
 
-    const [page, setPage] = useState(1);
-    const { loading, stats, hasMore, mostDownloaded, dailyStats } =
-        doRequest(page);
+    // const [page, setPage] = useState(1);
+    const {
+        loading,
+        stats,
+        // hasMore,
+        mostDownloaded,
+        dailyStats,
+        totalDownloads,
+        error,
+    } = doRequest();
 
-    const observer = useRef(null);
+    // const observer = useRef(null);
 
     const data = {
         labels: Array.from(
@@ -65,23 +72,40 @@ const StatsPage = () => {
         },
     };
 
-    const lastBookElementRef = useCallback(
-        async (node) => {
-            if (loading) return;
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && hasMore) {
-                    setPage((prevPageNumber) => prevPageNumber + 1);
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [loading, hasMore]
-    );
+    // const lastBookElementRef = useCallback(
+    //     async (node) => {
+    //         if (loading) return;
+    //         if (observer.current) observer.current.disconnect();
+    //         observer.current = new IntersectionObserver((entries) => {
+    //             if (entries[0].isIntersecting && hasMore) {
+    //                 setPage((prevPageNumber) => prevPageNumber + 1);
+    //             }
+    //         });
+    //         if (node) observer.current.observe(node);
+    //     },
+    //     [loading, hasMore]
+    // );
 
-    return (
+    return loading ? (
         <>
             <Header siteTitle={`Mizu - Stats`} />
+            <section className="loading">
+                <Card
+                    customStyle={{
+                        margin: "30px 0",
+                        padding: "30px 20px",
+                        backgroundColor: "#fff",
+                        textAlign: "center",
+                    }}
+                >
+                    <h1>{!error ? "Loading..." : error}</h1>
+                </Card>
+            </section>
+        </>
+    ) : (
+        <>
+            <Header siteTitle={`Mizu - Stats`} />
+
             <section className="stats">
                 <Card
                     customStyle={{
@@ -93,6 +117,7 @@ const StatsPage = () => {
                     <h1 className="title">
                         Mizu project - artifacts download stats
                     </h1>
+                    <h2>Total Downloads {totalDownloads}</h2>
                     <h2>Download summary</h2>
                     <table>
                         <thead>
@@ -148,44 +173,44 @@ const StatsPage = () => {
                         </thead>
                         <tbody>
                             {stats.map((file, index) => {
-                                if (stats.length === index + 1) {
-                                    return (
-                                        <tr
-                                            key={index}
-                                            ref={lastBookElementRef}
-                                        >
-                                            <td data-label="Release">
-                                                {file.target_commitish}
-                                            </td>
-                                            <td data-label="Filename">
-                                                {file.name}
-                                            </td>
-                                            <td data-label="Downloads">
-                                                {file.download_count}
-                                            </td>
-                                        </tr>
-                                    );
-                                } else {
-                                    return (
-                                        <tr key={index}>
-                                            <td data-label="Release">
-                                                {file.target_commitish}
-                                            </td>
-                                            <td data-label="Filename">
-                                                {file.name}
-                                            </td>
-                                            <td data-label="Downloads">
-                                                {file.download_count}
-                                            </td>
-                                        </tr>
-                                    );
-                                }
+                                // if (stats.length === index + 1) {
+                                //     return (
+                                //         <tr
+                                //             key={index}
+                                //             ref={lastBookElementRef}
+                                //         >
+                                //             <td data-label="Release">
+                                //                 {file.target_commitish}
+                                //             </td>
+                                //             <td data-label="Filename">
+                                //                 {file.name}
+                                //             </td>
+                                //             <td data-label="Downloads">
+                                //                 {file.download_count}
+                                //             </td>
+                                //         </tr>
+                                //     );
+                                // } else {
+                                return (
+                                    <tr key={index}>
+                                        <td data-label="Release">
+                                            {file.target_commitish}
+                                        </td>
+                                        <td data-label="Filename">
+                                            {file.name}
+                                        </td>
+                                        <td data-label="Downloads">
+                                            {file.download_count}
+                                        </td>
+                                    </tr>
+                                );
+                                // }
                             })}
                         </tbody>
                     </table>
-                    <div className="loading">
+                    {/* <div className="loading">
                         <h2>{loading && "Loading..."}</h2>
-                    </div>
+                    </div> */}
                 </Card>
             </section>
         </>
