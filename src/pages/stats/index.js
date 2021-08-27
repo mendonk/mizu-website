@@ -47,7 +47,7 @@ const StatsPage = () => {
     };
 
     const versionTXTChart = {
-        labels: Array.from(versionTXTDaily, (obj) => `${obj.formatedDate}`),
+        labels: Array.from(versionTXTDaily, (obj) => `${obj.date}`),
         datasets: [
             {
                 label: "# Off Downloads",

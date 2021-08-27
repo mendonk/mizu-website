@@ -104,6 +104,7 @@ export default function useBookSearch() {
             const dateStats = loopGrouping(groupByDate, "date", "version.txt");
 
             const groupedStatsByName = groupBy(res, "name");
+
             const mizuStats = loopGrouping(
                 groupedStatsByName,
                 "name",
@@ -112,7 +113,11 @@ export default function useBookSearch() {
 
             const getVersionTXT = groupedStatsByName["version.txt"];
 
-            console.log(getVersionTXT);
+            const groupVersionTXT = groupBy(getVersionTXT, "formatedDate");
+            const loopinGroupedVersionTXT = loopGrouping(
+                groupVersionTXT,
+                "date"
+            );
 
             const sortedtStats = mizuStats.sort(
                 (a, b) => b.download_count - a.download_count
@@ -120,6 +125,10 @@ export default function useBookSearch() {
             const sortByDate = dateStats.sort(
                 (a, b) => new Date(b.date) - new Date(a.date)
             );
+            const groupVersionTXTSort = loopinGroupedVersionTXT.sort(
+                (a, b) => new Date(b.formatedDate) - new Date(a.formatedDate)
+            );
+
             sortedtStats.forEach((obj) => {
                 totalDownloads += obj.download_count;
             });
@@ -133,7 +142,7 @@ export default function useBookSearch() {
             setTotalDownloads(totalDownloads);
             setTotalDownloadsVersion(totalDownloadsVersion);
             setVersionTXT(getVersionTXT);
-            setVersionTXTDaily(getVersionTXT.slice(0, 15));
+            setVersionTXTDaily(groupVersionTXTSort.slice(0, 15));
             setStats(res);
             setLoading(false);
         } catch (e) {
