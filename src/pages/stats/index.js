@@ -7,38 +7,51 @@ import doRequest from "../../hooks/doRequest";
 import "./style.css";
 
 const StatsPage = () => {
-    const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-    ];
-
-    // const [page, setPage] = useState(1);
     const {
         loading,
         stats,
-        // hasMore,
         mostDownloaded,
         dailyStats,
         totalDownloads,
+        versionTXT,
+        versionTXTDaily,
+        totalDownloadsVersion,
         error,
     } = doRequest();
 
-    // const observer = useRef(null);
-
     const data = {
-        labels: Array.from(
-            dailyStats,
-            (obj) => `${obj.date} - ${days[new Date(obj.date).getDay()]}`
-        ),
+        labels: Array.from(dailyStats, (obj) => `${obj.date}`),
         datasets: [
             {
                 label: "# Off Downloads",
                 data: Array.from(dailyStats, (obj) => obj.download_count),
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(255, 206, 86, 0.2)",
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(153, 102, 255, 0.2)",
+                    "rgba(255, 159, 64, 0.2)",
+                ],
+                borderColor: [
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(54, 162, 235, 1)",
+                    "rgba(255, 206, 86, 1)",
+                    "rgba(75, 192, 192, 1)",
+                    "rgba(153, 102, 255, 1)",
+                    "rgba(255, 159, 64, 1)",
+                ],
+                borderWidth: 1,
+            },
+        ],
+    };
+
+    const versionTXTChart = {
+        labels: Array.from(versionTXTDaily, (obj) => `${obj.formatedDate}`),
+        datasets: [
+            {
+                label: "# Off Downloads",
+                data: Array.from(versionTXTDaily, (obj) => obj.download_count),
                 backgroundColor: [
                     "rgba(255, 99, 132, 0.2)",
                     "rgba(54, 162, 235, 0.2)",
@@ -72,20 +85,6 @@ const StatsPage = () => {
         },
     };
 
-    // const lastBookElementRef = useCallback(
-    //     async (node) => {
-    //         if (loading) return;
-    //         if (observer.current) observer.current.disconnect();
-    //         observer.current = new IntersectionObserver((entries) => {
-    //             if (entries[0].isIntersecting && hasMore) {
-    //                 setPage((prevPageNumber) => prevPageNumber + 1);
-    //             }
-    //         });
-    //         if (node) observer.current.observe(node);
-    //     },
-    //     [loading, hasMore]
-    // );
-
     return loading ? (
         <>
             <Header siteTitle={`Mizu - Stats`} />
@@ -112,105 +111,124 @@ const StatsPage = () => {
                         margin: "30px 0",
                         padding: "30px 20px",
                         backgroundColor: "#fff",
+                        display: "flex",
+                        justifyContent: "space-between",
                     }}
+                    responsiveWidth="responsiveColumns"
                 >
-                    <h1 className="title">
-                        Mizu project - artifacts download stats
-                    </h1>
-                    <h2>Total Downloads {totalDownloads}</h2>
-                    <h2>Download summary</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Filename</th>
-                                <th>Downloads</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {mostDownloaded.map((file, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td data-label="Filename">
-                                            {file.name}
-                                        </td>
-                                        <td data-label="Downloads">
-                                            {file.download_count}
-                                        </td>
+                    <div className="downloadsSummary">
+                        <h2>Total Downloads {totalDownloads}</h2>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Filename</th>
+                                        <th>Downloads</th>
                                     </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+                                    {mostDownloaded.map((file, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td data-label="Filename">
+                                                    {file.name}
+                                                </td>
+                                                <td data-label="Downloads">
+                                                    {file.download_count}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="detailedDownloadsStats">
+                            <h2>Information per release</h2>
+
+                            <div className="detailedDownloadsStatsTableWrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Release</th>
+                                            <th>Filename</th>
+                                            <th>Downloads</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {stats.map((file, index) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <td data-label="Release">
+                                                        {file.target_commitish}
+                                                    </td>
+                                                    <td data-label="Filename">
+                                                        {file.name}
+                                                    </td>
+                                                    <td data-label="Downloads">
+                                                        {file.download_count}
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="totalDownloadsChartWrapper">
+                        <h2>Daily downloads</h2>
+                        <Bar data={data} options={options} />
+                    </div>
                 </Card>
             </section>
-            <section className="chartPlot">
-                <Card
-                    customStyle={{
-                        padding: "30px 20px",
-                        backgroundColor: "#fff",
-                    }}
-                >
-                    <h2>Daily downloads</h2>
-                    <Bar data={data} options={options} />
-                </Card>
-            </section>
-            <section className="detailedStats">
+            <section className="version">
                 <Card
                     customStyle={{
                         margin: "30px 0",
                         padding: "30px 20px",
                         backgroundColor: "#fff",
+                        display: "flex",
+                        justifyContent: "space-between",
                     }}
+                    responsiveWidth="responsiveColumns"
                 >
-                    <h2>Detailed information per release</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Release</th>
-                                <th>Filename</th>
-                                <th>Downloads</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {stats.map((file, index) => {
-                                // if (stats.length === index + 1) {
-                                //     return (
-                                //         <tr
-                                //             key={index}
-                                //             ref={lastBookElementRef}
-                                //         >
-                                //             <td data-label="Release">
-                                //                 {file.target_commitish}
-                                //             </td>
-                                //             <td data-label="Filename">
-                                //                 {file.name}
-                                //             </td>
-                                //             <td data-label="Downloads">
-                                //                 {file.download_count}
-                                //             </td>
-                                //         </tr>
-                                //     );
-                                // } else {
-                                return (
-                                    <tr key={index}>
-                                        <td data-label="Release">
-                                            {file.target_commitish}
-                                        </td>
-                                        <td data-label="Filename">
-                                            {file.name}
-                                        </td>
-                                        <td data-label="Downloads">
-                                            {file.download_count}
-                                        </td>
+                    <div className="versionTXTtable">
+                        <h2>
+                            Version.txt Total Downloads {totalDownloadsVersion}
+                        </h2>
+                        <div className="versionTXTtableTableWrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Release</th>
+                                        <th>Filename</th>
+                                        <th>Downloads</th>
                                     </tr>
-                                );
-                                // }
-                            })}
-                        </tbody>
-                    </table>
-                    {/* <div className="loading">
-                        <h2>{loading && "Loading..."}</h2>
-                    </div> */}
+                                </thead>
+                                <tbody>
+                                    {versionTXT.map((file, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td data-label="Release">
+                                                    {file.target_commitish}
+                                                </td>
+                                                <td data-label="Filename">
+                                                    {file.name}
+                                                </td>
+                                                <td data-label="Downloads">
+                                                    {file.download_count}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div className="versionTXTChart">
+                        <h2>Version.txt Daily Downloads</h2>
+                        <Bar data={versionTXTChart} options={options} />
+                    </div>
                 </Card>
             </section>
         </>

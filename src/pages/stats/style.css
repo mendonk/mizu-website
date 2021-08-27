@@ -1,6 +1,5 @@
 .stats,
-.detailedStats,
-.chartPlot,
+.version,
 .loading {
     display: flex;
     flex-direction: column;
@@ -26,10 +25,37 @@
 
 .stats h2 {
     margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.downloadsSummary {
+    width: 40%;
+    margin-right: 20px;
+}
+
+.totalDownloadsChartWrapper {
+    width: 60%;
+}
+
+.detailedDownloadsStats span {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.detailedDownloadsStats span button {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+.detailedDownloadsStatsTableWrapper {
+    height: 300px;
+    overflow: scroll;
 }
 
 table {
-    margin-top: 30px;
     width: 100%;
     font-family: "sans-serif";
     border-spacing: 0 1em;
@@ -64,6 +90,48 @@ table td:first-child {
 .loading {
     display: flex;
     justify-content: center;
+}
+
+.versionTXTtable {
+    width: 40%;
+    margin-right: 20px;
+}
+
+.versionTXTtableTableWrapper {
+    height: 400px;
+    overflow: scroll;
+}
+
+.versionTXTtable h2 {
+    margin-bottom: 10px;
+}
+
+.versionTXTChart {
+    width: 60%;
+}
+
+@media (max-width: 1540px) {
+    .downloadsSummary {
+        width: 60%;
+    }
+    .totalDownloadsChartWrapper {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1401px) {
+    .responsiveColumns {
+        flex-direction: column;
+    }
+    .versionTXTChart h2 {
+        margin-top: 20px;
+    }
+    .downloadsSummary,
+    .versionTXTtable,
+    .totalDownloadsChartWrapper,
+    .versionTXTChart {
+        width: 100%;
+    }
 }
 
 @media (max-width: 920px) {

@@ -9,6 +9,9 @@ export default function useBookSearch() {
     const [mostDownloaded, setMostDownloaded] = useState([]);
     const [dailyStats, setDailyStats] = useState([]);
     const [totalDownloads, setTotalDownloads] = useState(0);
+    const [totalDownloadsVersion, setTotalDownloadsVersion] = useState(0);
+    const [versionTXT, setVersionTXT] = useState([]);
+    const [versionTXTDaily, setVersionTXTDaily] = useState([]);
 
     const formatDate = (date) => {
         const formatedDate = new Date(date);
@@ -19,7 +22,6 @@ export default function useBookSearch() {
 
     const processResult = useCallback((response) => {
         const statsProccessed = [];
-        // const paginatedCondition = type === "paginated" ? false : true;
         response.forEach((object) => {
             const additionalInfo = {
                 target_commitish:
@@ -27,35 +29,12 @@ export default function useBookSearch() {
                 formatedDate: formatDate(object.created_at),
             };
             for (let singleObj of object.assets) {
-                // if (
-                //     singleObj.name === "README.md" ||
-                //     singleObj.name === "version.txt" ||
-                //     (singleObj.download_count === 0 && paginatedCondition)
-                // )
-                //     continue;
                 const newObj = { ...additionalInfo, ...singleObj };
                 statsProccessed.push(newObj);
             }
         });
         return statsProccessed;
     }, []);
-
-    // const githubRequest = (_) => {
-    //     setLoading(true);
-    //     octokit
-    //         .request("/repos/up9inc/mizu/releases", {
-    //             page: pageNumber,
-    //             per_page: 50,
-    //         })
-    //         .then((res) => {
-    //             const statsProccessed = processResult(res.data, "paginated");
-    //             setStats((prevStats) => {
-    //                 return [...new Set([...prevStats, ...statsProccessed])];
-    //             });
-    //             setHasMore(res.data.length > 0);
-    //             setLoading(false);
-    //         });
-    // };
 
     const githubRequestMostDownloaded = useCallback(
         (pgnumber) => {
@@ -91,13 +70,14 @@ export default function useBookSearch() {
         }, {});
     }
 
-    const loopGrouping = (obj, propName) => {
+    const loopGrouping = (obj, propName, filter = "") => {
         const response = [];
         for (const singleObj in obj) {
             let downloads = 0;
-            obj[singleObj].forEach((dateStats) => {
-                downloads += dateStats.download_count;
-            });
+            for (let z = 0; z < obj[singleObj].length; z++) {
+                if (obj[singleObj][z].name === filter) continue;
+                downloads += obj[singleObj][z].download_count;
+            }
             response.push({
                 [propName]: singleObj,
                 download_count: downloads,
@@ -112,6 +92,7 @@ export default function useBookSearch() {
             let res = [];
             let page = 1;
             let totalDownloads = 0;
+            let totalDownloadsVersion = 0;
 
             while (true) {
                 const request = await githubRequestMostDownloaded(page);
@@ -119,11 +100,19 @@ export default function useBookSearch() {
                 res = [...res, ...request];
                 if (!request.length) break;
             }
-            const groupedStats = groupBy(res, "name");
-            const mizuStats = loopGrouping(groupedStats, "name");
-
             const groupByDate = groupBy(res, "formatedDate");
-            const dateStats = loopGrouping(groupByDate, "date");
+            const dateStats = loopGrouping(groupByDate, "date", "version.txt");
+
+            const groupedStatsByName = groupBy(res, "name");
+            const mizuStats = loopGrouping(
+                groupedStatsByName,
+                "name",
+                "version.txt"
+            );
+
+            const getVersionTXT = groupedStatsByName["version.txt"];
+
+            console.log(getVersionTXT);
 
             const sortedtStats = mizuStats.sort(
                 (a, b) => b.download_count - a.download_count
@@ -134,46 +123,24 @@ export default function useBookSearch() {
             sortedtStats.forEach((obj) => {
                 totalDownloads += obj.download_count;
             });
-            const topFive = sortByDate.slice(0, 10);
+            getVersionTXT.forEach((obj) => {
+                totalDownloadsVersion += obj.download_count;
+            });
+            const lastTenDays = sortByDate.slice(0, 15);
 
             setMostDownloaded(sortedtStats);
-            setDailyStats(topFive);
+            setDailyStats(lastTenDays);
             setTotalDownloads(totalDownloads);
+            setTotalDownloadsVersion(totalDownloadsVersion);
+            setVersionTXT(getVersionTXT);
+            setVersionTXTDaily(getVersionTXT.slice(0, 15));
             setStats(res);
             setLoading(false);
         } catch (e) {
             setError("Something went wrong, please try again");
         }
-        // console.log("res", res);
-        // res.forEach((item, i) => {
-        //     console.log(i);
-        // });
-        // }
-
-        // octokit
-        //     .request("/repos/up9inc/mizu/releases")
-        //     .then((mostDownloaded) => {
-        //         const statsProccessed = processResult(
-        //             mostDownloaded,
-        //             "topDownloads"
-        //         );
-        // const groupedStats = groupBy(statsProccessed, "name");
-        // const groupByDate = groupBy(statsProccessed, "formatedDate");
-        // const statsObject = loopGrouping(groupedStats, "name");
-        // const dateStats = loopGrouping(groupByDate, "date");
-        // const sort = statsObject.sort(
-        //     (a, b) => b.download_count - a.download_count
-        // );
-        // const sortByDate = dateStats.sort(
-        //     (a, b) => new Date(b.date) - new Date(a.date)
-        // );
-        // const topFive = sort.slice(0, 5);
-        // setMostDownloaded(topFive);
-        // setDailyStats(sortByDate);
-        // });
     }, [githubRequestMostDownloaded]);
 
-    // useEffect(githubRequest, [pageNumber, processResult]);
     useEffect(() => {
         async function fetchData() {
             await topDownloaded();
@@ -184,10 +151,12 @@ export default function useBookSearch() {
     return {
         loading,
         stats,
-        // hasMore,
         mostDownloaded,
         dailyStats,
+        versionTXT,
+        versionTXTDaily,
         totalDownloads,
+        totalDownloadsVersion,
         error,
     };
 }
