@@ -57,11 +57,11 @@ const IndexPage = ({ data }) => {
                                     </div>
                                 </div>
                             </div>
-
                             <p className="txtDescription">
                                 {pageData["textDescription"]}
                             </p>
                             <p>{pageData["textLowerDescription"]}</p>
+
                             <button
                                 className="btnHome"
                                 onMouseDown={() => {
@@ -70,6 +70,13 @@ const IndexPage = ({ data }) => {
                                     });
                                 }}
                             >
+                                <img
+                                    height="1"
+                                    width="1"
+                                    style={{ display: "none" }}
+                                    alt=""
+                                    src="https://dc.ads.linkedin.com/collect/?pid=3855825&conversionId=5588753&fmt=gif"
+                                />
                                 {pageData["buttonLabel"]}
                             </button>
                         </div>
