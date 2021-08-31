@@ -358,6 +358,7 @@ const IndexPage = ({data}) => {
                         <b> {pageData['personallyIdentifiableDataFields']} </b>
                         {pageData['varLocated']} <b>{pageData['constsGo']} </b>
                         {pageData['fileInTheFolder']}
+                        <br/>
                         <a
                             href="https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering/"
                             target="_blank"
