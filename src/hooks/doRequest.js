@@ -2,12 +2,16 @@ import { useEffect, useState, useCallback } from "react";
 import { Octokit } from "@octokit/core";
 const octokit = new Octokit();
 
-export default function useBookSearch(pageNumber) {
+export default function useBookSearch() {
     const [loading, setLoading] = useState(true);
-    const [hasMore, setHasMore] = useState(false);
+    const [error, setError] = useState("");
     const [stats, setStats] = useState([]);
     const [mostDownloaded, setMostDownloaded] = useState([]);
     const [dailyStats, setDailyStats] = useState([]);
+    const [totalDownloads, setTotalDownloads] = useState(0);
+    const [totalDownloadsVersion, setTotalDownloadsVersion] = useState(0);
+    const [versionTXT, setVersionTXT] = useState([]);
+    const [versionTXTDaily, setVersionTXTDaily] = useState([]);
 
     const formatDate = (date) => {
         const formatedDate = new Date(date);
@@ -18,19 +22,13 @@ export default function useBookSearch(pageNumber) {
 
     const processResult = useCallback((response) => {
         const statsProccessed = [];
-        response.data.forEach((object) => {
+        response.forEach((object) => {
             const additionalInfo = {
                 target_commitish:
                     object.target_commitish + "/" + object.tag_name,
                 formatedDate: formatDate(object.created_at),
             };
             for (let singleObj of object.assets) {
-                if (
-                    singleObj.name === "README.md" ||
-                    singleObj.name === "version.txt" ||
-                    singleObj.download_count === 0
-                )
-                    continue;
                 const newObj = { ...additionalInfo, ...singleObj };
                 statsProccessed.push(newObj);
             }
@@ -38,22 +36,28 @@ export default function useBookSearch(pageNumber) {
         return statsProccessed;
     }, []);
 
-    const githubRequest = (_) => {
-        setLoading(true);
-        octokit
-            .request("/repos/up9inc/mizu/releases", {
-                page: pageNumber,
-                per_page: 3,
-            })
-            .then((res) => {
-                const statsProccessed = processResult(res);
-                setStats((prevStats) => {
-                    return [...new Set([...prevStats, ...statsProccessed])];
-                });
-                setHasMore(res.data.length > 0);
-                setLoading(false);
+    const githubRequestMostDownloaded = useCallback(
+        (pgnumber) => {
+            return new Promise((resolve, reject) => {
+                octokit
+                    .request("/repos/up9inc/mizu/releases", {
+                        page: pgnumber,
+                        per_page: 100,
+                    })
+                    .then((res) => {
+                        const statsProccessed = processResult(
+                            res.data,
+                            "paginated"
+                        );
+                        resolve(statsProccessed);
+                    })
+                    .catch((err) => {
+                        reject(err);
+                    });
             });
-    };
+        },
+        [processResult]
+    );
 
     function groupBy(objectArray, property) {
         return objectArray.reduce((acc, obj) => {
@@ -66,13 +70,14 @@ export default function useBookSearch(pageNumber) {
         }, {});
     }
 
-    const loopGrouping = (obj, propName) => {
+    const loopGrouping = (obj, propName, filter = "") => {
         const response = [];
         for (const singleObj in obj) {
             let downloads = 0;
-            obj[singleObj].forEach((dateStats) => {
-                downloads += dateStats.download_count;
-            });
+            for (let z = 0; z < obj[singleObj].length; z++) {
+                if (obj[singleObj][z].name === filter) continue;
+                downloads += obj[singleObj][z].download_count;
+            }
             response.push({
                 [propName]: singleObj,
                 download_count: downloads,
@@ -81,31 +86,86 @@ export default function useBookSearch(pageNumber) {
         return response;
     };
 
-    const topDownloaded = (_) => {
-        octokit
-            .request("/repos/up9inc/mizu/releases")
-            .then((mostDownloaded) => {
-                const statsProccessed = processResult(mostDownloaded);
-                const groupedStats = groupBy(statsProccessed, "name");
-                const groupByDate = groupBy(statsProccessed, "formatedDate");
-                const statsObject = loopGrouping(groupedStats, "name");
-                const dateStats = loopGrouping(groupByDate, "date");
+    const topDownloaded = useCallback(async () => {
+        try {
+            setLoading(true);
+            let res = [];
+            let page = 1;
+            let totalDownloads = 0;
+            let totalDownloadsVersion = 0;
 
-                const sort = statsObject.sort(
-                    (a, b) => b.download_count - a.download_count
-                );
-                const sortByDate = dateStats.sort(
-                    (a, b) => new Date(b.date) - new Date(a.date)
-                );
-                const topFive = sort.slice(0, 5);
+            while (true) {
+                const request = await githubRequestMostDownloaded(page);
+                page++;
+                res = [...res, ...request];
+                if (!request.length) break;
+            }
+            const groupByDate = groupBy(res, "formatedDate");
+            const dateStats = loopGrouping(groupByDate, "date", "version.txt");
 
-                setMostDownloaded(topFive);
-                setDailyStats(sortByDate);
+            const groupedStatsByName = groupBy(res, "name");
+
+            const mizuStats = loopGrouping(
+                groupedStatsByName,
+                "name",
+                "version.txt"
+            );
+
+            const getVersionTXT = groupedStatsByName["version.txt"];
+
+            const groupVersionTXT = groupBy(getVersionTXT, "formatedDate");
+            const loopinGroupedVersionTXT = loopGrouping(
+                groupVersionTXT,
+                "date"
+            );
+
+            const sortedtStats = mizuStats.sort(
+                (a, b) => b.download_count - a.download_count
+            );
+            const sortByDate = dateStats.sort(
+                (a, b) => new Date(b.date) - new Date(a.date)
+            );
+            const groupVersionTXTSort = loopinGroupedVersionTXT.sort(
+                (a, b) => new Date(b.formatedDate) - new Date(a.formatedDate)
+            );
+
+            sortedtStats.forEach((obj) => {
+                totalDownloads += obj.download_count;
             });
+            getVersionTXT.forEach((obj) => {
+                totalDownloadsVersion += obj.download_count;
+            });
+            const lastTenDays = sortByDate.slice(0, 15);
+
+            setMostDownloaded(sortedtStats);
+            setDailyStats(lastTenDays);
+            setTotalDownloads(totalDownloads);
+            setTotalDownloadsVersion(totalDownloadsVersion);
+            setVersionTXT(getVersionTXT);
+            setVersionTXTDaily(groupVersionTXTSort.slice(0, 15));
+            setStats(res);
+            setLoading(false);
+        } catch (e) {
+            setError("Something went wrong, please try again");
+        }
+    }, [githubRequestMostDownloaded]);
+
+    useEffect(() => {
+        async function fetchData() {
+            await topDownloaded();
+        }
+        fetchData();
+    }, [topDownloaded]);
+
+    return {
+        loading,
+        stats,
+        mostDownloaded,
+        dailyStats,
+        versionTXT,
+        versionTXTDaily,
+        totalDownloads,
+        totalDownloadsVersion,
+        error,
     };
-
-    useEffect(githubRequest, [pageNumber, processResult]);
-    useEffect(topDownloaded, [processResult]);
-
-    return { loading, stats, hasMore, mostDownloaded, dailyStats };
 }

@@ -305,6 +305,7 @@ img {
 .standalone .localhostLink {
     line-height: 2;
     color: #205cf5;
+    word-break: break-all;
 }
 
 .standaloneIMG img {
@@ -482,7 +483,7 @@ strong {
     font-family: Roboto-Regular;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 35px;
     color: #494677;
 }
