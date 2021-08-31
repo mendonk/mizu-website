@@ -370,12 +370,13 @@ const IndexPage = ({ data }) => {
                         {pageData["varLocated"]} <b>{pageData["constsGo"]} </b>
                         {pageData["fileInTheFolder"]}
                         <a
-                            href="https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering"
+                            href="https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering/"
                             target="_blank"
                             className="securityGithubLink"
                             rel="noreferrer"
                         >
-                            https://github.com/up9inc/mizu/tree/develop/api/pkg/sensitiveDataFiltering
+
+                            https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering
                         </a>
                     </p>
                     <div className="securityBlock">
