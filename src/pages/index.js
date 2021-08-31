@@ -365,10 +365,11 @@ const IndexPage = ({ data }) => {
                     </p>
                     <p>
                         <br />
-                        <b>{pageData["mizu"]}</b> {pageData["willRedact"]}
-                        <b> {pageData["personallyIdentifiableDataFields"]} </b>
-                        {pageData["varLocated"]} <b>{pageData["constsGo"]} </b>
-                        {pageData["fileInTheFolder"]}
+                        <b>{pageData['mizu']}</b> {pageData['willRedact']}
+                        <b> {pageData['personallyIdentifiableDataFields']} </b>
+                        {pageData['varLocated']} <b>{pageData['constsGo']} </b>
+                        {pageData['fileInTheFolder']}
+                        <br/>
                         <a
                             href="https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering/"
                             target="_blank"
