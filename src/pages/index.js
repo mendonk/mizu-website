@@ -12,10 +12,10 @@ import StandloneImage from "../images/standalone.png";
 import Kubernetes from "../images/kubernetes.png";
 
 import "./index.css";
-import {graphql} from "gatsby";
+import { graphql } from "gatsby";
 
-const IndexPage = ({data}) => {
-    const {allMarkdownRemark} = data;
+const IndexPage = ({ data }) => {
+    const { allMarkdownRemark } = data;
     const pageData = allMarkdownRemark.nodes[0]?.frontmatter;
     const [activeTab, setActiveTab] = useState("mac");
     const [mizuLink, setMizuLink] = useState(
@@ -45,9 +45,9 @@ const IndexPage = ({data}) => {
                 <Card>
                     <div className="wrapper">
                         <div className="infoWrapper">
-                            <h2>{pageData['infoH2']}</h2>
+                            <h2>{pageData["infoH2"]}</h2>
                             <div className="kubernetes">
-                                <h2>{pageData['infoH2USubheader']}</h2> &nbsp;{" "}
+                                <h2>{pageData["infoH2USubheader"]}</h2> &nbsp;{" "}
                                 <div>
                                     <div className="kubernetesImgInTitle">
                                         <img
@@ -57,13 +57,11 @@ const IndexPage = ({data}) => {
                                     </div>
                                 </div>
                             </div>
-
                             <p className="txtDescription">
-                                {pageData['textDescription']}
+                                {pageData["textDescription"]}
                             </p>
-                            <p>
-                                {pageData['textLowerDescription']}
-                            </p>
+                            <p>{pageData["textLowerDescription"]}</p>
+
                             <button
                                 className="btnHome"
                                 onMouseDown={() => {
@@ -72,7 +70,14 @@ const IndexPage = ({data}) => {
                                     });
                                 }}
                             >
-                                {pageData['buttonLabel']}
+                                <img
+                                    height="1"
+                                    width="1"
+                                    style={{ display: "none" }}
+                                    alt=""
+                                    src="https://dc.ads.linkedin.com/collect/?pid=3855825&conversionId=5588753&fmt=gif"
+                                />
+                                {pageData["buttonLabel"]}
                             </button>
                         </div>
                         <div className="mainLogoWrapper">
@@ -102,7 +107,8 @@ const IndexPage = ({data}) => {
                                 style={{ background: "#27ae60" }}
                             />
                             <div className="singleFeature">
-                                {pageData['simpleAndPowerful']} <b>{pageData['cli']}</b>
+                                {pageData["simpleAndPowerful"]}{" "}
+                                <b>{pageData["cli"]}</b>
                             </div>
                         </div>
                         <div className="featureListItem">
@@ -111,8 +117,10 @@ const IndexPage = ({data}) => {
                                 style={{ background: "#F7B202" }}
                             />
                             <div className="singleFeature">
-                                {pageData["realTime"]} <b>{pageData["http"]}</b> {pageData["requests"]},{" "}
-                                <b>{pageData["rest"]}</b> {pageData["and"]} <b>{pageData["grpc"]}</b> {pageData["apiCalls"]}
+                                {pageData["realTime"]} <b>{pageData["http"]}</b>{" "}
+                                {pageData["requests"]},{" "}
+                                <b>{pageData["rest"]}</b> {pageData["and"]}{" "}
+                                <b>{pageData["grpc"]}</b> {pageData["apiCalls"]}
                             </div>
                         </div>
                         <div className="featureListItem">
@@ -224,20 +232,23 @@ const IndexPage = ({data}) => {
                         />
                     </div>
                     <div className="quickStartCodeContainer">
-                        <h4 className="txtNotes">{pageData['notes']}</h4>
+                        <h4 className="txtNotes">{pageData["notes"]}</h4>
                         <ul className="quickStartList">
                             <li>
-                                {pageData['youShouldHave']} <strong>{pageData['kubectl']}</strong>{" "}
-                                {pageData['configuredToRun']}
+                                {pageData["youShouldHave"]}{" "}
+                                <strong>{pageData["kubectl"]}</strong>{" "}
+                                {pageData["configuredToRun"]}
                             </li>
                             <li>
-                                {pageData['checksum']} <a
+                                {pageData["checksum"]}{" "}
+                                <a
                                     href="https://github.com/up9inc/mizu/releases/latest/"
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    {pageData['releases']}
-                                </a> {pageData['page']}
+                                    {pageData["releases"]}
+                                </a>{" "}
+                                {pageData["page"]}
                             </li>
                         </ul>
                     </div>
@@ -256,10 +267,10 @@ const IndexPage = ({data}) => {
                 >
                     <div className="standaloneDescription">
                         <span>
-                            {pageData['toSee']}
+                            {pageData["toSee"]}
                             <img src={Logo} alt="Mizu" />
                             &nbsp;
-                            <span>{pageData['standalone']}</span>
+                            <span>{pageData["standalone"]}</span>
                         </span>
                     </div>
                     <span className="localhostLink">
@@ -272,7 +283,7 @@ const IndexPage = ({data}) => {
             </section>
             <section className="example">
                 <Card>
-                    <h1>{pageData['example']}</h1>
+                    <h1>{pageData["example"]}</h1>
                 </Card>
                 <Card
                     customStyle={{
@@ -284,7 +295,7 @@ const IndexPage = ({data}) => {
                     responsiveWidth="responsiveWidth"
                 >
                     <div className="exampleInfo">
-                        <span>{pageData['runningPods']}</span>
+                        <span>{pageData["runningPods"]}</span>
                     </div>
                     <div className="exampleImage">
                         <img src={ExampleImage} alt="Example IMG" />
@@ -305,9 +316,7 @@ const IndexPage = ({data}) => {
                     />
 
                     <div className="exampleDescription">
-                        <span>
-                            {pageData['theAboveCommand']}
-                        </span>
+                        <span>{pageData["theAboveCommand"]}</span>
                     </div>
                     <div className="listCommands">
                         <ul>
@@ -338,7 +347,7 @@ const IndexPage = ({data}) => {
             </section>
             <section className="security">
                 <Card>
-                    <h1>{pageData['security']}</h1>
+                    <h1>{pageData["security"]}</h1>
                 </Card>
                 <Card
                     dpFlex="dpFlex"
@@ -350,7 +359,9 @@ const IndexPage = ({data}) => {
                     responsiveWidth="responsiveWidth"
                 >
                     <p>
-                        {pageData['when']} <b>{pageData['mizu']}</b> {pageData['tapsData']} <b>{pageData['pii']}</b> {pageData['makeSure']}
+                        {pageData["when"]} <b>{pageData["mizu"]}</b>{" "}
+                        {pageData["tapsData"]} <b>{pageData["pii"]}</b>{" "}
+                        {pageData["makeSure"]}
                     </p>
                     <p>
                         <br />
@@ -383,19 +394,15 @@ const IndexPage = ({data}) => {
                     </div>
                     <br />
                     <div className="securityBlock">
-                        <h2>{pageData['defaultKeywords']}</h2>
-                        <p>
-                            {pageData['toRemove']}
-                        </p>
+                        <h2>{pageData["defaultKeywords"]}</h2>
+                        <p>{pageData["toRemove"]}</p>
                     </div>
                     <div className="securityBlock">
-                        <h2>{pageData['redactSensitive']}</h2>
-                        <p>
-                            {pageData['youCanFilter']}
-                        </p>
+                        <h2>{pageData["redactSensitive"]}</h2>
+                        <p>{pageData["youCanFilter"]}</p>
                     </div>
                     <div className="securityBlock">
-                        <h2>{pageData['examples']}</h2>
+                        <h2>{pageData["examples"]}</h2>
                         <CodeBlock
                             title=""
                             codeText='./mizu tap ".*" -r <regex>'
@@ -403,7 +410,7 @@ const IndexPage = ({data}) => {
                             textColor="default"
                         />
                         <p className="securityExamplesP">
-                            {pageData['useMultiple']}
+                            {pageData["useMultiple"]}
                         </p>
                         <CodeBlock
                             title=""
@@ -421,59 +428,59 @@ const IndexPage = ({data}) => {
 export default IndexPage;
 
 export const pageQuery = graphql`
-query {
-  allMarkdownRemark(filter: {fileAbsolutePath: {ne: "home.md"}}) {
-    nodes {
-      frontmatter {
-        infoH2
-        infoH2USubheader
-        textDescription
-        textLowerDescription
-        buttonLabel
-        simpleAndPowerful
-        cli
-        realTime
-        http
-        requests
-        rest
-        and
-        grpc
-        apiCalls
-        featureNoInstallation
-        featureOnPremiss
-        mac
-        linux
-        notes
-        youShouldHave
-        kubectl
-        configuredToRun
-        checksum
-        releases
-        page
-        toSee
-        standalone
-        example
-        runningPods
-        theAboveCommand
-        security
-        when
-        mizu
-        tapsData
-        pii
-        makeSure
-        willRedact
-        personallyIdentifiableDataFields
-        varLocated
-        constsGo
-        fileInTheFolder
-        defaultKeywords
-        toRemove
-        redactSensitive
-        youCanFilter
-        examples
-        useMultiple
-      }
+    query {
+        allMarkdownRemark(filter: { fileAbsolutePath: { ne: "home.md" } }) {
+            nodes {
+                frontmatter {
+                    infoH2
+                    infoH2USubheader
+                    textDescription
+                    textLowerDescription
+                    buttonLabel
+                    simpleAndPowerful
+                    cli
+                    realTime
+                    http
+                    requests
+                    rest
+                    and
+                    grpc
+                    apiCalls
+                    featureNoInstallation
+                    featureOnPremiss
+                    mac
+                    linux
+                    notes
+                    youShouldHave
+                    kubectl
+                    configuredToRun
+                    checksum
+                    releases
+                    page
+                    toSee
+                    standalone
+                    example
+                    runningPods
+                    theAboveCommand
+                    security
+                    when
+                    mizu
+                    tapsData
+                    pii
+                    makeSure
+                    willRedact
+                    personallyIdentifiableDataFields
+                    varLocated
+                    constsGo
+                    fileInTheFolder
+                    defaultKeywords
+                    toRemove
+                    redactSensitive
+                    youCanFilter
+                    examples
+                    useMultiple
+                }
+            }
+        }
     }
-  }
-}
 `;
