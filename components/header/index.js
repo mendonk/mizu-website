@@ -11,8 +11,7 @@ const Header = ({ siteTitle }) => (
     <header>
         <Helmet>
             <title>{siteTitle}</title>
-            <!-- Hotjar Tracking Code for https://getmizu.io/ -->
-            <script>
+            <script type="text/javascript">
                 {`
                     (function(h,o,t,j,a,r){
                         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
