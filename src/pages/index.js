@@ -5,6 +5,8 @@ import Card from "../../components/card";
 import CodeBlock from "../../components/codeBlock";
 import MetaTags from "../../components/metaTags";
 import Logo from "../../src/images/logo2.svg";
+import quickStartLogo from "../../src/images/quickStartLogo.svg";
+import githubIcon from "../../src/images/GithubFooter.svg";
 import keyFeaturesLogo from "../images/keyFeaturesLogo.png";
 import MainIMG from "../images/mainImg.png";
 import ExampleImage from "../images/exampleImage.png";
@@ -61,101 +63,51 @@ const IndexPage = ({ data }) => {
                                 {pageData["textDescription"]}
                             </p>
                             <p>{pageData["textLowerDescription"]}</p>
+                            <div className="downloadButtonWrapper">
+                                <button
+                                    className="btnHome"
+                                    onMouseDown={() => {
+                                        quickStart.current.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                    }}
+                                >
+                                    <img
+                                        height="1"
+                                        width="1"
+                                        style={{ display: "none" }}
+                                        alt=""
+                                        src="https://dc.ads.linkedin.com/collect/?pid=3855825&conversionId=5588753&fmt=gif"
+                                    />
+                                    <img
+                                        src={githubIcon}
+                                        alt="Github"
+                                        className="downloadGithubIcon"
+                                    />
+                                    {pageData["buttonLabel"]}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+                <div className="mainLogoWrapper">
+                    <img className="mainLogo" src={MainIMG} alt="Main Logo" />
+                </div>
+            </section>
 
-                            <button
-                                className="btnHome"
-                                onMouseDown={() => {
-                                    quickStart.current.scrollIntoView({
-                                        behavior: "smooth",
-                                    });
-                                }}
-                            >
-                                <img
-                                    height="1"
-                                    width="1"
-                                    style={{ display: "none" }}
-                                    alt=""
-                                    src="https://dc.ads.linkedin.com/collect/?pid=3855825&conversionId=5588753&fmt=gif"
-                                />
-                                {pageData["buttonLabel"]}
-                            </button>
-                        </div>
-                        <div className="mainLogoWrapper">
-                            <img
-                                className="mainLogo"
-                                src={MainIMG}
-                                alt="Main Logo"
-                            />
-                        </div>
-                    </div>
-                </Card>
-            </section>
-            <section className="keyFeatures">
-                <Card
-                    dpFlex="dpFlex"
-                    customStyle={{
-                        margin: "50px 0",
-                    }}
-                >
-                    <div className="keyFeatureLogo">
-                        <img src={keyFeaturesLogo} alt="Feature Logo" />
-                    </div>
-                    <div className="featureList">
-                        <div className="featureListItem">
-                            <div
-                                className="featureListBullet"
-                                style={{ background: "#27ae60" }}
-                            />
-                            <div className="singleFeature">
-                                {pageData["simpleAndPowerful"]}{" "}
-                                <b>{pageData["cli"]}</b>
-                            </div>
-                        </div>
-                        <div className="featureListItem">
-                            <div
-                                className="featureListBullet"
-                                style={{ background: "#F7B202" }}
-                            />
-                            <div className="singleFeature">
-                                {pageData["realTime"]} <b>{pageData["http"]}</b>{" "}
-                                {pageData["requests"]},{" "}
-                                <b>{pageData["rest"]}</b> {pageData["and"]}{" "}
-                                <b>{pageData["grpc"]}</b> {pageData["apiCalls"]}
-                            </div>
-                        </div>
-                        <div className="featureListItem">
-                            <div
-                                className="featureListBullet"
-                                style={{ background: "#DB2156" }}
-                            />
-                            <div className="singleFeature">
-                                {pageData["featureNoInstallation"]}
-                            </div>
-                        </div>
-                        <div className="featureListItem">
-                            <div
-                                className="featureListBullet"
-                                style={{ background: "#205CF5" }}
-                            />
-                            <div className="singleFeature">
-                                {pageData["featureOnPremiss"]}
-                            </div>
-                        </div>
-                    </div>
-                </Card>
-            </section>
             <section ref={quickStart} className="quickStart">
-                <Card>
-                    <h1>{pageData["buttonLabel"]}</h1>
-                </Card>
                 <Card
                     dpFlex="dpFlex"
                     customStyle={{
                         justifyContent: "center",
-                        margin: "50px 0",
+                        margin: "0 0 50px 0",
                     }}
                 >
-                    <img src={Logo} alt="Mizu" className="downloadMIZUIcon" />
+                    <img
+                        src={quickStartLogo}
+                        alt="Mizu"
+                        className="downloadMIZUIcon"
+                    />
                     <span className="txtQuickStart">
                         &nbsp;
                         {`is a standalone tool (written in Golang) that you can download and run`}
@@ -254,6 +206,60 @@ const IndexPage = ({ data }) => {
                     </div>
                 </Card>
             </section>
+            <section className="keyFeatures">
+                <Card
+                    dpFlex="dpFlex"
+                    customStyle={{
+                        margin: "50px 0",
+                    }}
+                >
+                    <div className="keyFeatureLogo">
+                        <img src={keyFeaturesLogo} alt="Feature Logo" />
+                    </div>
+                    <div className="featureList">
+                        <div className="featureListItem">
+                            <div
+                                className="featureListBullet"
+                                style={{ background: "#27ae60" }}
+                            />
+                            <div className="singleFeature">
+                                {pageData["simpleAndPowerful"]}{" "}
+                                <b>{pageData["cli"]}</b>
+                            </div>
+                        </div>
+                        <div className="featureListItem">
+                            <div
+                                className="featureListBullet"
+                                style={{ background: "#F7B202" }}
+                            />
+                            <div className="singleFeature">
+                                {pageData["realTime"]} <b>{pageData["http"]}</b>{" "}
+                                {pageData["requests"]},{" "}
+                                <b>{pageData["rest"]}</b> {pageData["and"]}{" "}
+                                <b>{pageData["grpc"]}</b> {pageData["apiCalls"]}
+                            </div>
+                        </div>
+                        <div className="featureListItem">
+                            <div
+                                className="featureListBullet"
+                                style={{ background: "#DB2156" }}
+                            />
+                            <div className="singleFeature">
+                                {pageData["featureNoInstallation"]}
+                            </div>
+                        </div>
+                        <div className="featureListItem">
+                            <div
+                                className="featureListBullet"
+                                style={{ background: "#205CF5" }}
+                            />
+                            <div className="singleFeature">
+                                {pageData["featureOnPremiss"]}
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+            </section>
             <section className="standalone">
                 <Card
                     dpFlex="dpFlex"
@@ -267,8 +273,7 @@ const IndexPage = ({ data }) => {
                 >
                     <div className="standaloneDescription">
                         <span>
-                            {pageData["toSee"]}
-                            <img src={Logo} alt="Mizu" />
+                            {pageData["toSee"]} <img src={Logo} alt="Mizu" />
                             &nbsp;
                             <span>{pageData["standalone"]}</span>
                         </span>
@@ -365,18 +370,17 @@ const IndexPage = ({ data }) => {
                     </p>
                     <p>
                         <br />
-                        <b>{pageData['mizu']}</b> {pageData['willRedact']}
-                        <b> {pageData['personallyIdentifiableDataFields']} </b>
-                        {pageData['varLocated']} <b>{pageData['constsGo']} </b>
-                        {pageData['fileInTheFolder']}
-                        <br/>
+                        <b>{pageData["mizu"]}</b> {pageData["willRedact"]}
+                        <b> {pageData["personallyIdentifiableDataFields"]} </b>
+                        {pageData["varLocated"]} <b>{pageData["constsGo"]} </b>
+                        {pageData["fileInTheFolder"]}
+                        <br />
                         <a
                             href="https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering/"
                             target="_blank"
                             className="securityGithubLink"
                             rel="noreferrer"
                         >
-
                             https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering
                         </a>
                     </p>

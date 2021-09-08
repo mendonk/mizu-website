@@ -13,16 +13,18 @@ img {
 }
 
 .mainWrapper {
+    position: relative;
     min-height: calc(100vh - 90px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 1;
-    background-image: url("../images/bkg.jpg");
+    background-image: url("../images/rightHeroSectionBGK.png"),
+        url("../images/bkg.jpg");
     /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-position: right bottom, left;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 47%, 100% 100%;
 }
 
 .wrapper {
@@ -32,6 +34,7 @@ img {
 
 .infoWrapper {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     font-family: Quicksand-Bold;
     font-style: normal;
@@ -40,7 +43,7 @@ img {
     font-size: clamp(1.5rem, calc(3vw + 1rem), 2rem);
     color: #0c0b1a;
     max-width: 470px;
-    width: 40%;
+    /* width: 40%; */
 }
 
 .infoWrapper p {
@@ -61,19 +64,26 @@ img {
     margin-bottom: 50px;
 }
 
+.downloadButtonWrapper {
+    background: rgba(219, 33, 86, 0.16);
+    border-radius: 0px 20px 20px 20px;
+    padding: 10px;
+    width: 345px;
+}
+
 .btnHome {
     display: flex;
-    width: 180px;
-    background: #205cf5;
+    width: 325px;
+    background: #db2156;
     padding: 10px 30px;
-    box-shadow: 0px 20px 60px rgba(32, 92, 245, 0.4);
-    border-radius: 80px;
-    -webkit-border-radius: 80px;
+
+    border-radius: 0px 10px 10px 10px;
+    -webkit-border-radius: 0px 10px 10px 10px;
     color: white;
     border: none;
     outline: 0;
     /* font */
-    font-family: Lato-Regular;
+    font-family: Quicksand-Bold;
     font-style: normal;
     font-weight: 800;
     font-size: 1.3rem;
@@ -83,17 +93,25 @@ img {
     cursor: pointer;
 }
 
+.btnHome > .downloadGithubIcon {
+    margin-right: 10px;
+}
+
 .btnHome:focus {
     outline: 0;
 }
 
 .mainLogoWrapper {
-    width: 60%;
+    position: absolute;
+    right: 0;
+    width: 55%;
 }
 
 .mainLogo {
     max-width: 100%;
     display: block;
+    /* box-shadow: 90px 30px 80px -25px rgb(0 0 0 / 25%); */
+    box-shadow: 90px 80px 80px -25px rgb(0 0 0 / 15%);
 }
 
 .kubernetes {
@@ -124,11 +142,12 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/keyFeatures.png");
+    background: #f7f9fc;
+    /* background-image: url("../images/keyFeatures.png"); */
     /* Center and scale the image nicely */
-    background-position: center;
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     padding: 80px 0;
 }
 
@@ -197,6 +216,11 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url("../images/quickStartBG.png");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 80px 0;
 }
 
@@ -214,7 +238,7 @@ img {
     font-style: normal;
     font-weight: bold;
     font-size: clamp(0.8rem, calc(1vw + 0.7rem), 2.5rem);
-    color: #0c0b1a;
+    color: #fff;
 }
 
 .quickStartCodeContainer {
@@ -360,7 +384,7 @@ img {
 }
 
 .exampleImage img {
-    max-width: 100%;
+    width: 100%;
 }
 
 @keyframes codeEffect {
@@ -527,6 +551,15 @@ strong {
     font-style: normal;
 }
 
+@media (min-width: 2170px) {
+    .mainWrapper {
+        background-size: 1000px, 100% 100%;
+    }
+    .mainLogoWrapper {
+        width: 1200px;
+    }
+}
+
 @media (max-width: 1300px) {
     .infoWrapper {
         font-size: clamp(1rem, calc(3vw + 1rem), 1.5rem);
@@ -546,6 +579,9 @@ strong {
     .kubernetesImgInTitle {
         width: 250px;
     }
+    .mainLogoWrapper {
+        width: 50%;
+    }
 }
 
 @media (max-width: 1150px) {
@@ -553,12 +589,18 @@ strong {
         width: 100%;
         justify-content: center;
     }
+    .mainLogoWrapper {
+        width: 44%;
+    }
 }
 
 @media (max-width: 1000px) {
     .wrapper {
         margin: 50px 0;
         flex-direction: column;
+    }
+    .mainWrapper {
+        background-size: 65%, 100% 100%;
     }
     .mainLogoWrapper {
         margin-top: 50px;
@@ -582,10 +624,23 @@ strong {
         width: 240px;
         justify-content: flex-start;
     }
+    .mainLogoWrapper {
+        display: none;
+    }
 }
 
 @media (max-width: 940px) {
     header {
         padding: 0 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .downloadButtonWrapper {
+        width: 315px;
+    }
+    .btnHome {
+        font-size: 1.1rem;
+        width: 295px;
     }
 }
