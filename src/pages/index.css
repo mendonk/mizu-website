@@ -68,12 +68,12 @@ img {
     background: rgba(219, 33, 86, 0.16);
     border-radius: 0px 20px 20px 20px;
     padding: 10px;
-    width: 345px;
+    width: 365px;
 }
 
 .btnHome {
     display: flex;
-    width: 325px;
+    width: 345px;
     background: #db2156;
     padding: 10px 30px;
 
