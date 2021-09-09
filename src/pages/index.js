@@ -64,13 +64,8 @@ const IndexPage = ({ data }) => {
                             </p>
                             <p>{pageData["textLowerDescription"]}</p>
                             <div className="downloadButtonWrapper">
-                                <button
+                                <a href="https://github.com/up9inc/mizu" target="_blank"
                                     className="btnHome"
-                                    onMouseDown={() => {
-                                        quickStart.current.scrollIntoView({
-                                            behavior: "smooth",
-                                        });
-                                    }}
                                 >
                                     <img
                                         height="1"
@@ -85,7 +80,7 @@ const IndexPage = ({ data }) => {
                                         className="downloadGithubIcon"
                                     />
                                     {pageData["buttonLabel"]}
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
