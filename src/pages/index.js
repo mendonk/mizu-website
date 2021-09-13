@@ -64,7 +64,9 @@ const IndexPage = ({ data }) => {
                             </p>
                             <p>{pageData["textLowerDescription"]}</p>
                             <div className="downloadButtonWrapper">
-                                <a href="https://github.com/up9inc/mizu" target="_blank"
+                                <a
+                                    href="https://github.com/up9inc/mizu/releases/latest"
+                                    target="_blank"
                                     className="btnHome"
                                 >
                                     <img
