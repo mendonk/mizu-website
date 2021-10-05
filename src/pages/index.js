@@ -21,7 +21,10 @@ const IndexPage = ({ data }) => {
     const pageData = allMarkdownRemark.nodes[0]?.frontmatter;
     const [activeTab, setActiveTab] = useState("mac");
     const [mizuLink, setMizuLink] = useState(
-        "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 && chmod 755 mizu"
+        `curl -Lo mizu \\
+        https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 \\
+        && chmod 755 mizu
+        `
     );
 
     const downloadCopyRef = useRef(null);
@@ -132,7 +135,10 @@ const IndexPage = ({ data }) => {
                                     onMouseDown={() => {
                                         setActiveTab("mac");
                                         setMizuLink(
-                                            "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 && chmod 755 mizu"
+                                            `curl -Lo mizu \\
+                                            https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 \\
+                                            && chmod 755 mizu
+                                            `
                                         );
                                     }}
                                 >
@@ -151,7 +157,10 @@ const IndexPage = ({ data }) => {
                                     onMouseDown={() => {
                                         setActiveTab("linux");
                                         setMizuLink(
-                                            "curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 && chmod 755 mizu"
+                                            `curl -Lo mizu \\
+                                            https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 \\
+                                            && chmod 755 mizu
+                                            `
                                         );
                                     }}
                                 >
