@@ -195,7 +195,18 @@ const IndexPage = ({ data }) => {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    {pageData["releases"]}
+                                    {pageData["githubReleases"]}
+                                </a>{" "}
+                                {pageData["page"]}
+                            </li>
+                            <li>
+                                {pageData["moreDownloads"]}{" "}
+                                <a
+                                    href="https://github.com/up9inc/mizu/releases/latest/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {pageData["githubReleases"]}
                                 </a>{" "}
                                 {pageData["page"]}
                             </li>
@@ -457,6 +468,8 @@ export const pageQuery = graphql`
                     configuredToRun
                     checksum
                     releases
+                    moreDownloads
+                    githubReleases
                     page
                     toSee
                     standalone

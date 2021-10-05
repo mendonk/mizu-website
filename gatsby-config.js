@@ -3,8 +3,15 @@ module.exports = {
         title: "mizu",
     },
     plugins: [
-        'react-helmet',
-        'gatsby-transformer-remark',
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-199907275-1",
+                head: true,
+            },
+        },
+        "react-helmet",
+        "gatsby-transformer-remark",
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-client-side-redirect`,
         {
@@ -21,15 +28,15 @@ module.exports = {
                 crossOrigin: `use-credentials`,
             },
         },
-        {
-          resolve: `gatsby-plugin-google-gtag`,
-          options: {
-            trackingIds: ["G-ZKZE18RLGM"],
-            pluginConfig: {
-              head: true,
-            },
-          },
-        },
+        // {
+        //     resolve: `gatsby-plugin-google-gtag`,
+        //     options: {
+        //         trackingIds: ["G-ZKZE18RLGM"],
+        //         pluginConfig: {
+        //             head: true,
+        //         },
+        //     },
+        // },
     ],
     flags: {
         THE_FLAG: false,
