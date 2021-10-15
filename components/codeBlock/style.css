@@ -22,13 +22,14 @@
     word-break: break-all;
 }
 
-.exampleCommand span {
+.exampleCommand code {
     font-family: SourceCodePro-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: clamp(1rem, calc(5vw + 1rem), 1rem);
     line-height: 16px;
     color: #0c0b1a;
+    white-space: pre-line;
 }
 
 .exampleCommand img {

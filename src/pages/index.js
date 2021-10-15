@@ -69,6 +69,7 @@ const IndexPage = ({ data }) => {
                             <div className="downloadButtonWrapper">
                                 <a
                                     href="https://github.com/up9inc/mizu/releases/latest"
+                                    rel="noreferrer"
                                     target="_blank"
                                     className="btnHome"
                                 >
@@ -157,7 +158,7 @@ const IndexPage = ({ data }) => {
                                     onMouseDown={() => {
                                         setActiveTab("linux");
                                         setMizuLink(
-                                            `curl -Lo mizu \\
+                                            `curl -Lo mizu \\ 
                                             https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 \\
                                             && chmod 755 mizu
                                             `

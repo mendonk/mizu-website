@@ -28,13 +28,13 @@ const CodeBlock = ({
             )}
 
             <div className="exampleCommand" style={{ marginTop: "10px" }}>
-                <span
+                <pre
                     ref={copyRef}
                     className={` ${animation === true ? "commandEffect" : ""}`}
                     style={customStyle}
                 >
-                    {codeText}
-                </span>
+                    <code>{codeText}</code>
+                </pre>
                 {copied ? (
                     <div className="copiedCode">
                         <img src={CopiedIcon} alt="Copied Icon" />
