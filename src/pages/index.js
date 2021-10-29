@@ -44,25 +44,19 @@ const IndexPage = ({ data }) => {
     const allApiTraffic = useRef(null);
 
     useEffect(() => {
-        const os = window.navigator.userAgentData.platform;
-
-        switch (os) {
-            case "macOS":
-                setActiveTab("mac");
-                setMizuLink(macIntel);
-                break;
-            case "Windows":
-                setActiveTab("windows");
-                setMizuLink(windows);
-                break;
-            case "Linux":
-                setActiveTab("linux");
-                setMizuLink(linux);
-                break;
-            default:
-                setActiveTab("mac");
-                setMizuLink(macIntel);
-                break;
+        const userAgent = navigator.userAgent;
+        if (userAgent.indexOf("Win") !== -1) {
+            setActiveTab("windows");
+            setMizuLink(windows);
+        } else if (userAgent.indexOf("Mac") !== -1) {
+            setActiveTab("mac");
+            setMizuLink(macIntel);
+        } else if (userAgent.indexOf("Linux") !== -1) {
+            setActiveTab("linux");
+            setMizuLink(linux);
+        } else {
+            setActiveTab("mac");
+            setMizuLink(macIntel);
         }
     }, []);
 
