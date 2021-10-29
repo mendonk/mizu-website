@@ -254,6 +254,7 @@ img {
 
 .quickStartTabItem span {
     cursor: pointer;
+    outline: none;
 }
 
 .quickStartTab .quickStartTabItem {
