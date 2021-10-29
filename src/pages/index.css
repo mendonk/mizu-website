@@ -248,7 +248,7 @@ img {
 .quickStartTab {
     display: flex;
     justify-content: space-between;
-    width: 600px;
+    width: 655px;
     padding: 5px;
 }
 
@@ -269,7 +269,6 @@ img {
 
 .quickStartTab .quickStartTabItem:last-child {
     border-right: none;
-    
 }
 
 .quickStartActiveTab {
@@ -637,7 +636,7 @@ strong {
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 740px) {
     .quickStartTab {
         flex-direction: column;
         width: auto;
