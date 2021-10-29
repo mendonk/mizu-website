@@ -248,7 +248,7 @@ img {
 .quickStartTab {
     display: flex;
     justify-content: space-between;
-    width: 120px;
+    width: 600px;
     padding: 5px;
 }
 
@@ -257,17 +257,18 @@ img {
 }
 
 .quickStartTab .quickStartTabItem {
-    flex: 1 1 auto;
     font-family: Roboto-Regular;
     font-style: normal;
     font-weight: 900;
     font-size: clamp(0.9rem, calc(5vw + 1rem), 1rem);
     color: #205cf5;
+    border-right: 1px solid #aaa;
+    padding-right: 20px;
 }
 
 .quickStartTab .quickStartTabItem:last-child {
-    border-left: 1px solid #e9ebf8;
-    text-align: right;
+    border-right: none;
+    
 }
 
 .quickStartActiveTab {
@@ -632,6 +633,21 @@ strong {
 @media (max-width: 940px) {
     header {
         padding: 0 10px;
+    }
+}
+
+@media (max-width: 680px) {
+    .quickStartTab {
+        flex-direction: column;
+        width: auto;
+    }
+    .quickStartTab .quickStartTabItem {
+        margin-bottom: 20px;
+        border-right: none;
+    }
+
+    .quickStartTab .quickStartTabItem:last-child {
+        margin-bottom: 0;
     }
 }
 

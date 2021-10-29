@@ -151,6 +151,28 @@ const IndexPage = ({ data }) => {
                                     role="button"
                                     tabIndex={-1}
                                     className={
+                                        activeTab === "macM"
+                                            ? "quickStartActiveTab"
+                                            : ""
+                                    }
+                                    onMouseDown={() => {
+                                        setActiveTab("macM");
+                                        setMizuLink(
+                                            `curl -Lo mizu \\
+                                            https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_arm64 \\
+                                            && chmod 755 mizu
+                                            `
+                                        );
+                                    }}
+                                >
+                                    {pageData["macM"]}
+                                </span>
+                            </div>
+                            <div className="quickStartTabItem">
+                                <span
+                                    role="button"
+                                    tabIndex={-2}
+                                    className={
                                         activeTab === "linux"
                                             ? "quickStartActiveTab"
                                             : ""
@@ -166,6 +188,25 @@ const IndexPage = ({ data }) => {
                                     }}
                                 >
                                     {pageData["linux"]}
+                                </span>
+                            </div>
+                            <div className="quickStartTabItem">
+                                <span
+                                    role="button"
+                                    tabIndex={-3}
+                                    className={
+                                        activeTab === "windows"
+                                            ? "quickStartActiveTab"
+                                            : ""
+                                    }
+                                    onMouseDown={() => {
+                                        setActiveTab("windows");
+                                        setMizuLink(
+                                            `curl -LO https://github.com/up9inc/mizu/releases/latest/download/mizu.exe`
+                                        );
+                                    }}
+                                >
+                                    {pageData["windows"]}
                                 </span>
                             </div>
                         </div>
@@ -471,7 +512,9 @@ export const pageQuery = graphql`
                     featureNoInstallation
                     featureOnPremiss
                     mac
+                    macM
                     linux
+                    windows
                     notes
                     youShouldHave
                     kubectl
