@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import Layout from "../../components/layout";
 import Card from "../../components/card";
@@ -16,16 +16,21 @@ import Kubernetes from "../images/kubernetes.png";
 import "./index.css";
 import { graphql } from "gatsby";
 
+const macIntel = `curl -Lo mizu \\
+https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 \\
+&& chmod 755 mizu
+`;
+const windows = `curl -LO https://github.com/up9inc/mizu/releases/latest/download/mizu.exe`;
+const linux = `curl -Lo mizu \\ 
+https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 \\
+&& chmod 755 mizu
+`;
+
 const IndexPage = ({ data }) => {
     const { allMarkdownRemark } = data;
     const pageData = allMarkdownRemark.nodes[0]?.frontmatter;
     const [activeTab, setActiveTab] = useState("mac");
-    const [mizuLink, setMizuLink] = useState(
-        `curl -Lo mizu \\
-        https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 \\
-        && chmod 755 mizu
-        `
-    );
+    const [mizuLink, setMizuLink] = useState("");
 
     const downloadCopyRef = useRef(null);
     const quickStart = useRef(null);
@@ -37,6 +42,29 @@ const IndexPage = ({ data }) => {
     const mizuSecurityTapRedactRef = useRef(null);
     const personallyIdentifiableDataFields = useRef(null);
     const allApiTraffic = useRef(null);
+
+    useEffect(() => {
+        const os = window.navigator.userAgentData.platform;
+
+        switch (os) {
+            case "macOS":
+                setActiveTab("mac");
+                setMizuLink(macIntel);
+                break;
+            case "Windows":
+                setActiveTab("windows");
+                setMizuLink(windows);
+                break;
+            case "Linux":
+                setActiveTab("linux");
+                setMizuLink(linux);
+                break;
+            default:
+                setActiveTab("mac");
+                setMizuLink(macIntel);
+                break;
+        }
+    }, []);
 
     return (
         <Layout>
@@ -135,12 +163,7 @@ const IndexPage = ({ data }) => {
                                     }
                                     onMouseDown={() => {
                                         setActiveTab("mac");
-                                        setMizuLink(
-                                            `curl -Lo mizu \\
-                                            https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_amd64 \\
-                                            && chmod 755 mizu
-                                            `
-                                        );
+                                        setMizuLink(macIntel);
                                     }}
                                 >
                                     {pageData["mac"]}
@@ -179,12 +202,7 @@ const IndexPage = ({ data }) => {
                                     }
                                     onMouseDown={() => {
                                         setActiveTab("linux");
-                                        setMizuLink(
-                                            `curl -Lo mizu \\ 
-                                            https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64 \\
-                                            && chmod 755 mizu
-                                            `
-                                        );
+                                        setMizuLink(linux);
                                     }}
                                 >
                                     {pageData["linux"]}
@@ -201,9 +219,7 @@ const IndexPage = ({ data }) => {
                                     }
                                     onMouseDown={() => {
                                         setActiveTab("windows");
-                                        setMizuLink(
-                                            `curl -LO https://github.com/up9inc/mizu/releases/latest/download/mizu.exe`
-                                        );
+                                        setMizuLink(windows);
                                     }}
                                 >
                                     {pageData["windows"]}
