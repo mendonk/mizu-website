@@ -640,7 +640,7 @@ strong {
     }
 }
 
-@media (max-width: 740px) {
+@media (max-width: 785px) {
     .quickStartTab {
         flex-direction: column;
         width: auto;
