@@ -177,8 +177,7 @@ const IndexPage = ({ data }) => {
                                         setMizuLink(
                                             `curl -Lo mizu \\
                                             https://github.com/up9inc/mizu/releases/latest/download/mizu_darwin_arm64 \\
-                                            && chmod 755 mizu
-                                            `
+                                            && chmod 755 mizu`
                                         );
                                     }}
                                 >

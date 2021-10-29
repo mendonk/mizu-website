@@ -247,8 +247,6 @@ img {
 
 .quickStartTab {
     display: flex;
-    justify-content: space-between;
-    width: 655px;
     padding: 5px;
 }
 
@@ -264,7 +262,13 @@ img {
     font-size: clamp(0.9rem, calc(5vw + 1rem), 1rem);
     color: #205cf5;
     border-right: 1px solid #aaa;
+
     padding-right: 20px;
+    padding-left: 20px;
+}
+
+.quickStartTab .quickStartTabItem:first-child {
+    padding-left: 0px;
 }
 
 .quickStartTab .quickStartTabItem:last-child {
@@ -644,6 +648,7 @@ strong {
     .quickStartTab .quickStartTabItem {
         margin-bottom: 20px;
         border-right: none;
+        padding-left: 0px;
     }
 
     .quickStartTab .quickStartTabItem:last-child {
