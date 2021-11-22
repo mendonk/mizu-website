@@ -65,7 +65,7 @@ img {
 }
 
 .downloadButtonWrapper {
-    background: rgba(219, 33, 86, 0.16);
+    /* background: rgba(219, 33, 86, 0.16); */
     border-radius: 0px 20px 20px 20px;
     padding: 10px;
     width: 365px;
@@ -74,7 +74,8 @@ img {
 .btnHome {
     display: flex;
     width: 345px;
-    background: #db2156;
+    /* background: #db2156; */
+    background: #000;
     padding: 10px 30px;
 
     border-radius: 0px 10px 10px 10px;
@@ -170,7 +171,7 @@ img {
 
 .keyFeatureLogo img {
     max-width: 100%;
-    min-height: 70%;
+    /* min-height: 70%; */
 }
 
 .featureList {
@@ -515,6 +516,7 @@ strong {
     font-size: 1.2rem;
     line-height: 35px;
     color: #494677;
+    word-break: break-word;
 }
 
 .securityGithubLink {
