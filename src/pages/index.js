@@ -114,7 +114,16 @@ const IndexPage = ({ data }) => {
                     </div>
                 </Card>
                 <div className="mainLogoWrapper">
-                    <img className="mainLogo" src={MainIMG} alt="Main Logo" />
+                    <img
+                        className="mainLogo"
+                        src={MainIMG}
+                        alt="Main Logo"
+                        onMouseDown={() => {
+                            quickStart.current.scrollIntoView({
+                                behavior: "smooth",
+                            });
+                        }}
+                    />
                 </div>
             </section>
 
