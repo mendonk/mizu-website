@@ -65,7 +65,7 @@ img {
 }
 
 .downloadButtonWrapper {
-    /* background: rgba(219, 33, 86, 0.16); */
+    background: rgba(219, 33, 86, 0.16);
     border-radius: 0px 20px 20px 20px;
     padding: 10px;
     width: 365px;
@@ -74,8 +74,8 @@ img {
 .btnHome {
     display: flex;
     width: 345px;
-    /* background: #db2156; */
-    background: #000;
+    background: #db2156;
+    /* background: #000; */
     padding: 10px 30px;
 
     border-radius: 0px 10px 10px 10px;
@@ -559,12 +559,28 @@ strong {
     font-style: normal;
 }
 
+.mainLogoWrapperMobile {
+    display: none;
+}
+
 @media (min-width: 2170px) {
     .mainWrapper {
         background-size: 1000px, 100% 100%;
     }
     .mainLogoWrapper {
         width: 1200px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .mainLogoWrapper {
+        display: none;
+    }
+
+    .mainLogoWrapperMobile {
+        display: block;
+        top: -78px;
+        width: 900px;
     }
 }
 

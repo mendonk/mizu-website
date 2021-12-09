@@ -88,29 +88,41 @@ const IndexPage = ({ data }) => {
                                 {pageData["textDescription"]}
                             </p>
                             <p>{pageData["textLowerDescription"]}</p>
-                            {/* <div className="downloadButtonWrapper"> */}
-                            <a
-                                href="https://github.com/up9inc/mizu/releases/latest"
-                                rel="noreferrer"
-                                target="_blank"
-                                className="btnHome"
-                            >
-                                <img
-                                    height="1"
-                                    width="1"
-                                    style={{ display: "none" }}
-                                    alt=""
-                                    src="https://dc.ads.linkedin.com/collect/?pid=3855825&conversionId=5588753&fmt=gif"
-                                />
-                                <img
-                                    src={githubIcon}
-                                    alt="Github"
-                                    className="downloadGithubIcon"
-                                />
-                                {pageData["buttonLabel"]}
-                            </a>
-                            {/* </div> */}
+                            <div className="downloadButtonWrapper">
+                                <a
+                                    href="https://github.com/up9inc/mizu/releases/latest"
+                                    rel="noreferrer"
+                                    target="_blank"
+                                    className="btnHome"
+                                >
+                                    <img
+                                        height="1"
+                                        width="1"
+                                        style={{ display: "none" }}
+                                        alt=""
+                                        src="https://dc.ads.linkedin.com/collect/?pid=3855825&conversionId=5588753&fmt=gif"
+                                    />
+                                    <img
+                                        src={githubIcon}
+                                        alt="Github"
+                                        className="downloadGithubIcon"
+                                    />
+                                    {pageData["buttonLabel"]}
+                                </a>
+                            </div>
                         </div>
+                    </div>
+                    <div className="mainLogoWrapper mainLogoWrapperMobile">
+                        <img
+                            className="mainLogo"
+                            src={MainIMG}
+                            alt="Main Logo"
+                            onMouseDown={() => {
+                                quickStart.current.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            }}
+                        />
                     </div>
                 </Card>
                 <div className="mainLogoWrapper">

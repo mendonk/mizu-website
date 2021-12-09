@@ -1,6 +1,5 @@
 .container {
     width: 80%;
-    /* border: 1px solid red; */
 }
 
 .dpFlex {
@@ -13,5 +12,12 @@
     }
     .responsiveWidth {
         width: 90% !important;
+    }
+}
+
+@media (min-width: 1900px) {
+    .container {
+        width: 1800px !important;
+        position: relative;
     }
 }
