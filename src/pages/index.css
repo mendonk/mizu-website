@@ -572,7 +572,7 @@ strong {
     }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 2150px) {
     .mainLogoWrapper {
         display: none;
     }
