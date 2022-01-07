@@ -485,12 +485,12 @@ const IndexPage = ({ data }) => {
                         {pageData["fileInTheFolder"]}
                         <br />
                         <a
-                            href="https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering/"
+                            href="https://github.com/up9inc/mizu/blob/main/tap/extensions/http/sensitive_data_cleaner.go"
                             target="_blank"
                             className="securityGithubLink"
                             rel="noreferrer"
                         >
-                            https://github.com/up9inc/mizu/blob/develop/agent/pkg/sensitiveDataFiltering
+                            https://github.com/up9inc/mizu/blob/main/tap/extensions/http/sensitive_data_cleaner.go
                         </a>
                     </p>
                     <div className="securityBlock">
