@@ -10,7 +10,7 @@ import refael from "../../src/images/refael.png";
 import tom from "../../src/images/TomAkehurst.png";
 import "./footer.css";
 
-const WEBINAR_BANNER_UP9 = "WEBINAR_BANNER_UP9";
+const WEBINAR_BANNER_MIZU = "WEBINAR_BANNER_MIZU";
 
 const calculateTimeLeft = () => {
     const year = new Date().getFullYear();
@@ -43,7 +43,7 @@ const Footer = () => {
 
     useEffect(() => {
         const isShownFooterWebinarLocalStorage =
-            localStorage.getItem(WEBINAR_BANNER_UP9);
+            localStorage.getItem(WEBINAR_BANNER_MIZU);
 
         if (
             isShownFooterWebinarLocalStorage === null ||
@@ -59,13 +59,13 @@ const Footer = () => {
 
     const closeWebinarBanner = () => {
         setDisplayFooterWebinar(false);
-        localStorage.setItem(WEBINAR_BANNER_UP9, "true");
+        localStorage.setItem(WEBINAR_BANNER_MIZU, "true");
         clearTimeout(counterDown);
     };
 
     const registerToWebinar = () => {
         setDisplayFooterWebinar(false);
-        localStorage.setItem(WEBINAR_BANNER_UP9, "true");
+        localStorage.setItem(WEBINAR_BANNER_MIZU, "true");
         clearTimeout(counterDown);
         window.location.href =
             "http://zoom.us/webinar/register/WN_YG3yHmU9Rz25WycXw0ktxw";
