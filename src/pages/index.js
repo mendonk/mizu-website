@@ -32,6 +32,8 @@ const IndexPage = ({ data }) => {
     const [activeTab, setActiveTab] = useState("mac");
     const [mizuLink, setMizuLink] = useState("");
 
+    const [mizuVersion, setMizuVersion] = useState("");
+
     const downloadCopyRef = useRef(null);
     const quickStart = useRef(null);
     const runCopyRef = useRef(null);
@@ -44,6 +46,12 @@ const IndexPage = ({ data }) => {
     const allApiTraffic = useRef(null);
 
     useEffect(() => {
+        fetch("https://api.github.com/repos/up9inc/mizu/releases/latest")
+            .then((res) => res.json())
+            .then((result) => {
+                setMizuVersion(result.name);
+            });
+
         const userAgent = navigator.userAgent;
         if (userAgent.indexOf("Win") !== -1) {
             setActiveTab("windows");
@@ -107,7 +115,7 @@ const IndexPage = ({ data }) => {
                                         alt="Github"
                                         className="downloadGithubIcon"
                                     />
-                                    {pageData["buttonLabel"]}
+                                    {`Mizu release ${mizuVersion}`}
                                 </a>
                             </div>
                         </div>
@@ -366,7 +374,7 @@ const IndexPage = ({ data }) => {
                         alt="Github"
                         className="downloadGithubIcon"
                     />
-                    {pageData["buttonLabel"]}
+                    {`Mizu release ${mizuVersion}`}
                 </a>
             </section>
             <section className="standalone">
@@ -549,7 +557,7 @@ export const pageQuery = graphql`
                     infoH2USubheader
                     textDescription
                     textLowerDescription
-                    buttonLabel
+
                     simpleAndPowerful
                     cli
                     realTime

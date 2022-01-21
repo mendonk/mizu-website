@@ -7,3 +7,6 @@ package-lock.json
 .idea/mizu-website.iml
 .idea/modules.xml
 .idea/vcs.xml
+
+.DS_Store
+**/.DS_Store
